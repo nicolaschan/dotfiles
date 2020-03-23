@@ -1,0 +1,74 @@
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+
+index () {
+  INDEX=$(<~/.index)
+  INDEX=$(($INDEX + 1))
+  echo $INDEX > ~/.index
+  echo $INDEX
+}
+
+export INDEX=0
+prompt_color () {
+  MOD=$(($(index)%3))
+  if [[ $MOD == 0 ]]; then
+    echo 220
+  elif [[ $MOD == 1 ]]; then
+    echo 226
+  elif [[ $MOD == 2 ]]; then
+    echo 214
+  fi 
+  INDEX=$(($INDEX + 1))
+}
+
+host_color () {
+  HOSTNAME=$(hostname | md5sum | cut -f1 -d" ")
+  HOSTNAME=${HOSTNAME^^}
+  MOD=$(echo "ibase=16; $HOSTNAME % 7" | bc) 
+  if [[ $MOD == 0 ]]; then
+    echo 196
+  elif [[ $MOD == 1 ]]; then
+    echo 214
+  elif [[ $MOD == 2 ]]; then
+    echo 226
+  elif [[ $MOD == 3 ]]; then
+    echo 27
+  elif [[ $MOD == 4 ]]; then
+    echo 51
+  elif [[ $MOD == 5 ]]; then
+    echo 40
+  else
+    echo 207
+  fi
+}
+
+# User specific aliases and functions
+export MODULEPATH=$MODULEPATH:/clusterfs/vector/home/groups/software/sl-7.x86_64/modfiles
+export MODULEPATH=$MODULEPATH:/global/home/users/nicolaschan/modfiles
+# export MODULEPATH=/global/home/groups/consultsw/sl-7.x86_64/modfiles:$MODULEPATH
+export PATH=/global/home/users/nicolaschan/.bin:/global/home/users/nicolaschan/checker:/global/home/users/nicolaschan/install-software:$PATH
+# PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;33m\]\w\[\033[00m\]\$ '
+#PS1="\e[38;5;244m(\!) \e[38;5;33;1m\u\e[m\e[38;5;250m@\e[38;5;220;1m\H\e[m\e[38;5;250m:\e[38;5;45m\w\e[38;5;\$(prompt_color)m$\e[m "
+#PS1="\e[38;5;33;1m\u\e[m\e[38;5;250m@\e[38;5;220;1m\H\e[m\e[38;5;250m:\e[38;5;45m\w\e[38;5;\$(prompt_color)m$\e[m "
+#PS1="\[\033[38;5;33;1m\]\u\[\033[0m\]\[\033[38;5;250m\]@\[\033[38;5;220;1m\]\H\[\033[0m\]\[\033[38;5;250m\]:\[\033[38;5;45m\]\w\[\033[38;5;\$(prompt_color)m\]$\[\033[0m\] "
+PS1="\[\033[38;5;33;1m\]\u\[\033[0m\]\[\033[38;5;250m\]@\[\033[38;5;$(host_color);1m\]\H\[\033[0m\]\[\033[38;5;250m\]:\[\033[38;5;45m\]\w\[\033[38;5;\$(prompt_color)m\]$\[\033[0m\] "
+
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias ......='cd ../../../../..'
+alias ls='ls --color=auto'
+alias ml='module load'
+alias findmod='find /global/software/sl-7.x86_64/modfiles -type d -exec ls -d {} \; | grep'
+alias wall='echo'
+alias bofhbot='python3 $HOME/bofhbot/bofhbot.py'
+
+export TMPDIR=/global/scratch/nicolaschan/tmp
+export CGRL=/clusterfs/vector/home/groups/software/sl-7.x86_64/
+export CONSULTSW=/global/home/groups/consultsw/sl-7.x86_64
+export SOFTWARE=/global/software/sl-7.x86_64/
