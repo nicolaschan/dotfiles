@@ -1,0 +1,18 @@
+#+TITLE: Minecraft Server Scripts
+
+* systemd Autostart and Backup
+- Put the service/timer files in ~~/.config/systemd/user/~.
+- Check the path to the directory with the servers is correct in the
+  service file
+- Check the path in the backup service unit is correct
+- Check remotes and paths correct in ~do-backup.sh~
+
+  #+BEGIN_SRC bash
+# Allow user to start systemd services/timers without logging in
+loginctl enable-linger "$USER"
+
+# Example enabling services
+systemctl --user enable minecraft-backup.timer
+systemctl --user enable minecraft-server@privatesurvival
+systemctl --user enable minecraft-server@atm3
+  #+END_SRC

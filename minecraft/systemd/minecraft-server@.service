@@ -1,0 +1,10 @@
+[Unit]
+Description=Start Minecraft servers
+
+[Service]
+Type=forking
+WorkingDirectory=/home/nicolas/mc/active/%i
+ExecStart=screen -dmS %i './start_server.sh'
+
+[Install]
+WantedBy=default.target

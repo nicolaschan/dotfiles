@@ -1,0 +1,10 @@
+[Unit]
+Description=Perfrom Minecraft Backup
+
+[Service]
+Type=oneshot
+Environment="RESTIC_PASSWORD_FILE=/home/nicolas/mc/restic-password.txt"
+ExecStart=/home/nicolas/mc/do-backup.sh
+
+[Install]
+WantedBy=multi-user.target

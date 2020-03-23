@@ -1,0 +1,2 @@
+* dotfiles
+Personal config files, notes, and other info I want to remember
