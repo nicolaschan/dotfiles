@@ -1,7 +1,7 @@
 #+TITLE: Minecraft Server Scripts
 
 * systemd Autostart and Backup
-- Put the service/timer files in ~~/.config/systemd/user/~.
+- Put the service/timer files in ~$HOME/.config/systemd/user/~.
 - Check the path to the directory with the servers is correct in the
   service file
 - Check the path in the backup service unit is correct
