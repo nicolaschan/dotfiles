@@ -1,0 +1,23 @@
+#+TITLE: Smartcard (Yubikey)
+
+* GPG Setup
+- Import public key into gpg
+
+#+BEGIN_SRC bash
+gpg --card-edit
+fetch
+# quit
+#+END_SRC
+* SSH Agent Setup
+#+BEGIN_SRC fish
+export GPG_TTY=(tty)
+export SSH_AUTH_SOCK=(gpgconf --list-dirs agent-ssh-socket)
+gpgconf --launch gpg-agent
+#+END_SRC
+* Git
+#+BEGIN_SRC bash
+git config --global user.signingKey KEYID
+git config --global commit.gpgSign true
+#+END_SRC
+* References
+- [[https://github.com/drduh/YubiKey-Guide][drduh/YubiKey-Guide]]
