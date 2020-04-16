@@ -1,0 +1,8 @@
+#+TITLE: WireGuard Configuration
+
+* With Network Manager
+- Source:
+  [[https://blogs.gnome.org/thaller/2019/03/15/wireguard-in-networkmanager/]]
+#+BEGIN_SRC
+nmcli connection import type wireguard file /path/to/wireguard/config.conf
+#+END_SRC

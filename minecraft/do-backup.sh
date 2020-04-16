@@ -3,7 +3,6 @@ MC=$HOME/mc
 MC_BACKUP=$MC/minecraft-backup
 SERVERS=$MC/active
 
-$MC_BACKUP/backup.sh -a zstd -e zst -g -c -s privatesurvival -i $SERVERS/privatesurvival/world -o $MC/backups
 export RESTIC_PASSWORD_FILE=$MC/restic-password.txt
 $MC_BACKUP/backup-restic.sh -g -c -s privatesurvival -i $SERVERS/privatesurvival/world -o $MC/minecraft-restic
 $MC_BACKUP/backup-restic.sh -g -c -s privatesurvival -i $SERVERS/privatesurvival/world -o sftp:intranet:/mnt/extstorage/backups/privatesurvival-restic

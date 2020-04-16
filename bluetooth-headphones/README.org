@@ -1,0 +1,13 @@
+#+TITLE: Bluetooth Setup
+
+Fix =A2DP_Sink= not available errors by adding the following to
+=/etc/bluetooth/audio.conf=
+
+#+BEGIN_SRC bash
+Enable=Source,Sink,Media,Socket
+#+END_SRC
+
+After change you need to restart bluetooth:
+#+BEGIN_SRC bash
+systemctl restart bluetooth
+#+END_SRC
