@@ -5,4 +5,26 @@
   [[https://blogs.gnome.org/thaller/2019/03/15/wireguard-in-networkmanager/]]
 #+BEGIN_SRC
 nmcli connection import type wireguard file /path/to/wireguard/config.conf
+nmcli con mod $PROFILE_NAME ipv4.dns-priority -1
+#+END_SRC
+
+* EdgeRouter
+[[source][https://calypte.cc/posts/wireguard-edgeos-vpn/]]
+
+#+BEGIN_SRC
+set interfaces wireguard wg0 peer nsaoehunatsoeuhansoheu allowed-ips 10.223.3.1/32 
+set interfaces wireguard wg0 peer aontheusa allowed-ips fdae:a::3:1/128
+#+END_SRC
+
+** Standard config
+#+BEGIN_SRC
+[Interface]
+Address = 10.223.1.2/32, fdae:a::1:2/128
+PrivateKey = anoehtusaoeuh
+DNS = 10.223.0.1
+
+[Peer]
+Endpoint = anoehtusanoeu:port
+PublicKey = anosehuanshtoe
+AllowedIPs = 0.0.0.0/0, ::/0
 #+END_SRC
