@@ -1,10 +1,13 @@
 [Unit]
 Description=Start Minecraft servers
+StartLimitBurst=5
 
 [Service]
 Type=forking
 WorkingDirectory=/home/nicolas/mc/active/%i
 ExecStart=screen -dmS %i './start_server.sh'
+Restart=always
+RestartSec=5s
 
 [Install]
 WantedBy=default.target
