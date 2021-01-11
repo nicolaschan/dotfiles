@@ -1,0 +1,10 @@
+[Unit]
+Description=Run restic backup hourly
+
+[Timer]
+OnCalendar=hourly
+Persistent=false
+Unit=restic-backup.service
+
+[Install]
+WantedBy=timers.target

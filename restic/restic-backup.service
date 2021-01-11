@@ -1,0 +1,10 @@
+[Unit]
+Description=Perform restic backup
+
+[Service]
+Type=oneshot
+Environment="RESTIC_PASSWORD_FILE=/home/nicolas/restic/scarif-restic-password.txt"
+ExecStart=restic -r $RESTIC_REPO backup $DIR_TO_BACKUP
+
+[Install]
+WantedBy=multi-user.target
