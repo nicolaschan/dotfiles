@@ -1,0 +1,1016 @@
+firewall {
+    all-ping enable
+    broadcast-ping disable
+    group {
+        address-group APPLE_NOTARIZATION {
+            address 17.248.128.0/18
+            address 17.250.64.0/18
+            address 17.248.192.0/19
+            description "Apple notarization"
+        }
+        address-group DS100_GROUP {
+            address 185.199.110.153
+            address 185.199.111.153
+            address 185.199.109.153
+            address 185.199.108.153
+            description ""
+        }
+        network-group LAN_NETWORKS {
+            description "RFC1918 ranges"
+            network 192.168.0.0/16
+            network 172.16.0.0/12
+            network 10.0.0.0/8
+            network 100.64.0.0/10
+            network 192.0.2.0/24
+            network 198.18.0.0/15
+            network 198.51.100.0/24
+            network 203.0.113.0/24
+            network 233.252.0.0/24
+        }
+    }
+    ipv6-modify MULLVAD_RULEv6 {
+        description "modify rule for mullvad"
+        rule 10 {
+            action accept
+            destination {
+                address 2602:249:d838:c950::/60
+            }
+        }
+        rule 20 {
+            action modify
+            modify {
+                table 69
+            }
+            source {
+                address fd26:6382:ed54:ea9c::/64
+            }
+        }
+    }
+    ipv6-name GUESTv6_IN {
+        default-action accept
+        description "guest to lan/wan"
+        rule 10 {
+            action drop
+            description "drop guest to lan"
+            destination {
+                address fc00::/7
+            }
+            protocol all
+        }
+    }
+    ipv6-name GUESTv6_LOCAL {
+        default-action accept
+        description "guest to router"
+        rule 10 {
+            action drop
+            description "drop SSH"
+            destination {
+                port 22
+            }
+            log disable
+            protocol tcp_udp
+        }
+        rule 20 {
+            action drop
+            description "drop HTTPS"
+            destination {
+                port 443
+            }
+            log disable
+            protocol tcp_udp
+        }
+    }
+    ipv6-name GUESTv6_LOCAL_RESTRICTIVE {
+        default-action drop
+        description "guest to router (restrictive)"
+        rule 10 {
+            action accept
+            description "allow DNS"
+            destination {
+                port 53
+            }
+            log disable
+            protocol tcp_udp
+        }
+        rule 20 {
+            action accept
+            description "allow DHCPv6"
+            destination {
+                port 547
+            }
+            log disable
+            protocol udp
+        }
+        rule 30 {
+            action accept
+            description "allow ICMPv6"
+            log disable
+            protocol icmpv6
+        }
+        rule 40 {
+            action accept
+            description "allow wireguard v6 connection"
+            destination {
+                port 51726
+            }
+            protocol udp
+        }
+    }
+    ipv6-name WANv6_IN {
+        default-action accept
+        description "WAN inbound traffic forwarded to LAN"
+        enable-default-log
+        rule 10 {
+            action accept
+            description "Allow established/related sessions"
+            state {
+                established enable
+                related enable
+            }
+        }
+        rule 20 {
+            action drop
+            description "Drop invalid state"
+            state {
+                invalid enable
+            }
+        }
+        rule 30 {
+            action accept
+            protocol icmpv6
+        }
+    }
+    ipv6-name WANv6_LOCAL {
+        default-action drop
+        description "WAN inbound traffic to the router"
+        enable-default-log
+        rule 10 {
+            action accept
+            description "Allow established/related sessions"
+            state {
+                established enable
+                related enable
+            }
+        }
+        rule 20 {
+            action drop
+            description "Drop invalid state"
+            state {
+                invalid enable
+            }
+        }
+        rule 30 {
+            action accept
+            description "Allow IPv6 icmp"
+            protocol icmpv6
+        }
+        rule 40 {
+            action accept
+            description "allow dhcpv6"
+            destination {
+                port 546
+            }
+            protocol udp
+            source {
+                port 547
+            }
+        }
+        rule 50 {
+            action accept
+            description "ipv6 wireguard"
+            destination {
+                port 51726
+            }
+            protocol udp
+        }
+        rule 60 {
+            action accept
+            description "allow DNS"
+            destination {
+                port 53
+            }
+            protocol udp
+        }
+    }
+    ipv6-receive-redirects disable
+    ipv6-src-route disable
+    ip-src-route disable
+    log-martians enable
+    modify MULLVAD_RULE {
+        description "modify rule for mullvad"
+        rule 10 {
+            action accept
+            destination {
+                address 157.131.140.149
+            }
+        }
+        rule 20 {
+            action modify
+            modify {
+                table 69
+            }
+            source {
+                address 192.168.69.0/24
+            }
+        }
+    }
+    name GUEST_IN {
+        default-action accept
+        description "guest to lan/wan"
+        rule 10 {
+            action drop
+            description "drop guest to lan"
+            destination {
+                group {
+                    network-group LAN_NETWORKS
+                }
+            }
+            log disable
+            protocol all
+        }
+        rule 20 {
+            action drop
+            description "drop guest to guest"
+            destination {
+                address 192.168.69.0/24
+            }
+            log disable
+            protocol all
+        }
+        rule 30 {
+            action drop
+            description "drop p2p torrents"
+            disable
+            log enable
+            p2p {
+                all
+            }
+            protocol all
+        }
+        rule 40 {
+            action drop
+            description "drop apple notarization"
+            destination {
+                group {
+                    address-group APPLE_NOTARIZATION
+                }
+            }
+            disable
+            log disable
+            protocol all
+        }
+    }
+    name GUEST_LOCAL {
+        default-action drop
+        description "guest to router"
+        rule 10 {
+            action accept
+            description "allow wireguard"
+            destination {
+                port 51726
+            }
+            log disable
+            protocol udp
+        }
+        rule 20 {
+            action accept
+            description "allow DNS"
+            destination {
+                port 53
+            }
+            log disable
+            protocol tcp_udp
+        }
+        rule 30 {
+            action accept
+            description "allow DHCP"
+            destination {
+                port 67
+            }
+            log disable
+            protocol udp
+        }
+        rule 40 {
+            action accept
+            description "allow ping"
+            log disable
+            protocol icmp
+        }
+        rule 50 {
+            action accept
+            description "allow HTTPS"
+            destination {
+                port 443
+            }
+            disable
+            log disable
+            protocol tcp_udp
+        }
+    }
+    name WAN_IN {
+        default-action drop
+        description "WAN to internal"
+        rule 10 {
+            action accept
+            description "Allow established/related"
+            state {
+                established enable
+                related enable
+            }
+        }
+        rule 20 {
+            action drop
+            description "Drop invalid state"
+            state {
+                invalid enable
+            }
+        }
+    }
+    name WAN_LOCAL {
+        default-action drop
+        description "WAN to router"
+        rule 10 {
+            action accept
+            description "Allow wireguard"
+            destination {
+                port 51726
+            }
+            log disable
+            protocol udp
+        }
+        rule 20 {
+            action accept
+            description "Allow established/related"
+            state {
+                established enable
+                related enable
+            }
+        }
+        rule 30 {
+            action accept
+            description "allow ping"
+            log disable
+            protocol icmp
+        }
+        rule 40 {
+            action accept
+            description "allow DNS"
+            destination {
+                port 53
+            }
+            log disable
+            protocol udp
+        }
+        rule 50 {
+            action drop
+            description "Drop invalid state"
+            state {
+                invalid enable
+            }
+        }
+    }
+    options {
+        mss-clamp {
+            interface-type wg
+            mss 1380
+        }
+    }
+    receive-redirects disable
+    send-redirects enable
+    source-validation disable
+    syn-cookies enable
+}
+interfaces {
+    ethernet eth0 {
+        description Local
+        duplex auto
+        speed auto
+    }
+    ethernet eth1 {
+        description Local
+        duplex auto
+        speed auto
+    }
+    ethernet eth2 {
+        description Local
+        duplex auto
+        speed auto
+    }
+    ethernet eth3 {
+        description Local
+        duplex auto
+        speed auto
+    }
+    ethernet eth4 {
+        description Local
+        duplex auto
+        speed auto
+    }
+    ethernet eth5 {
+        description Local
+        duplex auto
+        speed auto
+    }
+    ethernet eth6 {
+        description Local
+        duplex auto
+        speed auto
+    }
+    ethernet eth7 {
+        description Local
+        duplex auto
+        speed auto
+    }
+    ethernet eth8 {
+        description Local
+        duplex auto
+        speed auto
+    }
+    ethernet eth9 {
+        address dhcp
+        address dhcpv6
+        description Internet
+        duplex auto
+        firewall {
+            in {
+                ipv6-name WANv6_IN
+                name WAN_IN
+            }
+            local {
+                ipv6-name WANv6_LOCAL
+                name WAN_LOCAL
+            }
+        }
+        poe {
+            output off
+        }
+        speed auto
+    }
+    ethernet eth10 {
+        duplex auto
+        speed auto
+    }
+    ethernet eth11 {
+        duplex auto
+        speed auto
+    }
+    loopback lo {
+    }
+    switch switch0 {
+        address 192.168.48.1/24
+        address 2602:249:d838:c950::1/64
+        description Local
+        ipv6 {
+            dup-addr-detect-transmits 1
+            router-advert {
+                cur-hop-limit 64
+                link-mtu 0
+                managed-flag true
+                max-interval 600
+                other-config-flag false
+                prefix 2602:249:d838:c950::/64 {
+                    autonomous-flag true
+                    on-link-flag true
+                    valid-lifetime 2592000
+                }
+                reachable-time 0
+                retrans-timer 0
+                send-advert true
+            }
+        }
+        mtu 1500
+        switch-port {
+            interface eth0 {
+            }
+            interface eth1 {
+            }
+            interface eth2 {
+            }
+            interface eth3 {
+            }
+            interface eth4 {
+            }
+            interface eth5 {
+            }
+            interface eth6 {
+            }
+            interface eth7 {
+            }
+            vlan-aware disable
+        }
+        vif 69 {
+            address 192.168.69.1/24
+            address fd26:6382:ed54:ea9c::1/64
+            description Guest
+            firewall {
+                in {
+                    ipv6-modify MULLVAD_RULEv6
+                    ipv6-name GUESTv6_IN
+                    modify MULLVAD_RULE
+                    name GUEST_IN
+                }
+                local {
+                    ipv6-name GUESTv6_LOCAL_RESTRICTIVE
+                    name GUEST_LOCAL
+                }
+            }
+            ipv6 {
+                dup-addr-detect-transmits 1
+                router-advert {
+                    cur-hop-limit 64
+                    link-mtu 0
+                    managed-flag true
+                    max-interval 600
+                    other-config-flag false
+                    prefix fd26:6382:ed54:ea9c::/64 {
+                        autonomous-flag true
+                        on-link-flag true
+                        valid-lifetime 2592000
+                    }
+                    reachable-time 0
+                    retrans-timer 0
+                    send-advert true
+                }
+            }
+        }
+        vif 163 {
+            address 192.168.163.1/24
+            address 2602:249:d838:c952::1/64
+            description IOT
+            ipv6 {
+                dup-addr-detect-transmits 1
+                router-advert {
+                    cur-hop-limit 64
+                    link-mtu 0
+                    managed-flag true
+                    max-interval 600
+                    other-config-flag false
+                    prefix 2602:249:d838:c952::/64 {
+                        autonomous-flag true
+                        on-link-flag true
+                        valid-lifetime 2592000
+                    }
+                    reachable-time 0
+                    retrans-timer 0
+                    send-advert true
+                }
+            }
+            mtu 1500
+        }
+        vif 172 {
+            address 192.168.172.1/24
+            address 2602:249:d838:c951::1/64
+            description Intranet
+        }
+        vif 1010 {
+            address 198.51.100.1/24
+            description Bruh
+        }
+    }
+    wireguard wg0 {
+        address 10.223.0.1/16
+        address fdae:a::1/64
+        listen-port 51726
+        mtu 1420
+        peer 6r593M6XoZdqpakH5y9+g2XivJwrD9jllmhuXsPC6Wc= {
+            allowed-ips 10.223.1.1/32
+            allowed-ips fdae:a::1:1/128
+        }
+        peer B32l0jdun8mAowpUc4EVas9sgHuE2mnUv5A2Rg3yhSY= {
+            allowed-ips 10.223.0.6/32
+            allowed-ips fdae:a::6/128
+        }
+        peer FLSmQup3oeoQLVbuSp0RchiSw00mlnYwi+n/EjihzWc= {
+            allowed-ips 10.223.0.11/32
+            allowed-ips fdae:a::11/128
+        }
+        peer QNuD9B73+I1HPh2OGiRiaguNESzAPhu6rIYf0uymIFk= {
+            allowed-ips 10.223.3.1/32
+            allowed-ips fdae:a::3:1/128
+        }
+        peer SXwdWawApIao8dZOBd55SLGlDZ/AlSCxsmy2DLW2ngk= {
+            allowed-ips 10.223.0.3/32
+            allowed-ips fdae:a::3/128
+        }
+        peer T4begh2kuXF+rn4mvGIY30NlXbbwoaBssuePNyz+J30= {
+            allowed-ips 10.223.0.4/32
+            allowed-ips fdae:a::4/128
+        }
+        peer XyfLIofTPa5re8C5mW0cmeBgVhJwSOx4CuTtFyhsS1Q= {
+            allowed-ips fdae:a::10/128
+            allowed-ips 10.223.0.10/32
+        }
+        peer bx/YXuqjsPNodkwv6uyRIB1jDUbU55q7Gi+uZ200RGA= {
+            allowed-ips 10.223.0.5/32
+            allowed-ips fdae:a::5/128
+            allowed-ips 10.223.8.0/30
+        }
+        peer dad/PA7LRN3lCRes2GxVNr813IhDSWC99SNUnm0PdFk= {
+            allowed-ips 10.223.4.1/32
+            allowed-ips fdae:a::4:1/128
+        }
+        peer eXw1vHWIWy9NQMHun3X0DA5nHc3EpwEfZNqR9cnFf1A= {
+            allowed-ips 10.223.2.1/32
+            allowed-ips fdae:a::2:1/128
+        }
+        peer int/QTBMcvKYExJJ3ltf8oEtmifpstLUCFLGOAv8UU0= {
+            allowed-ips 10.223.0.8/32
+            allowed-ips fdae:a::8/128
+        }
+        peer j9BnktDRKn2BDrPC/1uL3YcywHOTNGYsQgrvhxsaEUo= {
+            allowed-ips 10.223.0.9/32
+            allowed-ips fdae:a::9/128
+        }
+        peer noahtkJUgbCu/hJoOPIuZybSTSdXzRZADL3Ji6TieTI= {
+            allowed-ips 10.223.0.7/32
+            allowed-ips fdae:a::7/128
+        }
+        peer o8/nz2pNR4+5KHuMcaXnEfVsEItu+oNJkZ7P8e05jR0= {
+            allowed-ips 10.223.0.2/32
+            allowed-ips fdae:a::2/128
+        }
+        peer qDAC0WTBCZ2xNJejxGs8MUKeNJqRYHKaMCIaFWUJTDE= {
+            allowed-ips 10.223.1.2/32
+            allowed-ips fdae:a::1:2/128
+        }
+        peer rytckHVmoDWn52i6NACIQN62g+GoGLMXiGCiMsez53Q= {
+            allowed-ips 10.223.1.3/32
+            allowed-ips fdae:a::1:3/128
+        }
+        peer sur/CQ/3e6GDcIkJwfQ2QIhV/U+9GDFh2AnJUQXdpV4= {
+            allowed-ips 10.223.0.12/32
+            allowed-ips fdae:a::12/128
+        }
+        private-key /config/auth/intranet/priv.key
+        route-allowed-ips true
+    }
+    wireguard wg1 {
+        address 10.68.22.87/32
+        address fc00:bbbb:bbbb:bb01::5:1656/128
+        mtu 1420
+        peer FSd0QIqNsLGf+B/IqQzg9wyjKpfVwXiy/P9vt8Zylmg= {
+            allowed-ips 0.0.0.0/0
+            allowed-ips ::0/0
+            endpoint 198.54.134.146:51820
+        }
+        private-key /config/auth/mullvad/priv.key
+        route-allowed-ips false
+    }
+}
+port-forward {
+    auto-firewall enable
+    hairpin-nat enable
+    lan-interface switch0
+    lan-interface wg0
+    lan-interface switch0.172
+    lan-interface switch0.69
+    lan-interface switch0.1010
+    rule 1 {
+        description ""
+        forward-to {
+            address 198.51.100.5
+            port 25565
+        }
+        original-port 25565
+        protocol tcp
+    }
+    rule 2 {
+        description ""
+        forward-to {
+            address 198.51.100.5
+            port 80
+        }
+        original-port 80
+        protocol tcp_udp
+    }
+    rule 3 {
+        description ""
+        forward-to {
+            address 198.51.100.5
+            port 443
+        }
+        original-port 443
+        protocol tcp_udp
+    }
+    rule 4 {
+        description ""
+        forward-to {
+            address 198.51.100.5
+            port 25566
+        }
+        original-port 25566
+        protocol tcp
+    }
+    rule 5 {
+        description ""
+        forward-to {
+            address 198.51.100.5
+            port 25565
+        }
+        original-port 25568
+        protocol tcp
+    }
+    rule 6 {
+        description ""
+        forward-to {
+            address 198.51.100.10
+            port 22
+        }
+        original-port 22
+        protocol tcp
+    }
+    wan-interface eth9
+}
+protocols {
+    static {
+        table 69 {
+            description "table for mullvad"
+            interface-route 0.0.0.0/0 {
+                next-hop-interface wg1 {
+                    distance 1
+                }
+            }
+            interface-route6 ::/0 {
+                next-hop-interface wg1 {
+                    distance 2
+                }
+            }
+            route 0.0.0.0/0 {
+                blackhole {
+                    distance 255
+                }
+            }
+            route6 ::/0 {
+                blackhole {
+                    distance 255
+                }
+            }
+        }
+    }
+}
+service {
+    dhcp-server {
+        disabled false
+        hostfile-update disable
+        shared-network-name LAN1 {
+            authoritative enable
+            disable
+            subnet 192.168.1.0/24 {
+                default-router 192.168.1.1
+                dns-server 192.168.1.1
+                lease 86400
+                start 192.168.1.38 {
+                    stop 192.168.1.243
+                }
+            }
+        }
+        shared-network-name LAN2 {
+            authoritative enable
+            subnet 192.168.2.0/24 {
+                default-router 192.168.2.1
+                dns-server 192.168.2.1
+                lease 86400
+                start 192.168.2.38 {
+                    stop 192.168.2.243
+                }
+            }
+        }
+        shared-network-name LAN48 {
+            authoritative disable
+            subnet 192.168.48.0/24 {
+                default-router 192.168.48.1
+                dns-server 192.168.48.1
+                domain-name int.intranet.lol
+                lease 86400
+                start 192.168.48.32 {
+                    stop 192.168.48.250
+                }
+                static-mapping sentinel {
+                    ip-address 192.168.48.12
+                    mac-address b8:27:eb:a9:c7:0a
+                }
+            }
+        }
+        shared-network-name LAN69 {
+            authoritative disable
+            subnet 192.168.69.0/24 {
+                default-router 192.168.69.1
+                dns-server 1.1.1.1
+                dns-server 1.0.0.1
+                domain-name openwireless.org
+                lease 86400
+                start 192.168.69.2 {
+                    stop 192.168.69.254
+                }
+            }
+        }
+        shared-network-name LAN163 {
+            authoritative disable
+            subnet 192.168.163.0/24 {
+                default-router 192.168.163.1
+                dns-server 192.168.163.1
+                lease 86400
+                start 192.168.163.2 {
+                    stop 192.168.163.254
+                }
+            }
+        }
+        shared-network-name LAN172 {
+            authoritative disable
+            subnet 192.168.172.0/24 {
+                default-router 192.168.172.1
+                dns-server 192.168.172.1
+                domain-name int.intranet.lol
+                lease 86400
+                start 192.168.172.32 {
+                    stop 192.168.172.254
+                }
+                static-mapping intranet {
+                    ip-address 192.168.172.22
+                    mac-address dc:a6:32:bc:5a:8d
+                }
+            }
+        }
+        shared-network-name LAN1010 {
+            authoritative disable
+            subnet 198.51.100.0/24 {
+                default-router 198.51.100.1
+                dns-server 192.168.48.1
+                domain-name int.intranet.lol
+                lease 86400
+                start 198.51.100.2 {
+                    stop 198.51.100.250
+                }
+                static-mapping monad-wifi {
+                    ip-address 198.51.100.10
+                    mac-address d0:ab:d5:1a:df:d8
+                }
+            }
+        }
+        static-arp disable
+        use-dnsmasq enable
+    }
+    dns {
+        forwarding {
+            cache-size 10000
+            listen-on eth8
+            listen-on switch0
+            listen-on switch0.69
+            listen-on wg0
+            listen-on switch0.172
+            listen-on switch0.163
+            listen-on tun0
+            listen-on eth9
+            listen-on switch0.1010
+            options dhcp-option=tag:LAN172,option6:dns-server,[::]
+            options enable-ra
+            options domain=dyn.intranet.lol
+            options interface-name=dyn.intranet.lol,switch0.172/6
+            options dhcp-option=tag:LAN172,option6:domain-search,dyn.intranet.lol
+            options dhcp-range=::1,::400,constructor:switch0.172,slaac,ra-names
+        }
+    }
+    gui {
+        http-port 80
+        https-port 443
+        older-ciphers enable
+    }
+    nat {
+        rule 1 {
+            description ds100
+            destination {
+                group {
+                    address-group DS100_GROUP
+                }
+            }
+            disable
+            inbound-interface switch0.172
+            inside-address {
+                address 192.168.172.221
+            }
+            log disable
+            protocol all
+            type destination
+        }
+        rule 5000 {
+            description ds100
+            destination {
+                address 192.168.172.221
+            }
+            disable
+            log enable
+            outbound-interface switch0.172
+            outside-address {
+            }
+            protocol all
+            source {
+                address 192.168.172.0/24
+                group {
+                }
+            }
+            type masquerade
+        }
+        rule 5001 {
+            description "masquerade for WAN"
+            outbound-interface eth9
+            type masquerade
+        }
+        rule 5002 {
+            description "masquerade for mullvad"
+            log disable
+            outbound-interface wg1
+            type masquerade
+        }
+        rule 5003 {
+            description "masquerade for intranet VPN"
+            log disable
+            outbound-interface wg0
+            protocol all
+            source {
+                group {
+                }
+            }
+            type masquerade
+        }
+        rule 5004 {
+            description "masquerade for tun0"
+            disable
+            log disable
+            outbound-interface tun0
+            protocol all
+            type masquerade
+        }
+    }
+    ssh {
+        port 22
+        protocol-version v2
+    }
+}
+system {
+    analytics-handler {
+        send-analytics-report true
+    }
+    crash-handler {
+        send-crash-report true
+    }
+    host-name EdgeRouter-12
+    login {
+        user ubnt {
+            authentication {
+                encrypted-password $5$n2zekBKGqKFVUi5w$kzDhohSK0TAEEhoe4yxYfu44wXWuGEclgnRLb43E4l2
+                public-keys nicolas@xps {
+                    key AAAAC3NzaC1lZDI1NTE5AAAAIPzmsvQjX6QBZQGysTM9JKWp73ij1dfHvrFKl3MeywDM
+                    type ssh-ed25519
+                }
+            }
+            level admin
+        }
+    }
+    ntp {
+        server 0.ubnt.pool.ntp.org {
+        }
+        server 1.ubnt.pool.ntp.org {
+        }
+        server 2.ubnt.pool.ntp.org {
+        }
+        server 3.ubnt.pool.ntp.org {
+        }
+    }
+    offload {
+        hwnat disable
+        ipsec enable
+        ipv4 {
+            bonding enable
+            forwarding enable
+            gre enable
+            pppoe enable
+            vlan enable
+        }
+        ipv6 {
+            forwarding enable
+            pppoe enable
+        }
+    }
+    static-host-mapping {
+    }
+    syslog {
+        global {
+            facility all {
+                level notice
+            }
+            facility protocols {
+                level debug
+            }
+        }
+    }
+    time-zone UTC
+    traffic-analysis {
+        dpi enable
+        export enable
+    }
+}
+
+
+/* Warning: Do not remove the following line. */
+/* === vyatta-config-version: "config-management@1:conntrack@1:cron@1:dhcp-relay@1:dhcp-server@4:firewall@5:ipsec@5:nat@3:qos@1:quagga@2:suspend@1:system@5:ubnt-l2tp@1:ubnt-pptp@1:ubnt-udapi-server@1:ubnt-unms@2:ubnt-util@1:vrrp@1:vyatta-netflow@1:webgui@1:webproxy@1:zone-policy@1" === */
+/* Release version: v2.0.9-hotfix.1.5371035.210122.1015 */
