@@ -15,7 +15,6 @@
   programs.fish.interactiveShellInit = ''
     set fish_greeting
     direnv hook fish | source
-    alias docker=podman
     alias ls=lsd
   '';
 
@@ -29,28 +28,37 @@
   home.username = "nicolas";
   home.homeDirectory = "/home/nicolas";
 
+  home.sessionVariables = {
+    MOZ_USE_XINPUT2 = "1";
+  };
+
   home.packages = [
     pkgs.cascadia-code
     pkgs.chromium
     pkgs.devilspie2
     pkgs.dust
     pkgs.fd
-    pkgs.fira-code
-    pkgs.fira-code-symbols
     pkgs.firefox
     pkgs.fluxcd
     pkgs.fzf
+    pkgs.gimp
     pkgs.git
-    pkgs.gnome.gnome-tweak-tool
+    pkgs.gnome.gnome-tweaks
+    pkgs.gnomeExtensions.transparent-topbar
+    pkgs.gnomeExtensions.transparent-top-bar-adjustable-transparency
     pkgs.gnupg
     pkgs.htop
+    pkgs.httpie
+    pkgs.jq
     pkgs.killall
     pkgs.konsole
     pkgs.kubectl
     pkgs.ldns
     pkgs.lens
+    pkgs.libvirt
     pkgs.lsd
     pkgs.multimc
+    pkgs.neofetch
     pkgs.nerdfonts
     pkgs.nmap
     pkgs.tdesktop
@@ -59,14 +67,16 @@
     pkgs.pciutils
     pkgs.pdsh
     pkgs.pinentry
-    pkgs.podman
+    pkgs.qemu_kvm
     pkgs.restic
     pkgs.ripgrep
     pkgs.screen
     pkgs.sops
+    pkgs.terminator
     pkgs.torsocks
     pkgs.victor-mono
     pkgs.vim
+    pkgs.virtmanager
     pkgs.vscode
     pkgs.zoxide
   ];
@@ -86,5 +96,5 @@
   # You can update Home Manager without changing this value. See
   # the Home Manager release notes for a list of state version
   # changes in each release.
-  home.stateVersion = "21.05";
+  home.stateVersion = "21.11";
 }
