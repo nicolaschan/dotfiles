@@ -1,0 +1,7 @@
+# dotfiles
+
+## Installation
+
+```fish
+stow .
+```

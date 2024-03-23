@@ -1,0 +1,12 @@
+# Ignore all README files
+README.*
+
+# Ignore all files with a .backup extension
+.*.backup
+
+# Ignore specific directories
+docs
+temp
+
+# Ignore .git
+.git
