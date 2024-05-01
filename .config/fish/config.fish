@@ -14,3 +14,8 @@ alias ls=lsd
 #alias cat=ccat
 #alias ping="prettyping --nolegend"
 fzf_key_bindings
+
+function nix-shell
+    command nix-shell --run fish $argv
+end
+
