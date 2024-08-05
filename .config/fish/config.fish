@@ -15,6 +15,8 @@ alias ls=lsd
 #alias ping="prettyping --nolegend"
 fzf_key_bindings
 
+eval (direnv hook fish)
+
 function nix-shell
     command nix-shell --run fish $argv
 end
