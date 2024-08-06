@@ -163,7 +163,7 @@
 
   boot.zfs.extraPools = [ "scarif" ];
 
-  fileSystems."/scarif" = {
+  fileSystems."/mnt/scarif" = {
     device = "scarif";
     fsType = "zfs";
     options = [ "noauto" "x-systemd.automount" "x-systemd.device-timeout=0" ];
