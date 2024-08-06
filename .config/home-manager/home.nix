@@ -26,6 +26,7 @@
     chromium
     direnv
     dive
+    dotacat
     dust
     fd
     firefox
@@ -34,6 +35,7 @@
     gnome-tweaks
     gnome-terminal
     hello
+    httpie
     htop
     hyperfine
     jq
@@ -49,10 +51,12 @@
     podman-compose
     restic
     ripgrep
+    ripgrep-all
     sshfs
     starship
     stow
     tokei
+    tree
     vim
     vscode
     wget
