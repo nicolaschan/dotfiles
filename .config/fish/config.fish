@@ -8,7 +8,12 @@ end
 #eval /home/nicolas/anaconda3/bin/conda "shell.fish" "hook" $argv | source
 # <<< conda initialize <<<
 
+function starship_transient_prompt_func
+  starship module character
+end
 starship init fish | source
+enable_transience
+
 zoxide init --cmd cd fish | source
 alias ls=lsd
 fzf_key_bindings
