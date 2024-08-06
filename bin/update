@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+DOTFILES_DIR="$HOME/dotfiles"
+
+pushd "$DOTFILES_DIR" 
+
+git pull origin master
+
+nix-shell -p stow --run "stow -v --override='../.*' ."
+nix run home-manager/master -- switch
+
+# Update flake if needed
+pushd .config/home-manager
+nix flake update
+git add .
+git commit -m "Update flake.nix"
+git push origin master
+popd
+
+popd
