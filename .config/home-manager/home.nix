@@ -36,6 +36,7 @@
     hello
     htop
     hyperfine
+    jq
     konsole
     inkscape
     killall
