@@ -104,15 +104,7 @@ in {
     extraGroups = ["networkmanager" "wheel"];
     shell = pkgs.fish;
     packages = with pkgs; [
-      inkscape
-      killall
-      konsole
-      lorri
-      lsd
-      microsoft-edge
-      unstable.rio
       vscode
-      zoxide
     ];
   };
 
