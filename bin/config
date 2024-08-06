@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-CONFIG_DIR=/etc/nixos
+CONFIG_PATH=/etc/nixos/configuration.nix
 DEST_DIR="$HOME/dotfiles/nixos/$(hostname)"
 
-sudo vim "$CONFIG_DIR/configuration.nix"
+sudo vim "$CONFIG_PATH"
 sudo alejandra "$CONFIG_DIR"
 sudo nixos-rebuild switch --upgrade
 
@@ -11,7 +11,7 @@ status=$?
 
 if [ $status -eq 0 ]; then
   mkdir -p "$DEST_DIR"
-  cp -r "$CONFIG_DIR" "$DEST_DIR"
+  cp "$CONFIG_PATH" "$DEST_DIR"
   pushd "$DEST_DIR"
   nixos_generation="$(readlink /nix/var/nix/profiles/system)"
   git add .
