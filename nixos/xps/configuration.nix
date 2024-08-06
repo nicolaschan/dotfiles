@@ -108,6 +108,7 @@ in {
       extraBackupArgs = [
         "--exclude-caches"
         "--exclude=.cache"
+        "--exclude=.local/share/containers"
       ];
       pruneOpts = [
         "--keep-daily 7"
