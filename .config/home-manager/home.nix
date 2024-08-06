@@ -26,6 +26,7 @@
     chromium
     direnv
     dive
+    dotacat
     dust
     fd
     firefox
@@ -50,6 +51,7 @@
     podman-compose
     restic
     ripgrep
+    ripgrep-all
     sshfs
     starship
     stow
