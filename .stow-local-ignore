@@ -9,7 +9,7 @@ docs
 temp
 
 # Ignore .git
-.git
+\.git
 
 # Install scripts
 .*\.sh

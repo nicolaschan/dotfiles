@@ -1,0 +1,5 @@
+[user]
+	email = nicolas@nicolaschan.com
+	name = Nicolas Chan
+[pull]
+	rebase = false
