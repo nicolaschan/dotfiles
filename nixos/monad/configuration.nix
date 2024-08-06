@@ -161,7 +161,7 @@
   boot.kernelPackages = pkgs.linuxPackages_6_8;
   boot.supportedFilesystems = ["bcachefs" "zfs"];
 
-  fileSystems."/mnt/scarif" = {
+  fileSystems."/scarif" = {
     device = "scarif";
     fsType = "zfs";
     options = [ "noauto" "x-systemd.automount" "x-systemd.device-timeout=0" ];
