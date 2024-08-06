@@ -34,6 +34,7 @@
     gnome-tweaks
     gnome-terminal
     hello
+    httpie
     htop
     hyperfine
     jq
