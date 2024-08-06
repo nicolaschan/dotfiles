@@ -26,6 +26,7 @@
     chromium
     direnv
     dive
+    dogdns
     dotacat
     dust
     fastfetch
