@@ -25,6 +25,7 @@
     cascadia-code
     chromium
     direnv
+    dust
     dive
     fd
     firefox
