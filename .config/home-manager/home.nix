@@ -49,6 +49,7 @@
     lorri
     lsd
     microsoft-edge
+    ollama
     pass
     pinentry-curses
     podman-tui
