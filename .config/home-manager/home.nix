@@ -19,6 +19,7 @@
   # environment.
   home.packages = with pkgs; [
     alejandra
+    bat
     cascadia-code
     chromium
     direnv
