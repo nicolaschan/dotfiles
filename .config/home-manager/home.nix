@@ -49,6 +49,7 @@
     lsd
     microsoft-edge
     pass
+    pinentry-curses
     podman-tui
     podman-compose
     restic
