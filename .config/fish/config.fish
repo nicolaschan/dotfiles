@@ -8,12 +8,10 @@ end
 #eval /home/nicolas/anaconda3/bin/conda "shell.fish" "hook" $argv | source
 # <<< conda initialize <<<
 
+starship init fish | source
 zoxide init --cmd cd fish | source
 alias ls=lsd
-#alias cat=ccat
-#alias ping="prettyping --nolegend"
 fzf_key_bindings
-
 eval (direnv hook fish)
 
 function nix-shell
