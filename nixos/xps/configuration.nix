@@ -97,6 +97,32 @@ in {
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
+  services.restic.backups = {
+    scarifBackup = {
+      passwordFile = "/home/nicolas/.config/restic/password";
+      repository = "sftp:git@monad:/scarif/backups/xps-restic";
+      paths = [
+        "/home/nicolas"
+      ];
+      extraBackupArgs = [
+        "--exclude-caches"
+        "--exclude=.cache"
+      ];
+      pruneOpts = [
+        "--keep-daily 7"
+        "--keep-weekly 4"
+        "--keep-monthly 6"
+      ];
+      timerConfig = {
+        OnCalendar = "daily";
+        RandomizedDelaySec = "1h";
+        Persistent = true;
+      };
+      # SSH-specific settings
+      rcloneConfigFile = "/home/nicolas/.config/restic/rclone.conf";
+    };
+  };
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.nicolas = {
     isNormalUser = true;
