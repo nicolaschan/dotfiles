@@ -51,7 +51,6 @@
     lorri
     lsd
     microsoft-edge
-    nvtopPackages.nvidia
     ollama
     pass
     pinentry-curses
