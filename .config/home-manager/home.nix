@@ -57,6 +57,7 @@
     restic
     ripgrep
     ripgrep-all
+    shellcheck
     sshfs
     starship
     stow
