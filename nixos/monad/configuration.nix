@@ -161,6 +161,8 @@
   boot.kernelPackages = pkgs.linuxPackages_6_8;
   boot.supportedFilesystems = ["bcachefs" "zfs"];
 
+  boot.zfs.extraPools = [ "scarif" ];
+
   fileSystems."/scarif" = {
     device = "scarif";
     fsType = "zfs";
