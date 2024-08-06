@@ -27,8 +27,8 @@
     firefox
     fzf
     git
-    gnome3.gnome-tweaks
-    gnome3.gnome-terminal
+    gnome-tweaks
+    gnome-terminal
     hello
     htop
     konsole
