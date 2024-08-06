@@ -45,7 +45,9 @@
     microsoft-edge
     podman-tui
     podman-compose
+    restic
     ripgrep
+    sshfs
     starship
     stow
     tokei
