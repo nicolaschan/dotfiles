@@ -37,6 +37,7 @@
     gnome-tweaks
     gnome-terminal
     gnupg
+    gping
     hello
     httpie
     htop
