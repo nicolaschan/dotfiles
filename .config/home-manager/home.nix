@@ -44,6 +44,7 @@
     podman-tui
     podman-compose
     ripgrep
+    starship
     stow
     vim
     vscode
