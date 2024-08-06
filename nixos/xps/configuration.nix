@@ -100,7 +100,7 @@ in {
   services.restic.backups = {
     scarifBackup = {
       passwordFile = "/home/nicolas/.config/restic/password";
-      repository = "sftp:git@monad:/scarif/backups/xps-restic";
+      repository = "sftp:git@monad.dyn.intranet.lol:/scarif/backups/xps-restic";
       paths = [
         "/home/nicolas"
       ];
