@@ -28,6 +28,7 @@
     dive
     dotacat
     dust
+    fastfetch
     fd
     firefox
     fzf
