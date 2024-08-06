@@ -56,7 +56,6 @@
     starship
     stow
     tokei
-    tree
     vim
     vscode
     wget
