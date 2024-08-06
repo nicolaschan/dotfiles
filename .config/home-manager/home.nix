@@ -47,6 +47,7 @@
     lorri
     lsd
     microsoft-edge
+    pass
     podman-tui
     podman-compose
     restic
