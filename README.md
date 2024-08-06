@@ -2,6 +2,8 @@
 
 ## Installation
 
+NixOS:
 ```fish
-stow .
+nix-shell -p stow --run "stow ."
+nix run home-manager/master -- switch
 ```

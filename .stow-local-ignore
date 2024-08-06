@@ -2,7 +2,7 @@
 README.*
 
 # Ignore all files with a .backup extension
-.*.backup
+.*\.backup
 
 # Ignore specific directories
 docs
@@ -10,3 +10,6 @@ temp
 
 # Ignore .git
 .git
+
+# Install scripts
+.*\.sh
