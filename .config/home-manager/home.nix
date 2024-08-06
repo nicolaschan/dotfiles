@@ -43,6 +43,7 @@
     microsoft-edge
     podman-tui
     podman-compose
+    ripgrep
     stow
     vim
     vscode
