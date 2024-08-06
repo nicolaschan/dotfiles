@@ -16,7 +16,7 @@ if [ $status -ne 0 ]; then
 fi
 
 pushd $home_dir
-flake update
+nix flake update
 
 git add .
 git commit -m "Update home.nix"
