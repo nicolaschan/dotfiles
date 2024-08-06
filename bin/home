@@ -2,7 +2,7 @@
 
 HOME_NIX="$HOME/dotfiles/.config/home-manager/home.nix"
 
-home_dir="$(dirname $HOME_NIX)"
+home_dir="$(dirname "$HOME_NIX")"
 
 vim "$HOME_NIX"
 alejandra "$HOME_NIX"
@@ -15,7 +15,7 @@ if [ $status -ne 0 ]; then
   exit $status
 fi
 
-pushd $home_dir
+pushd "$home_dir" || exit
 nix flake update
 
 git add .

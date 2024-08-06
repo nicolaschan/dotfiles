@@ -2,7 +2,7 @@
 
 DOTFILES_DIR="$HOME/dotfiles"
 
-pushd "$DOTFILES_DIR" 
+pushd "$DOTFILES_DIR" || exit
 
 git pull origin master
 
@@ -10,11 +10,11 @@ nix-shell -p stow --run "stow -v --override='../.*' ."
 nix run home-manager/master -- switch
 
 # Update flake if needed
-pushd .config/home-manager
+pushd .config/home-manager || exit
 nix flake update
 git add .
 git commit -m "Update flake.nix"
 git push origin master
-popd
+popd || exit
 
-popd
+popd || exit
