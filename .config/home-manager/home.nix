@@ -48,6 +48,7 @@
     ripgrep
     starship
     stow
+    tokei
     vim
     vscode
     wget
