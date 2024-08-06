@@ -18,23 +18,32 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
-    # # Adds the 'hello' command to your environment. It prints a friendly
-    # # "Hello, world!" when run.
+    alejandra
     cascadia-code
     chromium
     direnv
+    dive
     fd
     firefox
     fzf
+    git
+    gnome3.gnome-tweaks
+    gnome3.gnome-terminal
     hello
     htop
+    konsole
     inkscape
     killall
     konsole
     lorri
     lsd
     microsoft-edge
+    podman-tui
+    podman-compose
+    stow
+    vim
     vscode
+    wget
     zoxide
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
