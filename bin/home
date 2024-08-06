@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+HOME_NIX="$HOME/dotfiles/.config/home-manager/home.nix"
+
+home_dir="$(dirname $HOME_NIX)"
+
+vim "$HOME_NIX"
+alejandra "$HOME_NIX"
+home-manager switch
+
+status=$?
+
+if [ $status -ne 0 ]; then
+  echo 'home.nix update failed'
+  exit $status
+fi
+
+pushd $home_dir
+flake update
+
+git add .
+git commit -m "Update home.nix"
+git push origin master
