@@ -39,6 +39,7 @@
     konsole
     inkscape
     killall
+    kondo
     konsole
     lorri
     lsd
