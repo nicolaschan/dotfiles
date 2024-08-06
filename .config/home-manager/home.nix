@@ -27,6 +27,7 @@
     firefox
     fzf
     hello
+    htop
     inkscape
     killall
     konsole
