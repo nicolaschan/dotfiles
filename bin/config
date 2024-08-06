@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+CONFIG_DIR=/etc/nixos
+DEST_DIR="$HOME/dotfiles/nixos/$(hostname)"
+
+sudo vim "$CONFIG_DIR/configuration.nix"
+sudo alejandra "$CONFIG_DIR"
+sudo nixos-rebuild switch --upgrade
+
+status=$?
+
+if [ $status -eq 0 ]; then
+  mkdir -p "$DEST_DIR"
+  cp -r "$CONFIG_DIR" "$DEST_DIR"
+  pushd "$DEST_DIR"
+  nixos_generation="$(readlink /nix/var/nix/profiles/system)"
+  git add .
+  git commit -m "NixOS configuration: $(hostname) generation $generation"
+  git push origin master
+else
+  echo 'Failed to apply config'
+  exit $?
+fi

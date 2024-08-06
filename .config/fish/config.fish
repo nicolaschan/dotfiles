@@ -9,7 +9,6 @@ end
 # <<< conda initialize <<<
 
 zoxide init --cmd cd fish | source
-#alias cd=z
 alias ls=lsd
 #alias cat=ccat
 #alias ping="prettyping --nolegend"
@@ -20,4 +19,6 @@ eval (direnv hook fish)
 function nix-shell
     command nix-shell --run fish $argv
 end
+
+fish_add_path ~/bin
 

@@ -13,3 +13,6 @@ temp
 
 # Install scripts
 .*\.sh
+
+# Nixos configs
+nixos
