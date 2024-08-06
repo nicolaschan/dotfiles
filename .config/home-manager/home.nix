@@ -34,6 +34,7 @@
     git
     gnome-tweaks
     gnome-terminal
+    gnupg
     hello
     httpie
     htop
