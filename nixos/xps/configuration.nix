@@ -101,6 +101,7 @@ in {
     scarifBackup = {
       passwordFile = "/home/nicolas/.config/restic/password";
       repository = "sftp:git@monad.dyn.intranet.lol:/scarif/backups/xps-restic";
+      user = "nicolas";
       paths = [
         "/home/nicolas"
       ];
@@ -118,8 +119,6 @@ in {
         RandomizedDelaySec = "1h";
         Persistent = true;
       };
-      # SSH-specific settings
-      rcloneConfigFile = "/home/nicolas/.config/restic/rclone.conf";
     };
   };
 
