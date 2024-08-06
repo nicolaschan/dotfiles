@@ -25,8 +25,8 @@
     cascadia-code
     chromium
     direnv
-    dust
     dive
+    dust
     fd
     firefox
     fzf
@@ -35,6 +35,7 @@
     gnome-terminal
     hello
     htop
+    hyperfine
     konsole
     inkscape
     killall
