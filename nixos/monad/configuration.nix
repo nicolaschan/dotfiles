@@ -102,6 +102,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.nicolas = {
     isNormalUser = true;
+    uid = 1000;
     extraGroups = ["wheel"]; # Enable ‘sudo’ for the user.
     shell = pkgs.fish;
     packages = with pkgs; [
@@ -112,8 +113,18 @@
       "sk-ecdsa-sha2-nistp256@openssh.com AAAAInNrLWVjZHNhLXNoYTItbmlzdHAyNTZAb3BlbnNzaC5jb20AAAAIbmlzdHAyNTYAAABBBDgWXcT8lPSDFOBCSGYwaUzal+1B0rPPuR5s9f4rpnY53KnIc8KnvonV4/0OrSLiAPndTyq8vMN5mv3x6zNbnpgAAAALdGVybWl1cy5jb20= nicolas@terminus-iphone"
     ];
   };
+
+  users.users.git = {
+    isNormalUser = true;
+    uid = 1002;
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPlM2ilPhTvNX0DoYiU+o3+HRsU3dtHGcZ0igWf3cqR4 nicolas@xn--h98h"
+    ];
+  };
+
   users.users.aditya = {
     isNormalUser = true;
+    uid = 1001;
     # shell = pkgs.fish;
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILnZy5ZNXuks76CqlE+Kd+NKEPM9Fwtr0jPFtuERBopP aditya@sf.intranet.lol"
