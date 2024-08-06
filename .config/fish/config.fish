@@ -25,3 +25,5 @@ end
 
 fish_add_path ~/bin
 
+set -gx EDITOR vim
+
