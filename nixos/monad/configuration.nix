@@ -162,12 +162,7 @@
   boot.supportedFilesystems = ["bcachefs" "zfs"];
 
   boot.zfs.extraPools = [ "scarif" ];
-
-  fileSystems."/mnt/scarif" = {
-    device = "scarif";
-    fsType = "zfs";
-    options = [ "noauto" "x-systemd.automount" "x-systemd.device-timeout=0" ];
-  };
+  services.zfs.autoScrub.enable = true;
 
   # List services that you want to enable:
 
