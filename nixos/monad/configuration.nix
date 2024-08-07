@@ -199,6 +199,20 @@
     extraFlags = "--disable=traefik";
   };
 
+  # Enable cloudflared
+  services.cloudflared = {
+    enable = true;
+    tunnels = {
+      "638c15e0-5bac-49e0-9453-36eaac69404a" = {
+        credentialsFile = "/home/nicolas/.cloudflared/638c15e0-5bac-49e0-9453-36eaac69404a.json";
+        ingress = {
+          "edit.bell.plus" = "http://localhost:10002";
+        };
+        default = "http_status:404";
+      };
+    };
+  };
+
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
