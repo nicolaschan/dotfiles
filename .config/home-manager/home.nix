@@ -63,6 +63,7 @@
     sshfs
     starship
     stow
+    tealdeer
     tokei
     tree
     vim
