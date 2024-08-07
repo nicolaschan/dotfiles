@@ -45,9 +45,11 @@
     jq
     konsole
     inkscape
+    k9s
     killall
     kondo
     konsole
+    kubectl
     lorri
     lsd
     microsoft-edge
