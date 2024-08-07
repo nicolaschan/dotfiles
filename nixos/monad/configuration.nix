@@ -142,9 +142,9 @@
     wget
   ];
 
-environment.sessionVariables = {
-  LD_LIBRARY_PATH = "/run/opengl-driver/lib:/run/opengl-driver-32/lib:\${pkgs.cudatoolkit}/lib";
-};
+  environment.sessionVariables = {
+    LD_LIBRARY_PATH = "/run/opengl-driver/lib:/run/opengl-driver-32/lib";
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -177,7 +177,7 @@ environment.sessionVariables = {
   boot.kernelPackages = pkgs.linuxPackages_6_8;
   boot.supportedFilesystems = ["bcachefs" "zfs"];
 
-  boot.zfs.extraPools = [ "scarif" ];
+  boot.zfs.extraPools = ["scarif"];
   services.zfs.autoScrub.enable = true;
 
   # List services that you want to enable:
@@ -189,6 +189,13 @@ environment.sessionVariables = {
       PermitRootLogin = "prohibit-password";
       PasswordAuthentication = false;
     };
+  };
+
+  # Enable k3s
+  services.k3s = {
+    enable = true;
+    role = "server";
+    extraFlags = "--disable=traefik";
   };
 
   # Open ports in the firewall.
