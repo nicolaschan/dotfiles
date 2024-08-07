@@ -137,10 +137,14 @@
     cudatoolkit
     git
     linuxPackages.nvidia_x11
-nvtopPackages.nvidia
+    nvtopPackages.nvidia
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
   ];
+
+environment.sessionVariables = {
+  LD_LIBRARY_PATH = "/run/opengl-driver/lib:/run/opengl-driver-32/lib:\${pkgs.cudatoolkit}/lib";
+};
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
