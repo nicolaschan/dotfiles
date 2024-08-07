@@ -69,6 +69,7 @@
     vim
     vscode
     wget
+    wl-clipboard-rs
     zoxide
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
