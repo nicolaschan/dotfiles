@@ -202,6 +202,7 @@
   # Enable cloudflared
   services.cloudflared = {
     enable = true;
+    user = "nicolas";
     tunnels = {
       "638c15e0-5bac-49e0-9453-36eaac69404a" = {
         credentialsFile = "/home/nicolas/.cloudflared/638c15e0-5bac-49e0-9453-36eaac69404a.json";
