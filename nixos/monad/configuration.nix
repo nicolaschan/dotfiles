@@ -15,6 +15,7 @@
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.grub.configurationLimit = 10;
 
   networking.hostName = "monad"; # Define your hostname.
   networking.hostId = "4dc56713";
