@@ -68,6 +68,7 @@
     tealdeer
     tokei
     tree
+    unzip
     vim
     vscode
     wget
