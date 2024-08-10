@@ -73,7 +73,7 @@
     vscode
     wget
     wl-clipboard-rs
-    zed
+    zed-editor
     zoxide
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
