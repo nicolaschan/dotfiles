@@ -67,6 +67,7 @@
     stow
     tealdeer
     tokei
+    traceroute
     tree
     unzip
     vim
