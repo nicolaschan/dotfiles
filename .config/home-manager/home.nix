@@ -75,6 +75,7 @@
     unzip
     vim
     vscode
+    wasmtime
     wget
     wl-clipboard-rs
     zed-editor
