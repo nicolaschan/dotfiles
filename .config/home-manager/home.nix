@@ -61,11 +61,13 @@
     restic
     ripgrep
     ripgrep-all
+    screen
     shellcheck
     sshfs
     starship
     stow
     tealdeer
+    tmux
     tokei
     tree
     unzip
