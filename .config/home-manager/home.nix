@@ -52,6 +52,7 @@
     kubectl
     lorri
     lsd
+    mtr
     microsoft-edge
     ollama
     pass
