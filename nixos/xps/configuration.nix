@@ -123,6 +123,13 @@ in {
     };
   };
 
+  systemd.services."restic-backups-scarifBackup" = {
+    serviceConfig = {
+      Restart = "on-failure";
+      RestartSec = "5min";
+    };
+  };
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.nicolas = {
     isNormalUser = true;
