@@ -23,7 +23,6 @@
     alejandra
     asciiquarium
     bat
-    cascadia-code
     chromium
     direnv
     dive
@@ -83,6 +82,12 @@
     wl-clipboard-rs
     zed-editor
     zoxide
+
+    # Fonts
+    cascadia-code
+    noto-fonts
+    noto-fonts-cjk
+    noto-fonts-emoji
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
