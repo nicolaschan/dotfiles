@@ -55,6 +55,7 @@
     lsd
     mtr
     microsoft-edge
+    neovim
     ollama
     pass
     pinentry-curses
