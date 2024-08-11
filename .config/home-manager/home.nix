@@ -60,6 +60,7 @@
     pinentry-curses
     podman-tui
     podman-compose
+    pv
     restic
     ripgrep
     ripgrep-all
