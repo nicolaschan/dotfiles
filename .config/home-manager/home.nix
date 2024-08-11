@@ -21,6 +21,7 @@
   # environment.
   home.packages = with pkgs; [
     alejandra
+    asciiquarium
     bat
     cascadia-code
     chromium
