@@ -139,7 +139,7 @@
   #  /etc/profiles/per-user/nicolas/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    EDITOR = "nvim";
+    # EDITOR = "nvim";
   };
 
   nixpkgs.config.allowUnfree = true;
