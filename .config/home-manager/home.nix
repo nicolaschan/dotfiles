@@ -25,6 +25,7 @@
     alejandra
     asciiquarium
     bat
+    blender
     chromium
     direnv
     dive
@@ -69,7 +70,6 @@
     ripgrep-all
     screen
     shellcheck
-    shotcut
     sshfs
     starship
     stow
