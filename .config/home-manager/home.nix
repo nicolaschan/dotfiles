@@ -34,6 +34,7 @@
     fastfetch
     fd
     firefox
+    fish
     fzf
     git
     gnome-tweaks
