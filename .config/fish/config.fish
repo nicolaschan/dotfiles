@@ -28,3 +28,5 @@ fish_add_path ~/bin
 set -gx EDITOR nvim
 set -gx GPG_TTY (tty)
 
+alias e=$EDITOR
+
