@@ -24,6 +24,7 @@
   home.packages = with pkgs; [
     alejandra
     asciiquarium
+    audacity
     bat
     blender
     chromium
