@@ -69,6 +69,7 @@
     ripgrep-all
     screen
     shellcheck
+    shotcut
     sshfs
     starship
     stow
