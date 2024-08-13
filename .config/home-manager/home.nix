@@ -90,7 +90,7 @@
 
     # Fonts
     cascadia-code
-    (nerdfonts.override {fonts = ["FiraCode"];})
+    nerdfonts
     noto-fonts
     noto-fonts-cjk
     noto-fonts-emoji
