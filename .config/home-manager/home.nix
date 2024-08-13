@@ -65,7 +65,7 @@
     pinentry-curses
     podman-tui
     podman-compose
-    prismlauncher-unwrapped
+    prismlauncher
     pv
     restic
     ripgrep
