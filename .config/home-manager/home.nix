@@ -67,7 +67,6 @@
     podman-compose
     pv
     restic
-    rio
     ripgrep
     ripgrep-all
     screen
@@ -91,9 +90,7 @@
 
     # Fonts
     cascadia-code
-    nerdfonts
     noto-fonts
-    noto-fonts-cjk
     noto-fonts-emoji
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
