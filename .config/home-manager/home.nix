@@ -83,6 +83,7 @@
     vim
     vscode
     wasmtime
+    wezterm
     wget
     wl-clipboard-rs
     zed-editor
