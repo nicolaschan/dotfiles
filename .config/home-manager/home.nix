@@ -67,6 +67,7 @@
     podman-compose
     pv
     restic
+    rio
     ripgrep
     ripgrep-all
     screen
@@ -83,7 +84,6 @@
     vim
     vscode
     wasmtime
-    wezterm
     wget
     wl-clipboard-rs
     zed-editor
