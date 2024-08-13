@@ -84,7 +84,7 @@
     vscode
     wasmtime
     wget
-    wl-clipboard-rs
+    wl-clipboard
     zed-editor
     zoxide
 
