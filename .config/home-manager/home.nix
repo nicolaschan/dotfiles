@@ -91,8 +91,8 @@
     # Fonts
     cascadia-code
     noto-fonts
+    # noto-fonts-cjk # breaks emojis in konsole
     noto-fonts-emoji
-    noto-fonts-cjk
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
