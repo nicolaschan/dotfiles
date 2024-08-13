@@ -90,9 +90,9 @@
 
     # Fonts
     cascadia-code
+    nerdfonts
     noto-fonts
-    noto-fonts-cjk
-    # noto-fonts-emoji
+    noto-fonts-emoji
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
