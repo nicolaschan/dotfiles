@@ -91,6 +91,7 @@
 
     # Fonts
     cascadia-code
+    nerdfonts
     noto-fonts
     noto-fonts-emoji
 
