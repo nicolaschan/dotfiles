@@ -33,6 +33,7 @@
     dogdns
     dotacat
     dust
+    easyeffects
     fastfetch
     fd
     firefox
