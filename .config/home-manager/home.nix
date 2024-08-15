@@ -29,7 +29,6 @@
     blender
     chromium
     direnv
-    discord
     dive
     dogdns
     dotacat
