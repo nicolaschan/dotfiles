@@ -29,6 +29,7 @@
     blender
     chromium
     direnv
+    distrobox
     dive
     dogdns
     dotacat
