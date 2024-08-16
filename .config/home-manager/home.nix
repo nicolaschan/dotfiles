@@ -57,7 +57,6 @@
     kondo
     konsole
     kubectl
-    lorri
     lsd
     mtr
     microsoft-edge
