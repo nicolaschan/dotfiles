@@ -34,12 +34,13 @@
     dogdns
     dotacat
     dust
-    easyeffects
+    # easyeffects
     fastfetch
     fd
     firefox
     fish
     fzf
+    gimp
     git
     gnome-tweaks
     gnome-terminal
@@ -57,7 +58,7 @@
     kondo
     konsole
     kubectl
-    lorri
+    # lorri
     lsd
     mtr
     microsoft-edge
