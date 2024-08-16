@@ -28,6 +28,7 @@
     bat
     blender
     chromium
+    darktable
     direnv
     distrobox
     dive
