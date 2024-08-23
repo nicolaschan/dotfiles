@@ -1,5 +1,12 @@
 [user]
-	email = nicolas@nicolaschan.com
-	name = Nicolas Chan
+  email = nicolas@nicolaschan.com
+  name = Nicolas Chan
 [pull]
-	rebase = false
+  rebase = false
+[push]
+  autoSetupRemote = true
+[alias]
+  co = checkout
+  a = "add -p"
+  c = "commit"
+  s = "status"
