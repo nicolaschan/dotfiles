@@ -97,6 +97,13 @@ in {
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
+  # Enable fingerprint reader support
+  services.fprintd = {
+    enable = true;
+    tod.enable = true;
+    tod.driver = pkgs.libfprint-2-tod1-goodix;
+  };
+
   services.restic.backups = {
     scarifBackup = {
       passwordFile = "/home/nicolas/.config/restic/password";
