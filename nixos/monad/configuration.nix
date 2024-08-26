@@ -167,13 +167,15 @@
     # Add any missing dynamic libraries for unpackaged programs here
   ];
 
-  virtualisation.containers.enable = true;
   virtualisation = {
+    containers = {
+      enable = true;
+      cdi.dynamic.nvidia.enable = true;
+    };
     podman = {
       enable = true;
       dockerCompat = true;
       defaultNetwork.settings.dns_enabled = true;
-      enableNvidia = true;
     };
   };
 
