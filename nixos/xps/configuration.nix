@@ -16,7 +16,7 @@ in {
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.grub.configurationLimit = 5;
+  boot.loader.grub.configurationLimit = 4;
 
   boot.initrd.luks.devices."luks-cf582299-0223-48a5-849e-112b33966d2e".device = "/dev/disk/by-uuid/cf582299-0223-48a5-849e-112b33966d2e";
   networking.hostName = "xps"; # Define your hostname.
@@ -96,6 +96,13 @@ in {
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
+
+  # Enable fingerprint reader support
+  services.fprintd = {
+    enable = true;
+    tod.enable = true;
+    tod.driver = pkgs.libfprint-2-tod1-goodix;
+  };
 
   services.restic.backups = {
     scarifBackup = {

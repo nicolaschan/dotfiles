@@ -27,6 +27,7 @@
     audacity
     bat
     blender
+    busybox
     chromium
     direnv
     distrobox
