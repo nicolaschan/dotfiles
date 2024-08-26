@@ -173,11 +173,12 @@
       enable = true;
       dockerCompat = true;
       defaultNetwork.settings.dns_enabled = true;
+      enableNvidia = true;
     };
   };
 
-  boot.kernelPackages = pkgs.linuxPackages_6_8;
-  boot.supportedFilesystems = ["bcachefs" "zfs"];
+  boot.kernelPackages = pkgs.linuxPackages_6_6;
+  boot.supportedFilesystems = ["zfs"];
 
   boot.zfs.extraPools = ["scarif"];
   services.zfs.autoScrub.enable = true;
