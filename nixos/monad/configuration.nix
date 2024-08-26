@@ -82,6 +82,7 @@
     '';
   };
 
+  hardware.nvidia-container-toolkit.enable = true;
   hardware.nvidia = {
     package = config.boot.kernelPackages.nvidiaPackages.beta;
     modesetting.enable = true;
@@ -170,7 +171,6 @@
   virtualisation = {
     containers = {
       enable = true;
-      cdi.dynamic.nvidia.enable = true;
     };
     podman = {
       enable = true;
