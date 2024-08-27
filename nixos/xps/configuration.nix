@@ -217,4 +217,10 @@ in {
   system.stateVersion = "23.11"; # Did you read the comment?
 
   system.autoUpgrade.enable = true;
+
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 30d";
+  };
 }
