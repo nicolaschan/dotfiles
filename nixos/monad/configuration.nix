@@ -219,7 +219,7 @@
     };
     path = [
       config.hardware.nvidia.package
-      "/run/current-system/sw/bin" # for nvidia-container-cli
+      "/run/current-system/sw" # for nvidia-container-cli
     ];
   };
 
