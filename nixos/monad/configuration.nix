@@ -207,7 +207,9 @@
   services.k3s = {
     enable = true;
     role = "server";
-    extraFlags = "--disable=traefik";
+    extraFlags = "--disable=traefik
+      --container-runtime-endpoint unix:///run/containerd/containerd.sock
+      --containerd /run/containerd/containerd.sock";
   };
 
   # Enable cloudflared
