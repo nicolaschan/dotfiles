@@ -70,7 +70,6 @@
 
   hardware.opengl = {
     enable = true;
-    driSupport = true;
   };
 
   nixpkgs.config.allowUnfree = true;
@@ -94,7 +93,7 @@
   boot.kernelModules = ["nvidia"];
 
   hardware.nvidia.nvidiaSettings = true;
-  hardware.nvidia.nvidiaPersistenced = true;
+  # hardware.nvidia.nvidiaPersistenced = true;
 
   services.xserver.videoDrivers = ["nvidia"];
 
@@ -140,7 +139,6 @@
     cloudflared
     cudatoolkit
     cudaPackages.fabricmanager
-    # docker
     git
     # libnvidia-container
     linuxPackages.nvidia_x11
@@ -179,7 +177,7 @@
       # enable = true;
     };
     podman = {
-      # enable = true;
+      enable = true;
       # dockerCompat = true;
       defaultNetwork.settings.dns_enabled = true;
     };
