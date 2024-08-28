@@ -217,9 +217,9 @@
     --containerd /run/containerd/containerd.sock";
   };
 
-  systemd.services.nvidia-container-toolkit-cdi-generator = {
-    environment.LD_LIBRARY_PATH = "${config.hardware.nvidia.package}/lib";
-  };
+  # systemd.services.nvidia-container-toolkit-cdi-generator = {
+  #   environment.LD_LIBRARY_PATH = "${config.hardware.nvidia.package}/lib";
+  # };
 
   systemd.services.k3s = {
     path = [
