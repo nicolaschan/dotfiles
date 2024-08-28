@@ -5,7 +5,7 @@ HOME_NIX="$HOME/dotfiles/.config/home-manager/home.nix"
 home_dir="$(dirname "$HOME_NIX")"
 
 "$EDITOR" "$HOME_NIX"
-alejandra "$HOME_NIX"
+alejandra --quiet "$HOME_NIX"
 home-manager switch
 
 status=$?

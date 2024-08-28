@@ -4,7 +4,7 @@ CONFIG_PATH=/etc/nixos/configuration.nix
 DEST_DIR="$HOME/dotfiles/nixos/$(hostname)"
 
 sudo "$EDITOR" "$CONFIG_PATH"
-sudo alejandra "$CONFIG_PATH"
+sudo alejandra --quiet "$CONFIG_PATH"
 sudo nixos-rebuild switch --upgrade
 
 status=$?
