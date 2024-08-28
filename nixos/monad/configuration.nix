@@ -213,13 +213,10 @@
     enable = true;
     role = "server";
     extraFlags = "--disable=traefik";
-    #--container-runtime-endpoint unix:///run/containerd/containerd.sock
-    #--containerd /run/containerd/containerd.sock";
   };
 
   systemd.services.k3s = {
     path = [
-      config.hardware.nvidia.package
       "/run/current-system/sw" # for nvidia-container-cli
     ];
   };
