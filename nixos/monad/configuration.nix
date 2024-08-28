@@ -70,6 +70,7 @@
 
   hardware.opengl = {
     enable = true;
+    driSupport32Bit = true; # required for docker.enableNvdia
   };
 
   nixpkgs.config.allowUnfree = true;
@@ -141,7 +142,6 @@
     cudaPackages.fabricmanager
     git
     # libnvidia-container
-    nvidia-docker
     linuxPackages.nvidia_x11
     # nvidia-container-toolkit
     nvtopPackages.nvidia
@@ -184,6 +184,7 @@
     };
     docker = {
       enable = true;
+      enableNvidia = true;
     };
     containerd = {
       # enable = true;
