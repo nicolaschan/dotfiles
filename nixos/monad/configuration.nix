@@ -141,6 +141,7 @@
     cudaPackages.fabricmanager
     git
     # libnvidia-container
+    nvidia-docker
     linuxPackages.nvidia_x11
     # nvidia-container-toolkit
     nvtopPackages.nvidia
