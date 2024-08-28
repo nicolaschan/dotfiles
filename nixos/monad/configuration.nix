@@ -84,7 +84,7 @@
 
   hardware.nvidia-container-toolkit.enable = true;
   hardware.nvidia = {
-    package = config.boot.kernelPackages.nvidiaPackages.beta;
+    package = config.boot.kernelPackages.nvidiaPackages.production;
     modesetting.enable = true;
     powerManagement.finegrained = false;
     open = false;
@@ -106,7 +106,7 @@
     isNormalUser = true;
     linger = true;
     uid = 1000;
-    extraGroups = ["wheel"]; # Enable ‘sudo’ for the user.
+    extraGroups = ["wheel" "docker"]; # Enable ‘sudo’ for the user.
     shell = pkgs.fish;
     packages = with pkgs; [
       tree
