@@ -142,9 +142,9 @@
     cudaPackages.fabricmanager
     docker
     git
-    libnvidia-container
+    # libnvidia-container
     linuxPackages.nvidia_x11
-    nvidia-container-toolkit
+    # nvidia-container-toolkit
     nvtopPackages.nvidia
     runc
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
@@ -216,19 +216,17 @@
     # --container-runtime-endpoint unix:///run/containerd/containerd.sock
     #     --containerd /run/containerd/containerd.sock";
   };
-  systemd.services.nvidia-container-toolkit-cdi-generator = {
-    environment.LD_LIBRARY_PATH = "${config.hardware.nvidia.package}/lib";
-  };
-  systemd.services.k3s = {
-    environment = {
-      NVIDIA_VISIBLE_DEVICES = "all";
-      NVIDIA_DRIVER_CAPABILITIES = "all";
-    };
-    path = [
-      config.hardware.nvidia.package
-      "/run/current-system/sw" # for nvidia-container-cli
-    ];
-  };
+
+  # systemd.services.nvidia-container-toolkit-cdi-generator = {
+  #     environment.LD_LIBRARY_PATH = "${config.hardware.nvidia.package}/lib";
+  #  };
+
+  # systemd.services.k3s = {
+  #path = [
+  # config.hardware.nvidia.package
+  # "/run/current-system/sw" # for nvidia-container-cli
+  # ];
+  # };
 
   # Enable cloudflared
   services.cloudflared = {
