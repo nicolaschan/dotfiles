@@ -216,6 +216,7 @@
       NVIDIA_VISIBLE_DEVICES = "all";
       NVIDIA_DRIVER_CAPABILITIES = "all";
     };
+    path = [config.hardware.nvidia.package];
   };
 
   # Enable cloudflared
