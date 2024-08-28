@@ -217,7 +217,7 @@
 
   systemd.services.k3s = {
     path = [
-      # "/run/current-system/sw" # for nvidia-container-cli
+      "/run/current-system/sw" # for nvidia-container-cli
     ];
   };
 
