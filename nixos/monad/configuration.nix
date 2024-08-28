@@ -139,6 +139,7 @@
   environment.systemPackages = with pkgs; [
     cloudflared
     cudatoolkit
+    cudaPackages.fabricmanager
     git
     linuxPackages.nvidia_x11
     nvtopPackages.nvidia
