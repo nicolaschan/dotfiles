@@ -181,6 +181,9 @@
       dockerCompat = true;
       defaultNetwork.settings.dns_enabled = true;
     };
+    containerd = {
+      enable = true;
+    };
   };
 
   boot.kernelPackages = pkgs.linuxPackages_6_6;
