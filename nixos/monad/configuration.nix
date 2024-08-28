@@ -202,7 +202,7 @@
 
   # Enable k3s
   services.k3s = {
-    enable = false;
+    enable = true;
     role = "server";
     extraFlags = "--disable=traefik";
   };
