@@ -141,6 +141,7 @@
     cudatoolkit
     cudaPackages.fabricmanager
     git
+    libnvidia-container
     linuxPackages.nvidia_x11
     nvtopPackages.nvidia
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
