@@ -176,7 +176,7 @@
 
   virtualisation = {
     containers = {
-      enable = true;
+      # enable = true;
     };
     podman = {
       # enable = true;
@@ -187,7 +187,7 @@
       enable = true;
     };
     containerd = {
-      enable = true;
+      # enable = true;
     };
   };
 
@@ -212,9 +212,9 @@
   services.k3s = {
     enable = true;
     role = "server";
-    extraFlags = "--disable=traefik
-      --container-runtime-endpoint unix:///run/containerd/containerd.sock
-      --containerd /run/containerd/containerd.sock";
+    extraFlags = "--disable=traefik";
+    # --container-runtime-endpoint unix:///run/containerd/containerd.sock
+    #     --containerd /run/containerd/containerd.sock";
   };
   systemd.services.nvidia-container-toolkit-cdi-generator = {
     environment.LD_LIBRARY_PATH = "${config.hardware.nvidia.package}/lib";
