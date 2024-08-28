@@ -217,7 +217,7 @@
       NVIDIA_VISIBLE_DEVICES = "all";
       NVIDIA_DRIVER_CAPABILITIES = "all";
     };
-    path = [config.hardware.nvidia.package];
+    path = [config.hardware.nvidia.package "/run/current-system/sw/bin"];
   };
 
   # Enable cloudflared
