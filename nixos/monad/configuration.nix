@@ -211,6 +211,12 @@
       --container-runtime-endpoint unix:///run/containerd/containerd.sock
       --containerd /run/containerd/containerd.sock";
   };
+  systemd.services.k3s = {
+    environment = {
+      NVIDIA_VISIBLE_DEVICES = "all";
+      NVIDIA_DRIVER_CAPABILITIES = "all";
+    };
+  };
 
   # Enable cloudflared
   services.cloudflared = {
