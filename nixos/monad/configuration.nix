@@ -140,6 +140,7 @@
     cloudflared
     cudatoolkit
     cudaPackages.fabricmanager
+    docker
     git
     libnvidia-container
     linuxPackages.nvidia_x11
