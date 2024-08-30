@@ -176,7 +176,7 @@
 
   virtualisation = {
     containers = {
-      enable = true;
+      # enable = true;
     };
     podman = {
       enable = true;
