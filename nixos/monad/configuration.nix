@@ -175,19 +175,19 @@
 
   virtualisation = {
     containers = {
-      # enable = true;
+      enable = true;
     };
     podman = {
-      # enable = true;
+      enable = true;
       # dockerCompat = true;
-      # defaultNetwork.settings.dns_enabled = true;
+      defaultNetwork.settings.dns_enabled = true;
     };
     docker = {
       enable = true;
       enableNvidia = true;
     };
     containerd = {
-      # enable = true;
+      enable = true;
     };
   };
 
