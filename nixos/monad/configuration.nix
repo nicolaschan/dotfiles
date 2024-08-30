@@ -127,6 +127,7 @@
 
   users.users.aditya = {
     isNormalUser = true;
+    linger = true;
     uid = 1001;
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILnZy5ZNXuks76CqlE+Kd+NKEPM9Fwtr0jPFtuERBopP aditya@sf.intranet.lol"
