@@ -23,6 +23,13 @@
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   # networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
 
+  swapDevices = [
+    {
+      device = "/swapfile";
+      size = 32 * 1024; # 32 GB
+    }
+  ];
+
   # Set your time zone.
   time.timeZone = "America/Los_Angeles";
 
