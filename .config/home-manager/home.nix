@@ -23,6 +23,7 @@
   # environment.
   home.packages = with pkgs; [
     alejandra
+    asdf-vm
     asciiquarium
     audacity
     bat
