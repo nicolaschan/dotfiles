@@ -59,11 +59,11 @@
     kondo
     konsole
     kubectl
-    # lorri
     lsd
     mtr
     microsoft-edge
     neovim
+    nushell
     ollama
     pass
     pinentry-curses
