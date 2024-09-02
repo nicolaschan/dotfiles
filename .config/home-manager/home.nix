@@ -48,6 +48,7 @@
     gnupg
     gping
     hello
+    helvum
     httpie
     htop
     hyperfine
