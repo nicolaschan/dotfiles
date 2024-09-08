@@ -52,6 +52,7 @@
     httpie
     htop
     hyperfine
+    iperf
     jq
     konsole
     inkscape
