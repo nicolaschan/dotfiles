@@ -93,6 +93,7 @@
     wget
     wl-clipboard
     zed-editor
+    zip
     zoxide
 
     # Fonts
