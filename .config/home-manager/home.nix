@@ -64,6 +64,7 @@
     lsd
     mtr
     microsoft-edge
+    musescore
     neovim
     nushell
     ollama
