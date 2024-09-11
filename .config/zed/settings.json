@@ -33,10 +33,10 @@
   "formatter": "language_server",
   "lsp": {
    "rust-analyzer": {
-     // "binary": {
-       // "path": "/nix/store/2549qj9b1jcn243nd373a6x3qkfhnlr9-rustup-1.27.1/bin/rust-analyzer"
-      // "path_lookup": true
-     // },
+     "binary": {
+       // "path": "/nix/store/2549qj9b1jcn243nd373a6x3qkfhnlr9-rustup-1.27.1/bin/rust-analyzer",
+      "path_lookup": true
+     },
      "initialization_options": {
         "cargo": {
           "buildScripts": {
