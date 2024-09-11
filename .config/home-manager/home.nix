@@ -47,15 +47,13 @@
     gnome-terminal
     gnupg
     gping
-    hello
     helvum
     httpie
     htop
     hyperfine
+    inkscape
     iperf
     jq
-    konsole
-    inkscape
     k9s
     killall
     kondo
