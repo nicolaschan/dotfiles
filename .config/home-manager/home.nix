@@ -97,6 +97,7 @@
 
     # Fonts
     cascadia-code
+    inter
     noto-fonts
     # noto-fonts-cjk # breaks emojis in konsole
     noto-fonts-emoji
