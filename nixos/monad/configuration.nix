@@ -30,6 +30,13 @@
     }
   ];
 
+  # T7 SSD
+  fileSystems."/mnt/ssd-t7-2tb" = {
+    device = "/dev/disk/by-uuid/6548f0d5-d3d5-4885-aa27-634b757b0b46";
+    fsType = "btrfs";
+    options = ["nofail" "x-systemd.automount"];
+  };
+
   # Set your time zone.
   time.timeZone = "America/Los_Angeles";
 
