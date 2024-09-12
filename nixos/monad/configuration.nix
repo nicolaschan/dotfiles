@@ -129,6 +129,7 @@
     uid = 1002;
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPlM2ilPhTvNX0DoYiU+o3+HRsU3dtHGcZ0igWf3cqR4 nicolas@xn--h98h"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAtEyrE++I+HzN3nrCVqEWdyVxPikPJ6XzoFxnLxk4ML nicolas@monad"
     ];
   };
 
