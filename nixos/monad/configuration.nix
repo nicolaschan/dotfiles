@@ -130,7 +130,6 @@
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPlM2ilPhTvNX0DoYiU+o3+HRsU3dtHGcZ0igWf3cqR4 nicolas@xn--h98h"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAtEyrE++I+HzN3nrCVqEWdyVxPikPJ6XzoFxnLxk4ML nicolas@monad"
-      "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC+e4RGNUm9BvKNOfOF6NmOm5SWzcnMQzVZGWs5OzCaPK+Pe7GfnTaCtIf0l3eTqoFgiz5/LZl321gPCKR+cRuGyvf3Pco0MMpiW1hQU7I9fDEjXkB96afP1zBxzN0iC59OVuu/DGcW5PiXratCIffcNcjBzW59tPdkGdSYt0X59F4x3m1g0H1MBTu9dl/8CgFCtLTzC7hQYTlxp49Gu0w5B06ojf+3bzBzD0uRNPiGNedB6U4oC0rjf61L+WhIHND0VBHgwhVRS/BORfzPoseYJTiu1dRN/VK+/FdVqHFm9KuV+hc2/gQMME7Q5KMPDfiAmQAZe3DjonAPNRKK99l/ iphone-pass"
     ];
   };
 
