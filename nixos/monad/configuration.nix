@@ -130,6 +130,7 @@
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPlM2ilPhTvNX0DoYiU+o3+HRsU3dtHGcZ0igWf3cqR4 nicolas@xn--h98h"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAtEyrE++I+HzN3nrCVqEWdyVxPikPJ6XzoFxnLxk4ML nicolas@monad"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKatip1Sn/u8+rZskejoCzrlPuA8n4h7vdGNdG35OZl0 iphone-pass"
     ];
   };
 
