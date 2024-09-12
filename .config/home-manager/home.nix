@@ -72,6 +72,7 @@
     podman-compose
     prismlauncher
     pv
+    qrencode
     restic
     ripgrep
     ripgrep-all
