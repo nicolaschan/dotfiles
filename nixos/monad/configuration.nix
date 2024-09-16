@@ -152,7 +152,6 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    cloudflared
     cudatoolkit
     cudaPackages.fabricmanager
     docker
@@ -235,22 +234,6 @@
     path = [
       "/run/current-system/sw" # for nvidia-container-cli
     ];
-  };
-
-  # Enable cloudflared
-  services.cloudflared = {
-    enable = true;
-    user = "nicolas";
-    tunnels = {
-      "638c15e0-5bac-49e0-9453-36eaac69404a" = {
-        credentialsFile = "/home/nicolas/.cloudflared/638c15e0-5bac-49e0-9453-36eaac69404a.json";
-        ingress = {
-          "svg.pro" = "http://127.0.0.1:10001";
-          "edit.bell.plus" = "http://127.0.0.1:10002";
-        };
-        default = "http_status:404";
-      };
-    };
   };
 
   services.restic.backups = {
