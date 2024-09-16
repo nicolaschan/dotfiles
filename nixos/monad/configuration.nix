@@ -253,6 +253,21 @@
     };
   };
 
+  services.restic.backups = {
+    kubeT7 = {
+      passwordFile = "/mnt/ssd-t7-2tb/kubernetes-storage/restic-password";
+      repository = "/scarif/backups/monad-kube-t7-restic";
+      paths = ["/mnt/ssd-t7-2tb/kubernetes-storage"];
+      extraBackupArgs = ["--exclude-caches"];
+      pruneOpts = ["--keep-daily 7" "--keep-weekly 4" "--keep-monthly 6"];
+      timerConfig = {
+        OnCalendar = "daily";
+        RandomizedDelaySec = "1h";
+        Persistent = true;
+      };
+    };
+  };
+
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
