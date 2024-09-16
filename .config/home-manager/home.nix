@@ -26,6 +26,7 @@
     asdf-vm
     asciiquarium
     audacity
+    b3sum
     bat
     blender
     chromium
