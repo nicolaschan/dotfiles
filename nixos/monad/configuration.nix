@@ -30,6 +30,13 @@
     }
   ];
 
+  # T7 SSD
+  fileSystems."/mnt/ssd-t7-2tb" = {
+    device = "/dev/disk/by-uuid/6548f0d5-d3d5-4885-aa27-634b757b0b46";
+    fsType = "btrfs";
+    options = ["nofail" "x-systemd.automount"];
+  };
+
   # Set your time zone.
   time.timeZone = "America/Los_Angeles";
 
@@ -242,6 +249,21 @@
           "edit.bell.plus" = "http://127.0.0.1:10002";
         };
         default = "http_status:404";
+      };
+    };
+  };
+
+  services.restic.backups = {
+    kubeT7 = {
+      passwordFile = "/mnt/ssd-t7-2tb/kubernetes-storage/restic-password";
+      repository = "/scarif/backups/monad-kube-t7-restic";
+      paths = ["/mnt/ssd-t7-2tb/kubernetes-storage"];
+      extraBackupArgs = ["--exclude-caches"];
+      pruneOpts = ["--keep-daily 7" "--keep-weekly 4" "--keep-monthly 6"];
+      timerConfig = {
+        OnCalendar = "daily";
+        RandomizedDelaySec = "1h";
+        Persistent = true;
       };
     };
   };
