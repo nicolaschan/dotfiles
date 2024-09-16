@@ -3,8 +3,11 @@
 CONFIG_PATH=/etc/nixos/configuration.nix
 DEST_DIR="$HOME/dotfiles/nixos/$(hostname)"
 
-sudo "$EDITOR" "$CONFIG_PATH"
-sudo alejandra --quiet "$CONFIG_PATH"
+if ! sudo --preserve-env=EDITOR nix-edit "$CONFIG_PATH"; then
+  echo "Skip applying config"
+  exit 0	
+fi
+
 sudo nixos-rebuild switch --upgrade
 
 status=$?

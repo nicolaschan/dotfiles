@@ -4,8 +4,10 @@ HOME_NIX="$HOME/dotfiles/.config/home-manager/home.nix"
 
 home_dir="$(dirname "$HOME_NIX")"
 
-"$EDITOR" "$HOME_NIX"
-alejandra --quiet "$HOME_NIX"
+if ! nix-edit "$HOME_NIX"; then
+  echo "Skip applying config"
+  exit 0
+fi
 home-manager switch
 
 status=$?

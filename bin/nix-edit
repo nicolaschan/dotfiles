@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+CONFIG_PATH="$1"
+
+CONTENTS_BEFORE_EDIT="$(cat "$CONFIG_PATH")"
+
+"$EDITOR" "$CONFIG_PATH"
+alejandra --quiet "$CONFIG_PATH"
+
+CONTENTS_AFTER_EDIT="$(cat "$CONFIG_PATH")"
+
+if [[ "$CONTENTS_BEFORE_EDIT" == "$CONTENTS_AFTER_EDIT" ]]; then
+  echo "No changes"
+  exit 1
+fi
