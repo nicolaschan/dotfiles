@@ -137,7 +137,7 @@
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPlM2ilPhTvNX0DoYiU+o3+HRsU3dtHGcZ0igWf3cqR4 nicolas@xn--h98h"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAtEyrE++I+HzN3nrCVqEWdyVxPikPJ6XzoFxnLxk4ML nicolas@monad"
-      "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDC1m+31Df4iUYP9DMKuYXwQF523WO6+ju7zkMHSS5hDFRC+PYEFrrh7Z3JXD3GO9hxkL5mdy50SMSo/CsX1FdDEPmiKw8d7gTT6/VGOLE2burAkf8Z7cTeKboPl9DizOXfQJNYllxYFymArK3aT1ph8fxfuMmmhGqe/2T+NQ8pk6Ax2YABVM+7NlRw8m5QbZspkC0Pqqu65TMmhwMR25XVR/Qt6rePmpgrbEaZM5pLWOxfc+m7cH+fNPQ+G8t0jk7Yp6h882wBsMfiXxD3SQsCgcExaGmGPXJA0SHOYARoySQ3qmQk9cnq2cdueVkKgHofoz9JitRuJDmNapuEl3bX nicolas@xps"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO/onxpCkv8FBts5mNzNBO921r20i3ZBGbrfKgUnET81 nicolas@iphone_pass"
     ];
   };
 
