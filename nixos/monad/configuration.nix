@@ -245,7 +245,7 @@
 
   services.restic.backups = {
     kubeT7 = {
-      passwordFile = "/mnt/ssd-t7-2tb/kubernetes-storage/restic-password";
+      passwordFile = "/home/nicolas/restic-passwords/monad-kube-t7";
       repository = "/scarif/backups/monad-kube-t7-restic";
       paths = ["/mnt/ssd-t7-2tb/kubernetes-storage"];
       extraBackupArgs = ["--exclude-caches"];
@@ -257,7 +257,7 @@
       };
     };
     kubernetesStorage = {
-      passwordFile = "/var/lib/rancher/k3s/storage/restic-password";
+      passwordFile = "/home/nicolas/restic-passwords/monad-kubernetes-storage";
       repository = "/scarif/backups/monad-kubernetes-storage-restic";
       paths = ["/var/lib/rancher/k3s/storage"];
       extraBackupArgs = ["--exclude-caches"];
