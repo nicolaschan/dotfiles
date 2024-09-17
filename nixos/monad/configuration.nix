@@ -256,6 +256,18 @@
         Persistent = true;
       };
     };
+    kubernetesStorage = {
+      passwordFile = "/var/lib/rancher/k3s/storage/restic-password";
+      repository = "/scarif/backups/monad-kubernetes-storage-restic";
+      paths = ["/var/lib/rancher/k3s/storage"];
+      extraBackupArgs = ["--exclude-caches"];
+      pruneOpts = ["--keep-daily 7" "--keep-weekly 4" "--keep-monthly 6"];
+      timerConfig = {
+        OnCalendar = "daily";
+        RandomizedDelaySec = "1h";
+        Persistent = true;
+      };
+    };
   };
 
   # Open ports in the firewall.
