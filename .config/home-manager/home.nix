@@ -39,7 +39,6 @@
     # easyeffects
     fastfetch
     fd
-    firefox
     fish
     fzf
     gimp
@@ -154,6 +153,12 @@
   };
 
   nixpkgs.config.allowUnfree = true;
+
+  nixpkgs.config.programs.firefox = {
+    preferences = {
+      "accessibility.typeaheadfind.enablesound" = false;
+    };
+  };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
