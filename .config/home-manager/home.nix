@@ -155,7 +155,7 @@
   nixpkgs.config.allowUnfree = true;
 
   programs.firefox = {
-    enable = false;
+    enable = true;
     profiles = {
       default = {
         settings = {
