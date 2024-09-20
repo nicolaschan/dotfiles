@@ -137,6 +137,7 @@
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPlM2ilPhTvNX0DoYiU+o3+HRsU3dtHGcZ0igWf3cqR4 nicolas@xn--h98h"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAtEyrE++I+HzN3nrCVqEWdyVxPikPJ6XzoFxnLxk4ML nicolas@monad"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO/onxpCkv8FBts5mNzNBO921r20i3ZBGbrfKgUnET81 nicolas@iphone_pass"
     ];
   };
 
@@ -220,6 +221,12 @@
     settings = {
       PermitRootLogin = "prohibit-password";
       PasswordAuthentication = false;
+      Macs = [
+        "hmac-sha2-512-etm@openssh.com"
+        "hmac-sha2-256-etm@openssh.com"
+        "umac-128-etm@openssh.com"
+        "hmac-sha2-512" # For compatibility with passforios
+      ];
     };
   };
 
@@ -238,9 +245,21 @@
 
   services.restic.backups = {
     kubeT7 = {
-      passwordFile = "/mnt/ssd-t7-2tb/kubernetes-storage/restic-password";
+      passwordFile = "/home/nicolas/restic-passwords/monad-kube-t7";
       repository = "/scarif/backups/monad-kube-t7-restic";
       paths = ["/mnt/ssd-t7-2tb/kubernetes-storage"];
+      extraBackupArgs = ["--exclude-caches"];
+      pruneOpts = ["--keep-daily 7" "--keep-weekly 4" "--keep-monthly 6"];
+      timerConfig = {
+        OnCalendar = "daily";
+        RandomizedDelaySec = "1h";
+        Persistent = true;
+      };
+    };
+    kubernetesStorage = {
+      passwordFile = "/home/nicolas/restic-passwords/monad-kubernetes-storage";
+      repository = "/scarif/backups/monad-kubernetes-storage-restic";
+      paths = ["/var/lib/rancher/k3s/storage"];
       extraBackupArgs = ["--exclude-caches"];
       pruneOpts = ["--keep-daily 7" "--keep-weekly 4" "--keep-monthly 6"];
       timerConfig = {
@@ -287,6 +306,6 @@
     automatic = true;
     persistent = true;
     dates = "weekly";
-    options = "--delete-older-than 7d";
+    options = "--delete-older-than 30d";
   };
 }
