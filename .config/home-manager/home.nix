@@ -39,6 +39,7 @@
     # easyeffects
     fastfetch
     fd
+    firefox
     fish
     fzf
     gimp
