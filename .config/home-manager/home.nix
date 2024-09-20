@@ -155,6 +155,7 @@
   nixpkgs.config.allowUnfree = true;
 
   nixpkgs.config.programs.firefox = {
+    enable = true;
     preferences = {
       "accessibility.typeaheadfind.enablesound" = false;
     };
