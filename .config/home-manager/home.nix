@@ -39,7 +39,6 @@
     # easyeffects
     fastfetch
     fd
-    firefox
     fish
     fzf
     gimp
@@ -155,10 +154,14 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  nixpkgs.config.programs.firefox = {
-    enable = true;
-    preferences = {
-      "accessibility.typeaheadfind.enablesound" = false;
+  programs.firefox = {
+    enable = false;
+    profiles = {
+      default = {
+        settings = {
+          "accessibility.typeaheadfind.enablesound" = false;
+        };
+      };
     };
   };
 
