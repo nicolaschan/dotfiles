@@ -30,6 +30,7 @@
     bat
     blender
     chromium
+    devenv
     direnv
     distrobox
     dive

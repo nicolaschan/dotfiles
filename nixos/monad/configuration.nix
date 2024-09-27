@@ -249,7 +249,7 @@
       repository = "/scarif/backups/monad-kube-t7-restic";
       paths = ["/mnt/ssd-t7-2tb/kubernetes-storage"];
       extraBackupArgs = ["--exclude-caches"];
-      pruneOpts = ["--keep-daily 7" "--keep-weekly 4" "--keep-monthly 6"];
+      pruneOpts = ["--keep-daily 7" "--keep-weekly 2"];
       timerConfig = {
         OnCalendar = "daily";
         RandomizedDelaySec = "1h";
@@ -261,7 +261,7 @@
       repository = "/scarif/backups/monad-kubernetes-storage-restic";
       paths = ["/var/lib/rancher/k3s/storage"];
       extraBackupArgs = ["--exclude-caches"];
-      pruneOpts = ["--keep-daily 7" "--keep-weekly 4" "--keep-monthly 6"];
+      pruneOpts = ["--keep-daily 7" "--keep-weekly 2"];
       timerConfig = {
         OnCalendar = "daily";
         RandomizedDelaySec = "1h";
