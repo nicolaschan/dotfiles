@@ -54,6 +54,7 @@
     hyperfine
     inkscape
     iperf
+    just
     jq
     k9s
     killall
