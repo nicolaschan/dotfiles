@@ -166,6 +166,8 @@ in {
     wget
   ];
 
+  fonts.fontDir.enable = true;
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -222,6 +224,6 @@ in {
     automatic = true;
     persistent = true;
     dates = "weekly";
-    options = "--delete-older-than 30d";
+    options = "--delete-older-than 31d";
   };
 }
