@@ -118,6 +118,7 @@ in {
         "--exclude=.local/share/containers"
       ];
       pruneOpts = [
+        "--no-lock"
         "--keep-daily 7"
         "--keep-weekly 4"
         "--keep-monthly 6"
