@@ -107,7 +107,7 @@ in {
   services.restic.backups = {
     scarifBackup = {
       passwordFile = "/home/nicolas/.config/restic/password";
-      repository = "sftp:git@monad.dyn.intranet.lol:/scarif/backups/xps-restic";
+      repository = "sftp:git@monad:/scarif/backups/xps-restic";
       user = "nicolas";
       paths = [
         "/home/nicolas"
@@ -118,7 +118,6 @@ in {
         "--exclude=.local/share/containers"
       ];
       pruneOpts = [
-        "--no-lock"
         "--keep-daily 7"
         "--keep-weekly 4"
         "--keep-monthly 6"
@@ -225,6 +224,6 @@ in {
     automatic = true;
     persistent = true;
     dates = "weekly";
-    options = "--delete-older-than 31d";
+    options = "--delete-older-than 30d";
   };
 }
