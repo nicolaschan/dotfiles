@@ -84,6 +84,7 @@
     sshfs
     starship
     stow
+    speedtest-cli
     tealdeer
     tmux
     tokei
