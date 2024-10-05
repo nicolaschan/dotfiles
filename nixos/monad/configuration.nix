@@ -259,7 +259,7 @@
     kubernetesStorage = {
       passwordFile = "/home/nicolas/restic-passwords/monad-kubernetes-storage";
       repository = "/scarif/backups/monad-kubernetes-storage-restic";
-      paths = ["/var/lib/rancher/k3s/storage"];
+      paths = ["/var/lib/rancher/k3s"];
       extraBackupArgs = ["--exclude-caches"];
       pruneOpts = ["--keep-daily 7" "--keep-weekly 2"];
       timerConfig = {
