@@ -95,6 +95,7 @@
     vscode
     wasmtime
     wget
+    wireguard-tools
     wl-clipboard
     zed-editor
     zip
