@@ -71,11 +71,10 @@ in {
   services.kanata = {
     enable = true;
     keyboards.default = {
-      #devices = ["/dev/input/by-path/platform-i8042-serio-0-event-kbd"];
       config = ''
         (defsrc caps)
         (deflayermap (default-layer)
-          caps (tap-hold 100 100 esc lctl))
+          caps (tap-hold 50 50 esc lctl))
       '';
     };
   };
