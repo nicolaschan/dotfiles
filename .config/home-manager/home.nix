@@ -58,7 +58,6 @@
     just
     jq
     k9s
-    kanata
     killall
     kondo
     konsole
