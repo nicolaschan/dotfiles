@@ -69,12 +69,14 @@ in {
   # Enable kanata for keyboard remapping
   hardware.uinput.enable = true;
   services.kanata = {
-    enable = true;
+    enable = false;
     keyboards.default = {
       config = ''
-        (defsrc caps)
-        (deflayermap (default-layer)
-          caps (tap-hold 0 100 esc lctl))
+        (defcfg
+           process-unmapped-keys yes)
+         (defsrc caps)
+         (deflayermap (default-layer)
+           caps (tap-hold-press 0 1000 esc lctl))
       '';
     };
   };
