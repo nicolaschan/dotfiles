@@ -66,6 +66,20 @@ in {
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
+  # Enable kanata for keyboard remapping
+  hardware.uinput.enable = true;
+  services.kanata = {
+    enable = true;
+    keyboards.default = {
+      #devices = ["/dev/input/by-path/platform-i8042-serio-0-event-kbd"];
+      config = ''
+        (defsrc caps)
+        (deflayermap (default-layer)
+          caps (tap-hold 100 100 esc lctl))
+      '';
+    };
+  };
+
   # Enable sound with pipewire.
   sound.enable = true;
   hardware.pulseaudio.enable = false;
@@ -141,7 +155,7 @@ in {
   users.users.nicolas = {
     isNormalUser = true;
     description = "Nicolas Chan";
-    extraGroups = ["networkmanager" "wheel"];
+    extraGroups = ["networkmanager" "wheel" "input" "uinput"];
     shell = pkgs.fish;
     packages = with pkgs; [
       vscode
