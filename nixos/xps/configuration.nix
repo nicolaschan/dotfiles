@@ -74,7 +74,7 @@ in {
       config = ''
         (defsrc caps)
         (deflayermap (default-layer)
-          caps (tap-hold 100 100 esc lctl))
+          caps (tap-hold 1000 100 esc lctl))
       '';
     };
   };
