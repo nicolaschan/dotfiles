@@ -43,6 +43,7 @@
     fd
     fish
     fzf
+    gcc
     gimp
     git
     gnome-tweaks
