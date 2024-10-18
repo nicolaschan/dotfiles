@@ -1,6 +1,7 @@
 if status is-interactive
     # Commands to run in interactive sessions can go here
     set fish_greeting
+    fzf_key_bindings
 end
 
 # >>> conda initialize >>>
@@ -16,7 +17,6 @@ enable_transience
 
 zoxide init --cmd cd fish | source
 alias ls=lsd
-fzf_key_bindings
 eval (direnv hook fish)
 
 function nix-shell
