@@ -84,6 +84,7 @@
     shellcheck
     sshfs
     starship
+    statix
     stow
     speedtest-cli
     tealdeer
