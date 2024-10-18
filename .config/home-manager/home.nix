@@ -68,6 +68,7 @@
     microsoft-edge
     musescore
     neovim
+    nil
     nushell
     ollama
     pass
@@ -84,7 +85,6 @@
     shellcheck
     sshfs
     starship
-    statix
     stow
     speedtest-cli
     tealdeer
