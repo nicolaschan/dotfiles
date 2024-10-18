@@ -107,7 +107,7 @@
     cascadia-code
     inter
     noto-fonts
-    noto-fonts-cjk # breaks emojis in konsole
+    # noto-fonts-cjk # breaks emojis in konsole
     noto-fonts-emoji
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
