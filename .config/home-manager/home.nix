@@ -43,7 +43,7 @@
     fd
     fish
     fzf
-    gcc
+    gcc # for neovim
     gimp
     git
     gnome-tweaks
@@ -69,6 +69,7 @@
     musescore
     neovim
     nil
+    nodejs # for github copilot on neovim
     nushell
     ollama
     pass
