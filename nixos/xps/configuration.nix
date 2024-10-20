@@ -109,8 +109,8 @@ in {
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
-  services.xserver.libinput.enable = true;
-  services.xserver.libinput.touchpad.disableWhileTyping = false;
+  services.libinput.enable = true;
+  services.libinput.touchpad.disableWhileTyping = false;
 
   # Enable fingerprint reader support
   services.fprintd = {
