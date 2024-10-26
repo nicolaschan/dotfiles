@@ -89,6 +89,7 @@
     stow
     speedtest-cli
     tealdeer
+    thunderbolt
     tmux
     tokei
     traceroute
