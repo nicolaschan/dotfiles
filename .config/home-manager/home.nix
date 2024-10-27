@@ -63,6 +63,7 @@
     kondo
     konsole
     kubectl
+    lm_sensors
     lsd
     mtr
     microsoft-edge
