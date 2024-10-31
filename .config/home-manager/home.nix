@@ -40,6 +40,8 @@
     dust
     # easyeffects
     fastfetch
+    fcitx5
+    fcitx5-pinyin-zhwiki
     fd
     fish
     fzf
@@ -54,8 +56,6 @@
     httpie
     htop
     hyperfine
-    ibus
-    ibus-engines.pinyin
     inkscape
     iperf
     just
