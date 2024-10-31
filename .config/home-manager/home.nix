@@ -40,8 +40,6 @@
     dust
     # easyeffects
     fastfetch
-    fcitx5
-    fcitx5-pinyin-zhwiki
     fd
     fish
     fzf
