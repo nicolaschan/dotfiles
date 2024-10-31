@@ -54,6 +54,8 @@
     httpie
     htop
     hyperfine
+    ibus
+    ibus-engines.pinyin
     inkscape
     iperf
     just
