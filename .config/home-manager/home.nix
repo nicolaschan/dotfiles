@@ -56,6 +56,7 @@
     hyperfine
     ibus
     ibus-engines.pinyin
+    ibus-engines.libpinyin
     inkscape
     iperf
     just
