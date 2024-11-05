@@ -70,7 +70,7 @@
     musescore
     neovim
     nil
-    nodejs # for github copilot on neovim
+    # nodejs # for github copilot on neovim
     nushell
     ollama
     pass
