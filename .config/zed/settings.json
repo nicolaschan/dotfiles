@@ -7,6 +7,18 @@
 // custom settings, run the `zed: Open Default Settings` command
 // from the command palette
 {
+  "ssh_connections": [
+    {
+      "host": "monad",
+      "projects": [
+        {
+          "paths": [
+            "~/src/vcake"
+          ]
+        }
+      ]
+    }
+  ],
   "assistant": {
     "default_model": {
       "provider": "zed.dev",
