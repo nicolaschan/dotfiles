@@ -28,7 +28,6 @@
     audacity
     b3sum
     bat
-    blender
     chromium
     devenv
     direnv
