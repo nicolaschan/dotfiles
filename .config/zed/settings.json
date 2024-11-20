@@ -7,12 +7,22 @@
 // custom settings, run the `zed: Open Default Settings` command
 // from the command palette
 {
-    "assistant": {
-        "default_model": {
-            "provider": "zed.dev",
-            "model": "claude-3-5-sonnet-20240620"
-        },
-        "version": "2"
+  "ssh_connections": [
+    {
+      "host": "monad",
+      "projects": [
+        {
+          "paths": [
+            "~/src/vcake"
+          ]
+        }
+      ]
+    }
+  ],
+  "assistant": {
+    "default_model": {
+      "provider": "zed.dev",
+      "model": "claude-3-5-sonnet-20240620"
     },
     "vim_mode": true,
     "ui_font_size": 16,
