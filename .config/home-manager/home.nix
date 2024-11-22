@@ -99,6 +99,7 @@
     vim
     vscode
     wasmtime
+    wezterm
     wget
     wireguard-tools
     wl-clipboard
