@@ -23,6 +23,7 @@
   # environment.
   home.packages = with pkgs; [
     alejandra
+    anki
     asdf-vm
     asciiquarium
     audacity
@@ -100,6 +101,7 @@
     vim
     vscode
     wasmtime
+    wezterm
     wget
     wireguard-tools
     wl-clipboard

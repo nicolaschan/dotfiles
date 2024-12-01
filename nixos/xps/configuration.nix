@@ -201,6 +201,9 @@ in {
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
     # Add any missing dynamic libraries for unpackaged programs here
+    stdenv.cc.cc
+    zlib
+    glib
   ];
 
   virtualisation.containers.enable = true;
@@ -236,7 +239,7 @@ in {
   system.autoUpgrade.enable = true;
 
   nix.gc = {
-    automatic = true;
+    automatic = false;
     persistent = true;
     dates = "weekly";
     options = "--delete-older-than 30d";
