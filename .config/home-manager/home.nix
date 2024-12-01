@@ -67,6 +67,7 @@
     lsd
     mtr
     microsoft-edge
+    mosh
     musescore
     neovim
     nil
