@@ -47,6 +47,12 @@ in {
     LC_TIME = "en_US.UTF-8";
   };
 
+  i18n.inputMethod = {
+    enable = true;
+    type = "ibus";
+    ibus.engines = with pkgs.ibus-engines; [pinyin];
+  };
+
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
@@ -81,7 +87,6 @@ in {
   };
 
   # Enable sound with pipewire.
-  sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   security.sudo.extraRules = [
@@ -167,7 +172,6 @@ in {
   nixpkgs.config.allowUnfree = true;
 
   nix = {
-    package = pkgs.nixFlakes;
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
