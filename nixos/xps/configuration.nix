@@ -50,7 +50,7 @@ in {
   i18n.inputMethod = {
     enable = true;
     type = "ibus";
-    ibus.engines = with pkgs.ibus-engines; [pinyin];
+    ibus.engines = with pkgs.ibus-engines; [libpinyin];
   };
 
   # Enable the X11 windowing system.
