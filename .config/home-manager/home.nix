@@ -165,6 +165,12 @@
   #
   home.sessionVariables = {
     # EDITOR = "nvim";
+
+    # fcitx
+    GTK_IM_MDOULE = "fcitx";
+    QT_IM_MODULE = "fcitx";
+    XMODIFIERS = "@im=fcitx";
+    GLFW_IM_MODULE = "ibus"; # IME support in kitty
   };
 
   nixpkgs.config.allowUnfree = true;
