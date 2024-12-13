@@ -49,8 +49,8 @@ in {
 
   i18n.inputMethod = {
     enable = true;
-    type = "ibus";
-    ibus.engines = with pkgs.ibus-engines; [libpinyin table-chinese];
+    type = "fcitx5";
+    fcitx5.addons = with pkgs; [fcitx5-chinese-addons];
   };
 
   # Enable the X11 windowing system.
