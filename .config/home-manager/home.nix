@@ -92,6 +92,7 @@
     stow
     speedtest-cli
     tealdeer
+    texlivePackages.latex-fonts
     thunderbolt
     tmux
     tokei
