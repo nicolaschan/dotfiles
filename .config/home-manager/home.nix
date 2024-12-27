@@ -118,8 +118,8 @@
     noto-fonts-cjk-sans
 
     # breaks emojis in konsole
-    # noto-fonts
-    # noto-fonts-emoji
+    noto-fonts
+    noto-fonts-emoji
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
