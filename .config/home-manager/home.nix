@@ -2,6 +2,7 @@
   config,
   pkgs,
   ghostty,
+  insanity,
   ...
 }: {
   # Home Manager needs a bit of information about you and the paths it should
@@ -58,6 +59,7 @@
     htop
     hyperfine
     inkscape
+    insanity.packages.${system}.default
     iperf
     just
     jq

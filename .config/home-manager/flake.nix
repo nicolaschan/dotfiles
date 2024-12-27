@@ -11,9 +11,12 @@
     ghostty = {
       url = "github:ghostty-org/ghostty";
     };
+    insanity = {
+      url = "github:nicolaschan/insanity";
+    };
   };
 
-  outputs = { nixpkgs, home-manager, ghostty, ... }:
+  outputs = { nixpkgs, home-manager, ghostty, insanity, ... }:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -27,7 +30,7 @@
 
         # Optionally use extraSpecialArgs
         # to pass through arguments to home.nix
-        extraSpecialArgs = { inherit ghostty; };
+        extraSpecialArgs = { inherit ghostty; inherit insanity; };
       };
     };
 }
