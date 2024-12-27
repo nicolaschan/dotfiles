@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  ghostty,
   ...
 }: {
   # Home Manager needs a bit of information about you and the paths it should
@@ -45,6 +46,7 @@
     fish
     fzf
     gcc # for neovim
+    ghostty.packages.${system}.default
     gimp
     git
     gnome-tweaks
