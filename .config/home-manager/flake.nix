@@ -14,9 +14,12 @@
     insanity = {
       url = "github:nicolaschan/insanity";
     };
+    zeditor = {
+      url = "github:zed-industries/zed";
+    };
   };
 
-  outputs = { nixpkgs, home-manager, ghostty, insanity, ... }:
+  outputs = { nixpkgs, home-manager, ghostty, insanity, zeditor, ... }:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -30,7 +33,7 @@
 
         # Optionally use extraSpecialArgs
         # to pass through arguments to home.nix
-        extraSpecialArgs = { inherit ghostty; inherit insanity; };
+        extraSpecialArgs = { inherit ghostty; inherit insanity; inherit zeditor; };
       };
     };
 }
