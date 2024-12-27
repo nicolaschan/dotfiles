@@ -3,7 +3,6 @@
   pkgs,
   ghostty,
   insanity,
-  zeditor,
   ...
 }: {
   # Home Manager needs a bit of information about you and the paths it should
@@ -111,8 +110,7 @@
     wget
     wireguard-tools
     wl-clipboard
-    # zed-editor
-    zeditor.packages.${system}.default
+    zed-editor
     zip
     zoxide
 
