@@ -50,6 +50,7 @@
     ghostty.packages.${system}.default
     gimp
     git
+    git-absorb
     gnome-tweaks
     gnome-terminal
     gnupg
