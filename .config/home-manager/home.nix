@@ -62,6 +62,7 @@
     inkscape
     insanity.packages.${system}.default
     iperf
+    jetbrains.idea-community-bin
     just
     jq
     k9s
