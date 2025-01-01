@@ -55,6 +55,7 @@
     gnome-terminal
     gnupg
     gping
+    helix
     helvum
     httpie
     htop
