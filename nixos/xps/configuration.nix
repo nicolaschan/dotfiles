@@ -29,6 +29,12 @@ in {
   # Enable networking
   networking.networkmanager.enable = true;
 
+  # Block distracting websites
+  networking.extraHosts = ''
+    127.0.0.1 www.youtube.com
+    127.0.0.1 news.ycombinator.com
+  '';
+
   # Set your time zone.
   time.timeZone = "America/Los_Angeles";
 
