@@ -249,9 +249,9 @@ in {
   system.autoUpgrade.enable = true;
 
   nix.gc = {
-    automatic = false;
+    automatic = true;
     persistent = true;
     dates = "weekly";
-    options = "--delete-older-than 30d";
+    options = "--delete-older-than 7d";
   };
 }
