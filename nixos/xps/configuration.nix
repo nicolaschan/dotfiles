@@ -32,6 +32,7 @@ in {
   # Block distracting websites
   networking.extraHosts = ''
     127.0.0.1 www.youtube.com
+    127.0.0.1 youtube.com
     127.0.0.1 news.ycombinator.com
   '';
 
@@ -149,6 +150,7 @@ in {
         "--keep-monthly 6"
       ];
       timerConfig = {
+        enabled = false;
         OnCalendar = "daily";
         RandomizedDelaySec = "1h";
         Persistent = true;
@@ -252,6 +254,6 @@ in {
     automatic = true;
     persistent = true;
     dates = "weekly";
-    options = "--delete-older-than 7d";
+    options = "--delete-older-than 8d";
   };
 }
