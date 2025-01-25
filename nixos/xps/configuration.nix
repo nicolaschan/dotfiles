@@ -34,6 +34,8 @@ in {
     127.0.0.1 www.youtube.com
     127.0.0.1 youtube.com
     127.0.0.1 news.ycombinator.com
+    127.0.0.1 old.reddit.com
+    127.0.0.1 www.reddit.com
   '';
 
   # Set your time zone.
@@ -94,7 +96,7 @@ in {
   };
 
   # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   security.sudo.extraRules = [
     {
@@ -150,7 +152,6 @@ in {
         "--keep-monthly 6"
       ];
       timerConfig = {
-        enabled = false;
         OnCalendar = "daily";
         RandomizedDelaySec = "1h";
         Persistent = true;
