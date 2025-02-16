@@ -1,7 +1,6 @@
 {
   config,
   pkgs,
-  ghostty,
   insanity,
   ...
 }: {
@@ -47,7 +46,7 @@
     fish
     fzf
     gcc # for neovim
-    ghostty.packages.${system}.default
+    ghostty
     gimp
     git
     git-absorb
