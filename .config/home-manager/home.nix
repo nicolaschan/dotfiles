@@ -68,7 +68,6 @@
     k9s
     killall
     kondo
-    konsole
     kubectl
     lm_sensors
     lsd
