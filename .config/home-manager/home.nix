@@ -44,6 +44,7 @@
     fastfetch
     fd
     fish
+    floorp
     fzf
     gcc # for neovim
     ghostty
