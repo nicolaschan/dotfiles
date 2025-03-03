@@ -26,7 +26,6 @@
     alejandra
     anki
     asdf-vm
-    asciiquarium
     audacity
     b3sum
     bat
