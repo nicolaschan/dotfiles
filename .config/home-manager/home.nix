@@ -25,6 +25,7 @@
   home.packages = with pkgs; [
     alejandra
     anki
+    asciiquarium
     asdf-vm
     audacity
     b3sum
