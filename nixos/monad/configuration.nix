@@ -298,7 +298,7 @@
   system.autoUpgrade.enable = true;
 
   nix. extraOptions = ''
-    experimental-features = nix-command
+    experimental-features = nix-command flakes
   '';
 
   nix.gc = {
