@@ -91,13 +91,6 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  nix = {
-    package = pkgs.nixFlakes;
-    extraOptions = ''
-      experimental-features = nix-command flakes
-    '';
-  };
-
   hardware.nvidia-container-toolkit.enable = true;
   hardware.nvidia = {
     package = config.boot.kernelPackages.nvidiaPackages.stable;
@@ -156,7 +149,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     cudatoolkit
-    cudaPackages.fabricmanager
+    # cudaPackages.fabricmanager
     docker
     git
     libnvidia-container
@@ -303,6 +296,10 @@
   system.stateVersion = "24.05"; # Did you read the comment?
 
   system.autoUpgrade.enable = true;
+
+  nix. extraOptions = ''
+    experimental-features = nix-command
+  '';
 
   nix.gc = {
     automatic = true;
