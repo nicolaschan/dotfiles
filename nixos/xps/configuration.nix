@@ -128,6 +128,19 @@ in {
     tod.enable = true;
     tod.driver = pkgs.libfprint-2-tod1-goodix;
   };
+  nixpkgs.overlays = [
+    (final: prev: {
+      libfprint-tod = prev.libfprint-tod.overrideAttrs (oldAttrs: {
+        buildInputs =
+          (oldAttrs.buildInputs or [])
+          ++ [
+            prev.cmake
+            prev.nss
+            prev.pkg-config
+          ];
+      });
+    })
+  ];
 
   services.restic.backups = {
     scarifBackup = {
