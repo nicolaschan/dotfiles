@@ -36,7 +36,6 @@
     direnv
     distrobox
     dive
-    docker-slim
     dogdns
     dotacat
     dust
