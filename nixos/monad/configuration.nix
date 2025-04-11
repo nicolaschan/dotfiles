@@ -229,7 +229,7 @@
   services.k3s = {
     enable = true;
     role = "server";
-    extraFlags = "--disable=traefik";
+    extraFlags = "--disable=traefik --flannel-backend=none --disable-network-policy";
   };
 
   systemd.services.k3s = {
