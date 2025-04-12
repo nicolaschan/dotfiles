@@ -45,12 +45,13 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Select internationalisation properties.
-  # i18n.defaultLocale = "en_US.UTF-8";
+  i18n.defaultLocale = "en_US.UTF-8";
   # console = {
   #   font = "Lat2-Terminus16";
   #   keyMap = "us";
   #   useXkbConfig = true; # use xkb.options in tty.
   # };
+  console.keyMap = "dvorak";
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
@@ -58,7 +59,10 @@
   services.xserver.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
-  # services.xserver.xkb.layout = "us";
+  services.xserver.xkb = {
+    layout = "us";
+    variant = "dvorak";
+  };
   # services.xserver.xkb.options = "eurosign:e,caps:escape";
 
   # Enable CUPS to print documents.
