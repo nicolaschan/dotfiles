@@ -209,8 +209,8 @@
   };
 
   boot.kernelPackages = pkgs.linuxPackages_6_12;
-  boot.supportedFilesystems = ["zfs"];
 
+  boot.supportedFilesystems = ["zfs"];
   boot.zfs.extraPools = ["scarif"];
   services.zfs.autoScrub.enable = true;
 
