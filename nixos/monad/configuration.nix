@@ -210,27 +210,6 @@
 
   boot.kernelPackages = pkgs.linuxPackages_6_12;
 
-  boot.kernelParams = [
-    "pcie_aspm=off" # Disable Active State Power Management
-    "pcie_port_pm=off" # Disable PCIe port power management
-    "acpi_osi=\"!Windows 2020\"" # Use Linux-specific ACPI implementation
-    "usb-storage.quirks=2188:0035:u,2188:0032:u,2188:0031:u"
-    "pciehp.pciehp_force=1"
-    "usb-storage.delay_use=0"
-    "usbcore.autosuspend=-1"
-    "usbhid.mousepoll=0"
-    "typec.retimer_control=1"
-    "usb.role=host"
-  ];
-  boot.extraModprobeConfig = ''
-    options usbcore autosuspend=-1
-    options xhci_hcd quirks=0x80
-    options typec altmodes=1
-  '';
-  boot.kernel.sysctl = {
-    "vm.dirty_ratio" = 6;
-    "vm.dirty_background_ratio" = 3;
-  };
   hardware.bluetooth.powerOnBoot = true;
 
   boot.supportedFilesystems = ["zfs"];
