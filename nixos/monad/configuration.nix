@@ -208,7 +208,7 @@
     };
   };
 
-  boot.kernelPackages = pkgs.linuxPackages_6_6;
+  boot.kernelPackages = pkgs.linuxPackages_6_12;
   boot.supportedFilesystems = ["zfs"];
 
   boot.zfs.extraPools = ["scarif"];
