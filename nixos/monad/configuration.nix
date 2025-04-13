@@ -220,13 +220,15 @@
     serviceConfig.Type = "oneshot";
   };
   boot.kernelParams = [
-    "pcie_aspm=off" # Disable PCIe power management which can affect USB4
+    "pcie_aspm=off" # Disable Active State Power Management
     "pcie_port_pm=off" # Disable PCIe port power management
-    "acpi_osi=\"!Windows 2020\"" # Prevent ACPI from using certain power features
+    "pci=noaer" # Disable Advanced Error Reporting
+    "pci=nomsi" # Try disabling Message Signaled Interrupts
+    "acpi_osi=Linux" # Use Linux-specific ACPI implementation
   ];
   boot.extraModprobeConfig = ''
     options usbcore autosuspend=-1
-    options xhci_hcd quirks=0x80
+    options usb-storage quirks=2188:0035:s
   '';
   boot.kernel.sysctl = {
     "vm.dirty_ratio" = 6;
