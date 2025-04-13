@@ -210,10 +210,19 @@
 
   boot.kernelPackages = pkgs.linuxPackages_6_12;
 
+  systemd.services.fix-pcie-power = {
+    description = "Force PCIe devices to stay in D0 power state";
+    wantedBy = ["multi-user.target"];
+    script = ''
+      echo on > /sys/bus/pci/devices/0000:1b:04.0/power/control
+      echo 0 > /sys/bus/pci/devices/0000:1b:04.0/d3cold_allowed
+    '';
+    serviceConfig.Type = "oneshot";
+  };
   boot.kernelParams = [
-    "usbcore.quirks=2188:0035:u" # Add quirk for CalDigit hub
-    "usb-storage.quirks=2188:0035:u"
     "pcie_aspm=off" # Disable PCIe power management which can affect USB4
+    "pcie_port_pm=off" # Disable PCIe port power management
+    "acpi_osi=\"!Windows 2020\"" # Prevent ACPI from using certain power features
   ];
   boot.extraModprobeConfig = ''
     options usbcore autosuspend=-1
