@@ -211,17 +211,19 @@
   boot.kernelPackages = pkgs.linuxPackages_6_12;
 
   boot.kernelParams = [
-    "thunderbolt.usb4_pcie_relaxed_ordering=1"
-    "usbcore.quirks=2188:0035:k" # Add quirk for CalDigit hub
+    "usbcore.quirks=2188:0035:u" # Add quirk for CalDigit hub
+    "usb-storage.quirks=2188:0035:u"
+    "pcie_aspm=off" # Disable PCIe power management which can affect USB4
   ];
   boot.extraModprobeConfig = ''
-    options thunderbolt usb4_pcie_relaxed_ordering=1
-    options usb-storage quirks=2188:0035:u
+    options usbcore autosuspend=-1
+    options xhci_hcd quirks=0x80
   '';
   boot.kernel.sysctl = {
     "vm.dirty_ratio" = 6;
     "vm.dirty_background_ratio" = 3;
   };
+  hardware.bluetooth.powerOnBoot = true;
 
   boot.supportedFilesystems = ["zfs"];
   boot.zfs.extraPools = ["scarif"];
