@@ -210,6 +210,19 @@
 
   boot.kernelPackages = pkgs.linuxPackages_6_12;
 
+  boot.kernelParams = [
+    "thunderbolt.usb4_pcie_relaxed_ordering=1"
+    "usbcore.quirks=2188:0035:k" # Add quirk for CalDigit hub
+  ];
+  boot.extraModprobeConfig = ''
+    options thunderbolt usb4_pcie_relaxed_ordering=1
+    options usb-storage quirks=2188:0035:u
+  '';
+  boot.kernel.sysctl = {
+    "vm.dirty_ratio" = 6;
+    "vm.dirty_background_ratio" = 3;
+  };
+
   boot.supportedFilesystems = ["zfs"];
   boot.zfs.extraPools = ["scarif"];
   services.zfs.autoScrub.enable = true;
