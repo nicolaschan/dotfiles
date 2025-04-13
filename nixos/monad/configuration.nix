@@ -210,25 +210,14 @@
 
   boot.kernelPackages = pkgs.linuxPackages_6_12;
 
-  systemd.services.fix-pcie-power = {
-    description = "Force PCIe devices to stay in D0 power state";
-    wantedBy = ["multi-user.target"];
-    script = ''
-      echo on > /sys/bus/pci/devices/0000:1b:04.0/power/control
-      echo 0 > /sys/bus/pci/devices/0000:1b:04.0/d3cold_allowed
-    '';
-    serviceConfig.Type = "oneshot";
-  };
   boot.kernelParams = [
     "pcie_aspm=off" # Disable Active State Power Management
     "pcie_port_pm=off" # Disable PCIe port power management
-    "pci=noaer" # Disable Advanced Error Reporting
-    "pci=nomsi" # Try disabling Message Signaled Interrupts
-    "acpi_osi=Linux" # Use Linux-specific ACPI implementation
+    "acpi_osi=\"!Windows 2020\"" # Use Linux-specific ACPI implementation
   ];
   boot.extraModprobeConfig = ''
     options usbcore autosuspend=-1
-    options usb-storage quirks=2188:0035:s
+    options xhci_hcd quirks=0x80
   '';
   boot.kernel.sysctl = {
     "vm.dirty_ratio" = 6;
