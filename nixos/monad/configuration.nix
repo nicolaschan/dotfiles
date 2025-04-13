@@ -219,6 +219,8 @@
     "usb-storage.delay_use=0"
     "usbcore.autosuspend=-1"
     "usbhid.mousepoll=0"
+    "typec.retimer_control=1"
+    "usb.role=host"
   ];
   boot.extraModprobeConfig = ''
     options usbcore autosuspend=-1
