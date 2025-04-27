@@ -90,9 +90,9 @@
   #   pulse.enable = true;
   # };
 
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
-    driSupport32Bit = true; # required for docker.enableNvdia
+    enable32Bit = true; # required for docker.enableNvdia
   };
 
   nixpkgs.config.allowUnfree = true;
