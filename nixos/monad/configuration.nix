@@ -45,18 +45,24 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Select internationalisation properties.
-  # i18n.defaultLocale = "en_US.UTF-8";
+  i18n.defaultLocale = "en_US.UTF-8";
   # console = {
   #   font = "Lat2-Terminus16";
   #   keyMap = "us";
   #   useXkbConfig = true; # use xkb.options in tty.
   # };
+  console.keyMap = "dvorak";
 
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
+  # services.xserver.displayManager.gdm.enable = true;
+  # services.xserver.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
-  # services.xserver.xkb.layout = "us";
+  services.xserver.xkb = {
+    layout = "us";
+    variant = "dvorak";
+  };
   # services.xserver.xkb.options = "eurosign:e,caps:escape";
 
   # Enable CUPS to print documents.
@@ -84,9 +90,9 @@
   #   pulse.enable = true;
   # };
 
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
-    driSupport32Bit = true; # required for docker.enableNvdia
+    enable32Bit = true; # required for docker.enableNvdia
   };
 
   nixpkgs.config.allowUnfree = true;
@@ -202,9 +208,11 @@
     };
   };
 
-  boot.kernelPackages = pkgs.linuxPackages_6_6;
-  boot.supportedFilesystems = ["zfs"];
+  boot.kernelPackages = pkgs.linuxPackages_6_12;
 
+  hardware.bluetooth.powerOnBoot = true;
+
+  boot.supportedFilesystems = ["zfs" "bcachefs"];
   boot.zfs.extraPools = ["scarif"];
   services.zfs.autoScrub.enable = true;
 
@@ -229,7 +237,7 @@
   services.k3s = {
     enable = true;
     role = "server";
-    extraFlags = "--disable=traefik";
+    extraFlags = "--disable=traefik --flannel-backend=vxlan";
   };
 
   systemd.services.k3s = {
