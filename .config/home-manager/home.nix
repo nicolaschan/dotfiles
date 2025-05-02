@@ -31,6 +31,7 @@
     b3sum
     bat
     blender
+    btop
     chromium
     devenv
     direnv
