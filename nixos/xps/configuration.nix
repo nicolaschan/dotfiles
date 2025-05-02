@@ -282,7 +282,7 @@ in {
   system.autoUpgrade.enable = true;
 
   nix.gc = {
-    automatic = true;
+    automatic = false; # disabled!
     persistent = true;
     dates = "weekly";
     options = "--delete-older-than 8d";
