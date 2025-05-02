@@ -38,6 +38,7 @@
     dive
     dogdns
     dotacat
+    drill
     dust
     # easyeffects
     fastfetch
