@@ -18,7 +18,9 @@ in {
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.grub.configurationLimit = 4;
 
-  boot.initrd.luks.devices."luks-cf582299-0223-48a5-849e-112b33966d2e".device = "/dev/disk/by-uuid/cf582299-0223-48a5-849e-112b33966d2e";
+  boot.supportedFilesystems = ["bcachefs"];
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
   networking.hostName = "xps"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -81,7 +83,7 @@ in {
   # Enable kanata for keyboard remapping
   hardware.uinput.enable = true;
   services.kanata = {
-    enable = true;
+    enable = false;
     keyboards.default = {
       extraDefCfg = "process-unmapped-keys yes";
       config = ''
@@ -110,7 +112,7 @@ in {
   '';
 
   # Enable sound with pipewire.
-  services.pulseaudio.enable = false;
+  # services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   security.sudo.extraRules = [
     {
@@ -257,8 +259,6 @@ in {
       defaultNetwork.settings.dns_enabled = true;
     };
   };
-
-  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # List services that you want to enable:
 
