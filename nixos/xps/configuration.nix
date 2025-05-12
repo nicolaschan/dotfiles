@@ -16,7 +16,7 @@ in {
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.grub.configurationLimit = 4;
+  boot.loader.grub.configurationLimit = 5;
 
   boot.supportedFilesystems = ["bcachefs"];
   boot.kernelPackages = pkgs.linuxPackages_latest;
