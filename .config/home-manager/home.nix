@@ -55,6 +55,7 @@
     gnome-tweaks
     gnome-terminal
     gnupg
+    gocryptfs
     gping
     helix
     helvum
@@ -74,7 +75,6 @@
     lm_sensors
     lsd
     mtr
-    microsoft-edge
     mosh
     musescore
     neovim
