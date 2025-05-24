@@ -36,7 +36,10 @@
 
       # Optionally use extraSpecialArgs
       # to pass through arguments to home.nix
-      extraSpecialArgs = {inherit insanity;};
+      extraSpecialArgs = {
+        inherit insanity;
+        inherit stylix;
+      };
     };
   };
 }
