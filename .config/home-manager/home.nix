@@ -208,7 +208,15 @@
   programs.htop.enable = true;
   programs.btop.enable = true;
   programs.ghostty.enable = true;
-  programs.zed-editor.enable = true;
+  programs.zed-editor = {
+    enable = true;
+    userSettings = {
+      telemetry = {
+        metrics = false;
+      };
+      vim_mode = true;
+    };
+  };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
