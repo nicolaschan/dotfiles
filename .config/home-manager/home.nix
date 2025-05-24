@@ -211,10 +211,17 @@
       autoindent = true;
       termguicolors = true;
     };
-    plugins.lsp = {
-      enable = true;
-      servers = {
-        nil_ls.enable = true;
+    plugins = {
+      lsp = {
+        enable = true;
+        servers = {
+          nil_ls.enable = true;
+        };
+      };
+
+      treesitter = {
+        enable = true;
+        settings.indent.enable = true;
       };
     };
   };
