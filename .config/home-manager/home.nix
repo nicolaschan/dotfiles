@@ -19,7 +19,10 @@
       name = "Cascadia Code PL";
     };
     opacity.terminal = 0.0;
-    targets = {btop.enable = true;};
+    targets = {
+      btop.enable = true;
+      ghostty.enable = true;
+    };
   };
 
   # This value determines the Home Manager release that your configuration is
