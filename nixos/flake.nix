@@ -30,6 +30,16 @@
           ./xps/configuration.nix
         ];
       };
+      monad = nixpkgs.lib.nixosSystem {
+        specialArgs = {
+          inherit inputs outputs;
+          inherit pkgs-unstable;
+        };
+        # > Our main nixos configuration file <
+        modules = [
+          ./monad/configuration.nix
+        ];
+      };
     };
   };
 }

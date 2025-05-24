@@ -1,14 +1,15 @@
 #!/usr/bin/env bash
 
-CONFIG_PATH=/etc/nixos/configuration.nix
-DEST_DIR="$HOME/dotfiles/nixos/$(hostname)"
+CONFIG_PATH=$HOME/dotfiles/nixos/$(hostname)/configuration.nix
+CONFIG_FLAKE_DIR="$HOME/dotfiles/nixos"
 
 if ! sudo --preserve-env=EDITOR nix-edit "$CONFIG_PATH"; then
   echo "Skip applying config"
   exit 0	
 fi
 
-sudo nixos-rebuild switch --upgrade
+pushd "$CONFIG_FLAKE_DIR" || exit
+sudo nixos-rebuild switch --upgrade --flake .#$(hostname)
 
 status=$?
 
@@ -17,9 +18,6 @@ if [ $status -ne 0 ]; then
   exit $status
 fi
 
-mkdir -p "$DEST_DIR"
-cp "$CONFIG_PATH" "$DEST_DIR"
-pushd "$DEST_DIR" || exit
 nixos_generation="$(readlink /nix/var/nix/profiles/system)"
 git add .
 git commit -m "NixOS configuration: $(hostname) generation $nixos_generation"
