@@ -94,6 +94,7 @@
     ripgrep-all
     screen
     shellcheck
+    signal-desktop
     sshfs
     starship
     stow
