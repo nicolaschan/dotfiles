@@ -232,6 +232,11 @@
       cmp = {
         enable = true;
         autoEnableSources = true;
+        settings.sources = [
+          {name = "nvim_lsp";} # ←  drives language-server items
+          {name = "path";} #  file paths
+          {name = "buffer";} #  words already in the file
+        ];
       };
       lspkind.enable = true;
       luasnip.enable = true;
