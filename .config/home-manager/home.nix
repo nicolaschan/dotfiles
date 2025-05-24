@@ -18,6 +18,10 @@
       package = pkgs.cascadia-code;
       name = "Cascadia Code PL";
     };
+    fonts.sansSerif = {
+      package = pkgs.inter;
+      name = "Inter";
+    };
     opacity.terminal = 0.84;
     targets = {
       btop.enable = true;
