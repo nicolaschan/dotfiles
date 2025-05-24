@@ -208,6 +208,9 @@
     viAlias = true;
     vimAlias = true;
     opts = {
+      number = true;
+      relativenumber = true;
+      expandtab = true;
       autoindent = true;
       termguicolors = true;
     };
@@ -215,7 +218,7 @@
       lsp = {
         enable = true;
         servers = {
-          nil_ls.enable = true;
+          nixd.enable = true;
         };
       };
 
