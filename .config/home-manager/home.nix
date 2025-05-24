@@ -209,7 +209,7 @@
     plugins.lsp = {
       enable = true;
       servers = {
-        nixd.enable = true;
+        nil_ls.enable = true;
       };
     };
   };
