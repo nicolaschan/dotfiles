@@ -10,7 +10,8 @@
   home.username = "nicolas";
   home.homeDirectory = "/home/nicolas";
 
-  stylix.enable = false;
+  stylix.enable = true;
+  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/dracula.yaml";
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
