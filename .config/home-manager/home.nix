@@ -234,6 +234,8 @@
       cmp-buffer.enable = true;
       cmp-path.enable = true;
       cmp-cmdline.enable = true;
+      lspkind.enable = true;
+      luasnip.enable = true;
     };
   };
   programs.starship.enable = true;
