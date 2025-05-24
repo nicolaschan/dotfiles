@@ -13,13 +13,12 @@
   stylix = {
     enable = true;
     polarity = "dark";
-    # base16Scheme = "${pkgs.base16-schemes}/share/themes/dracula.yaml";
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/ayu-dark.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/dracula.yaml";
+    # base16Scheme = "${pkgs.base16-schemes}/share/themes/ayu-dark.yaml";
     fonts.monospace = {
       package = pkgs.cascadia-code;
-      name = "Cascadia Code NF";
+      name = "Cascadia Code PL";
     };
-    opacity.terminal = 0.0;
     targets = {
       btop.enable = true;
       ghostty.enable = true;
