@@ -3,7 +3,7 @@
 CONFIG_PATH=$HOME/dotfiles/nixos/$(hostname)/configuration.nix
 CONFIG_FLAKE_DIR="$HOME/dotfiles/nixos"
 
-if ! sudo --preserve-env=EDITOR nix-edit "$CONFIG_PATH"; then
+if ! nix-edit "$CONFIG_PATH"; then
   echo "Skip applying config"
   exit 0	
 fi
