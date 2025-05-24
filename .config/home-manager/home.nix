@@ -10,8 +10,15 @@
   home.username = "nicolas";
   home.homeDirectory = "/home/nicolas";
 
-  stylix.enable = true;
-  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/dracula.yaml";
+  stylix = {
+    enable = true;
+    polarity = "dark";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/dracula.yaml";
+    fonts.monospace = {
+      package = pkgs.cascadia-code;
+      name = "Cascadia Code PL";
+    };
+  };
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
