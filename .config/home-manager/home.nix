@@ -12,7 +12,7 @@
 
   stylix = {
     enable = true;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/3024.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/github.yaml";
     # base16Scheme = "${pkgs.base16-schemes}/share/themes/dracula.yaml";
     # base16Scheme = "${pkgs.base16-schemes}/share/themes/ayu-dark.yaml";
     fonts.monospace = {
