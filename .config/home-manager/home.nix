@@ -223,7 +223,7 @@
           initialization_options = {
             cargo.buildScripts.rebuildOnSave = true;
             procMacro.enable = true;
-            checkOnSave.command = "clippy";
+            checkOnSave = true;
           };
         };
       };
