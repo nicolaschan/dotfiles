@@ -229,7 +229,10 @@
         enable = true;
         settings.indent.enable = true;
       };
-      cmp.enable = true;
+      cmp = {
+        enable = true;
+        autoEnableSources = true;
+      };
       lspkind.enable = true;
       luasnip.enable = true;
     };
