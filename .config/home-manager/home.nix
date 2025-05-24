@@ -131,7 +131,6 @@
     wget
     wireguard-tools
     wl-clipboard
-    zed-editor
     zip
     zoxide
 
@@ -190,7 +189,7 @@
   #  /etc/profiles/per-user/nicolas/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    # EDITOR = "nvim";
+    EDITOR = "nvim";
   };
 
   nixpkgs.config.allowUnfree = true;
@@ -209,6 +208,7 @@
   programs.htop.enable = true;
   programs.btop.enable = true;
   programs.ghostty.enable = true;
+  programs.zed-editor.enable = true;
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
