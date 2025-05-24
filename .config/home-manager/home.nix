@@ -207,7 +207,10 @@
     enable = true;
     viAlias = true;
     vimAlias = true;
-    opts.autoindent = true;
+    opts = {
+      autoindent = true;
+      termguicolors = true;
+    };
     plugins.lsp = {
       enable = true;
       servers = {
