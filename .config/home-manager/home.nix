@@ -13,8 +13,7 @@
   stylix = {
     enable = true;
     polarity = "dark";
-    # base16Scheme = "${pkgs.base16-schemes}/share/themes/ayu-dark.yaml";
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/classic-dark.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/ayu-dark.yaml";
     fonts.monospace = {
       package = pkgs.cascadia-code;
       name = "Cascadia Code PL";
