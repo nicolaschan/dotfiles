@@ -224,6 +224,10 @@
           nil_ls.enable = true;
         };
       };
+      treesitter = {
+        enable = true;
+        settings.indent.enable = true;
+      };
       cmp.enable = true;
       cmp-nvim-lsp.enable = true;
       cmp-buffer.enable = true;
