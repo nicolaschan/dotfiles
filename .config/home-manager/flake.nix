@@ -26,6 +26,7 @@
     home-manager,
     insanity,
     stylix,
+    nixvim,
     ...
   }: let
     system = "x86_64-linux";
@@ -38,6 +39,7 @@
       # the path to your home.nix.
       modules = [
         stylix.homeModules.stylix
+        nixvim.homeManagerModules.nixvim
         ./home.nix
       ];
 
