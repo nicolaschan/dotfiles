@@ -204,7 +204,15 @@
   programs.btop.enable = true;
   programs.ghostty.enable = true;
   programs.htop.enable = true;
-  programs.nixvim.enable = true;
+  programs.nixvim = {
+    enable = true;
+    plugins.lsp = {
+      enable = true;
+      servers = {
+        nixd.enable = true;
+      };
+    };
+  };
   programs.starship.enable = true;
   programs.zed-editor = {
     enable = true;
