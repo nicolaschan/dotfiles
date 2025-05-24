@@ -211,6 +211,9 @@
       number = true;
       relativenumber = true;
       expandtab = true;
+      tabstop = 8;
+      softtabstop = 0;
+      shiftwidth = 2;
       autoindent = true;
       termguicolors = true;
     };
@@ -220,11 +223,6 @@
         servers = {
           nixd.enable = true;
         };
-      };
-
-      treesitter = {
-        enable = true;
-        settings.indent.enable = true;
       };
     };
   };
