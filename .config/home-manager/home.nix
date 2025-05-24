@@ -16,7 +16,7 @@
     base16Scheme = "${pkgs.base16-schemes}/share/themes/dracula.yaml";
     fonts.monospace = {
       package = pkgs.cascadia-code;
-      name = "Cascadia Code PL";
+      name = "Cascadia Code NF";
     };
     opacity.terminal = 0.0;
     targets = {
