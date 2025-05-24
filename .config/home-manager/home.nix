@@ -49,7 +49,6 @@
     b3sum
     bat
     blender
-    btop
     chromium
     devenv
     direnv
@@ -66,7 +65,6 @@
     floorp
     fzf
     gcc # for neovim
-    ghostty
     gimp
     git
     git-absorb
@@ -206,6 +204,9 @@
       };
     };
   };
+
+  programs.btop.enable = true;
+  programs.ghostty.enable = true;
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
