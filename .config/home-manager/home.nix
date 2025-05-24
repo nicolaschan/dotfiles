@@ -76,7 +76,6 @@
     helix
     helvum
     httpie
-    htop
     hyperfine
     inkscape
     insanity.packages.${system}.default
@@ -205,6 +204,7 @@
     };
   };
 
+  programs.htop.enable = true;
   programs.btop.enable = true;
   programs.ghostty.enable = true;
 
