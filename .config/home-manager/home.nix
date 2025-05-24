@@ -221,6 +221,7 @@
       lsp = {
         enable = true;
         servers = {
+          ruff.enable = true;
           nixd.enable = true;
         };
       };
