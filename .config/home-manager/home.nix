@@ -113,7 +113,6 @@
     shellcheck
     signal-desktop
     sshfs
-    starship
     stow
     speedtest-cli
     tealdeer
@@ -205,9 +204,10 @@
     };
   };
 
-  programs.htop.enable = true;
   programs.btop.enable = true;
   programs.ghostty.enable = true;
+  programs.htop.enable = true;
+  programs.starship.enable = true;
   programs.zed-editor = {
     enable = true;
     userSettings = {
