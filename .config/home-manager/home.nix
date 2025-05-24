@@ -20,7 +20,7 @@
       package = pkgs.cascadia-code;
       name = "Cascadia Code PL";
     };
-    opacity.terminal = 0.8;
+    opacity.terminal = 0.0;
     targets = {
       btop.enable = true;
       ghostty.enable = true;
