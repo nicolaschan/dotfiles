@@ -18,7 +18,7 @@
       package = pkgs.cascadia-code;
       name = "Cascadia Code PL";
     };
-    opacity.terminal = 0.85;
+    opacity.terminal = 0.84;
     targets = {
       btop.enable = true;
       ghostty.enable = true;
