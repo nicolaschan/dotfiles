@@ -18,6 +18,7 @@
       package = pkgs.cascadia-code;
       name = "Cascadia Code PL";
     };
+    targets = {btop.enable = true;};
   };
 
   # This value determines the Home Manager release that your configuration is
