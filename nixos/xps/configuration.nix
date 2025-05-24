@@ -22,7 +22,10 @@ in {
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   swapDevices = [
-    { device = "/dev/disk/by-partuuid/ae7e7c92-7bf6-4514-b0e4-3c7cd4d840e3"; randomEncryption.enable = true; }
+    {
+      device = "/dev/disk/by-partuuid/ae7e7c92-7bf6-4514-b0e4-3c7cd4d840e3";
+      randomEncryption.enable = true;
+    }
   ];
 
   networking.hostName = "xps"; # Define your hostname.
