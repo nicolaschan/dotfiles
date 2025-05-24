@@ -292,6 +292,6 @@ in {
     automatic = false; # disabled!
     persistent = true;
     dates = "weekly";
-    options = "--delete-older-than 8d";
+    options = "--delete-older-than 9d";
   };
 }
