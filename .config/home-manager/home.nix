@@ -215,6 +215,18 @@
         metrics = false;
       };
       vim_mode = true;
+      autosave = "on_focus_change";
+      format_on_save = "on";
+      formatter = "language_server";
+      lsp = {
+        rust-analyzer = {
+          initialization_options = {
+            cargo.buildScripts.rebuildOnSave = true;
+            procMacro.enable = true;
+            checkOnSave.command = "clippy";
+          };
+        };
+      };
     };
   };
 
