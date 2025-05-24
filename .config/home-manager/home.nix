@@ -207,6 +207,7 @@
   programs.btop.enable = true;
   programs.ghostty.enable = true;
   programs.htop.enable = true;
+  programs.nixvim.enable = true;
   programs.starship.enable = true;
   programs.zed-editor = {
     enable = true;
