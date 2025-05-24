@@ -120,7 +120,6 @@
     traceroute
     tree
     unzip
-    vim
     vscode
     wasmtime
     wezterm
@@ -206,6 +205,9 @@
   programs.htop.enable = true;
   programs.nixvim = {
     enable = true;
+    viAlias = true;
+    vimAlias = true;
+    opts.autoindent = true;
     plugins.lsp = {
       enable = true;
       servers = {
