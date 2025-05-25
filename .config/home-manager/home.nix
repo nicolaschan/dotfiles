@@ -92,7 +92,6 @@
     mtr
     mosh
     musescore
-    nil
     # nodejs # for github copilot on neovim
     nushell
     ollama
@@ -245,6 +244,8 @@
   programs.starship.enable = true;
   programs.zed-editor = {
     enable = true;
+    extensions = ["nix"];
+    extraPackages = [pkgs.nil];
     userSettings = {
       telemetry = {
         metrics = false;
