@@ -250,6 +250,7 @@
       telemetry = {
         metrics = false;
       };
+      assistant.enable = false;
       vim_mode = true;
       autosave = "on_focus_change";
       format_on_save = "on";
