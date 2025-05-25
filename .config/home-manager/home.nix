@@ -254,7 +254,10 @@
       autosave = "on_focus_change";
       format_on_save = "on";
       formatter = "language_server";
-      buffer_font_features = {calt = true;};
+      buffer_font_features = {
+        calt = true;
+        liga = true;
+      };
       lsp = {
         rust-analyzer = {
           initialization_options = {
