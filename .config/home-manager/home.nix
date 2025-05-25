@@ -250,7 +250,8 @@
       telemetry = {
         metrics = false;
       };
-      edit_prediction_provider = "none";
+      features.edit_prediction_provider = "none";
+      assistant.enabled = false;
       vim_mode = true;
       autosave = "on_focus_change";
       format_on_save = "on";
