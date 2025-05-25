@@ -244,7 +244,7 @@
   programs.starship.enable = true;
   programs.zed-editor = {
     enable = true;
-    extensions = ["gleam" "nix"];
+    extensions = ["gleam" "nix" "xml"];
     extraPackages = [pkgs.nil pkgs.nixd];
     userSettings = {
       telemetry = {
