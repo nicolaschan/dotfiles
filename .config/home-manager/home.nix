@@ -14,7 +14,7 @@
     base16Scheme = "${pkgs.base16-schemes}/share/themes/ayu-dark.yaml";
     fonts.monospace = {
       package = pkgs.cascadia-code;
-      name = "Cascadia Code PL";
+      name = "Cascadia Code NF";
     };
     fonts.sansSerif = {
       package = pkgs.inter;
