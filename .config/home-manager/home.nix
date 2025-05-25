@@ -12,10 +12,10 @@
     enable = true;
     polarity = "dark";
     base16Scheme = "${pkgs.base16-schemes}/share/themes/ayu-dark.yaml";
-    # fonts.monospace = {
-    #package = pkgs.cascadia-code;
-    #name = "Cascadia Code PL";
-    # };
+    fonts.monospace = {
+      package = pkgs.cascadia-code;
+      name = "Cascadia Code PL";
+    };
     fonts.sansSerif = {
       package = pkgs.inter;
       name = "Inter";
@@ -257,6 +257,11 @@
       buffer_font_features = {
         calt = true;
         liga = true;
+        ss01 = true;
+        ss02 = true;
+        ss03 = true;
+        ss19 = true;
+        ss20 = true;
       };
       lsp = {
         rust-analyzer = {
