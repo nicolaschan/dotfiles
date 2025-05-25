@@ -254,6 +254,7 @@
       format_on_save = "on";
       formatter = "language_server";
       lsp = {
+        nil.binary.path_lookup = true;
         rust-analyzer = {
           initialization_options = {
             cargo.buildScripts.rebuildOnSave = true;
