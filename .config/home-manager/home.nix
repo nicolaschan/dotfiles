@@ -245,7 +245,7 @@
   programs.zed-editor = {
     enable = true;
     extensions = ["nix"];
-    extraPackages = [pkgs.nixd];
+    extraPackages = [pkgs.nil pkgs.nixd];
     userSettings = {
       telemetry = {
         metrics = false;
@@ -255,7 +255,6 @@
       format_on_save = "on";
       formatter = "language_server";
       lsp = {
-        nil.binary.path_lookup = true;
         rust-analyzer = {
           initialization_options = {
             cargo.buildScripts.rebuildOnSave = true;
