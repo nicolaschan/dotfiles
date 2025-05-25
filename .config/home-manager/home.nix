@@ -245,7 +245,7 @@
   programs.zed-editor = {
     enable = true;
     extensions = ["nix"];
-    extraPackages = [pkgs.nil];
+    extraPackages = [pkgs.nixd];
     userSettings = {
       telemetry = {
         metrics = false;
