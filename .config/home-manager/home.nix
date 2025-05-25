@@ -251,6 +251,7 @@
         metrics = false;
       };
       features.edit_prediction_provider = "none";
+      features.copilot = true;
       assistant.enabled = false;
       vim_mode = true;
       autosave = "on_focus_change";
