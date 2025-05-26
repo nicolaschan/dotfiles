@@ -206,6 +206,8 @@
     enable = true;
     viAlias = true;
     vimAlias = true;
+    vimdiffAlias = true;
+    clipboard.providers.wl-copy.enable = true;
     opts = {
       number = true;
       relativenumber = true;
