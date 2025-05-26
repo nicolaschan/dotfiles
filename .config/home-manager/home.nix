@@ -70,6 +70,7 @@
     git-absorb
     gnome-tweaks
     gnome-terminal
+    gnomeExtensions.just-perfection
     gnupg
     gocryptfs
     gping
