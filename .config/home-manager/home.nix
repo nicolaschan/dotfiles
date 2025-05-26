@@ -279,6 +279,17 @@
     };
   };
 
+  dconf.settings = {
+    "org/gnome/shell".enabled-extensions = ["just-perfection-desktop@just-perfection"];
+    "org/gnome/shell/extensions/just-perfection" = {
+      activities = false;
+      panel = false;
+      tray = false;
+      clock = false;
+      animation = "scale";
+    };
+  };
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
