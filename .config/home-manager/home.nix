@@ -70,7 +70,6 @@
     git-absorb
     gnome-tweaks
     gnome-terminal
-    gnomeExtensions.just-perfection
     gnupg
     gocryptfs
     gping
@@ -276,17 +275,6 @@
           };
         };
       };
-    };
-  };
-
-  dconf.settings = {
-    "org/gnome/shell".enabled-extensions = ["just-perfection-desktop@just-perfection"];
-    "org/gnome/shell/extensions/just-perfection" = {
-      activities = false;
-      panel = false;
-      tray = false;
-      clock = false;
-      animation = "scale";
     };
   };
 
