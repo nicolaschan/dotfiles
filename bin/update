@@ -7,13 +7,23 @@ pushd "$DOTFILES_DIR" || exit
 git pull origin master
 
 nix-shell -p stow --run "stow -v --override='../.*' ."
-nix run home-manager/master -- switch
+
+pushd nixos || exit
+echo "Updating system..."
+nix flake update
+sudo nixos-rebuild switch --upgrade --flake .#$(hostname) || exit
+git add flake.lock
+git commit -m "Update system flake"
+git push origin master
+popd || exit
 
 # Update flake if needed
 pushd .config/home-manager || exit
+echo "Updating home-manager..."
 nix flake update
-git add .
-git commit -m "Update flake.nix"
+nix run home-manager/master -- switch || exit
+git add flake.lock
+git commit -m "Update home-manager flake"
 git push origin master
 popd || exit
 
