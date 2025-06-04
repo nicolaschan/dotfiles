@@ -254,7 +254,7 @@
       };
       language_models = {
         ollama = {
-          api_url = "monad:11434";
+          api_url = "http://monad:11434";
         };
       };
 
