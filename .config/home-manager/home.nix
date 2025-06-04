@@ -252,9 +252,9 @@
       telemetry = {
         metrics = false;
       };
-      features.edit_prediction_provider = "none";
+      features.edit_prediction_provider = "copilot";
       features.copilot = true;
-      assistant.enabled = false;
+      # assistant.enabled = false;
       vim_mode = true;
       autosave = "on_focus_change";
       format_on_save = "on";
