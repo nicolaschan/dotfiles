@@ -252,6 +252,12 @@
       telemetry = {
         metrics = false;
       };
+      language_models = {
+        ollama = {
+          api_url = "monad:11434";
+        };
+      };
+
       features.edit_prediction_provider = "copilot";
       features.copilot = true;
       # assistant.enabled = false;
