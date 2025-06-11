@@ -106,7 +106,7 @@
   };
 
   boot.blacklistedKernelModules = ["nouveau"];
-  boot.kernelModules = ["nvidia"];
+  boot.kernelModules = ["nvidia" "i2c-dev"];
 
   hardware.nvidia.nvidiaSettings = true;
   # hardware.nvidia.nvidiaPersistenced = true;
