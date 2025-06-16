@@ -81,6 +81,14 @@ in {
     variant = "dvorak";
   };
 
+  services.xserver.libinput = {
+    enable = true;
+    mouse = {
+      clickMethod = "none";
+      accelProfile = "flat";
+    };
+  };
+
   # Configure console keymap
   console.keyMap = "dvorak";
 
