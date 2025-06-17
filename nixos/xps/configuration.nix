@@ -85,8 +85,12 @@ in {
   services.xserver.libinput = {
     enable = true;
     mouse = {
-      clickMethod = "none";
       accelProfile = "flat";
+      accelSpeed = "0";
+      clickMethod = "none";
+      naturalScrolling = false;
+      tapping = false;
+      tappingButtonMap = "lrm";
     };
   };
 
