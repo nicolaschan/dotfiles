@@ -82,8 +82,7 @@ in {
     variant = "dvorak";
   };
 
-  services.xserver.libinput = {
-    enable = true;
+  services.libinput = {
     mouse = {
       accelProfile = "flat";
       accelSpeed = "0";
