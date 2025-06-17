@@ -21,6 +21,9 @@ in {
   boot.supportedFilesystems = ["bcachefs"];
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelParams = ["usbhid.mousepoll=1"];
+  boot.extraModprobeConfig = ''
+    options usbhid mousepoll=1
+  '';
 
   swapDevices = [
     {
