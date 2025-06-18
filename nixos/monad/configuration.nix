@@ -159,7 +159,6 @@
     cudatoolkit
     # cudaPackages.fabricmanager
     docker
-    git
     libnvidia-container
     linuxPackages.nvidia_x11
     nvidia-container-toolkit
