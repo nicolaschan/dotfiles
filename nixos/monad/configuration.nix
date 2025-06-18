@@ -54,9 +54,15 @@
   console.keyMap = "dvorak";
 
   # Enable the X11 windowing system.
-  # services.xserver.enable = true;
-  # services.xserver.displayManager.gdm.enable = true;
-  # services.xserver.desktopManager.gnome.enable = true;
+  services.xserver.enable = true;
+  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.desktopManager.gnome.enable = true;
+
+  # Disable suspend targets
+  systemd.targets.sleep.enable = false;
+  systemd.targets.suspend.enable = false;
+  systemd.targets.hibernate.enable = false;
+  systemd.targets.hybrid-sleep.enable = false;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -179,9 +185,6 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
-
-  programs.dconf.enable = true;
-  services.dbus.enable = true;
 
   programs.fish.enable = true;
 
