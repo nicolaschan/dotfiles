@@ -180,6 +180,9 @@
   #   enableSSHSupport = true;
   # };
 
+  programs.dconf.enable = true;
+  services.dbus.enable = true;
+
   programs.fish.enable = true;
 
   programs.nix-ld.enable = true;
