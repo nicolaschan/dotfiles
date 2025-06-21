@@ -51,6 +51,7 @@
     blender
     chromium
     devenv
+    darktable
     direnv
     distrobox
     dive
