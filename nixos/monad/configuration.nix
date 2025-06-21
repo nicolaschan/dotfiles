@@ -147,7 +147,7 @@
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPlM2ilPhTvNX0DoYiU+o3+HRsU3dtHGcZ0igWf3cqR4 nicolas@xn--h98h"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAtEyrE++I+HzN3nrCVqEWdyVxPikPJ6XzoFxnLxk4ML nicolas@monad"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO/onxpCkv8FBts5mNzNBO921r20i3ZBGbrfKgUnET81 nicolas@iphone_pass"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIH0aBi+Z+bsXpN7Ej4llFJeYRmKezZVsR6OLig3lxJOP nixos@nixos"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAqqw9uvyEJpDz3qN9H9C7DWDqxaTZ7mWYbEExCkgL9h nixos@nixos"
     ];
   };
 
