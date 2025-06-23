@@ -209,7 +209,7 @@
     };
     docker = {
       enable = true;
-      enableNvidia = true;
+      # enableNvidia = true;
     };
     containerd = {
       enable = true;
