@@ -202,7 +202,7 @@ in {
         "--keep-monthly 6"
       ];
       timerConfig = {
-        OnCalendar = "daily";
+        OnCalendar = "20:00";
         RandomizedDelaySec = "1h";
         Persistent = true;
       };
