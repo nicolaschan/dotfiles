@@ -9,7 +9,7 @@
   home.homeDirectory = "/home/nicolas";
 
   stylix = {
-    enable = true;
+    enable = false;
     polarity = "dark";
     base16Scheme = "${pkgs.base16-schemes}/share/themes/ayu-dark.yaml";
     fonts.monospace = {
@@ -246,7 +246,7 @@
   };
   programs.starship.enable = true;
   programs.zed-editor = {
-    enable = true;
+    enable = false;
     extensions = ["gleam" "nix" "xml"];
     extraPackages = [pkgs.nil pkgs.nixd];
     userSettings = {
