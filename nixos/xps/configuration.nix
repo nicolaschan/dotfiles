@@ -45,7 +45,6 @@ in {
   # Block distracting websites
   networking.extraHosts = ''
     127.0.0.1 news.ycombinator.com
-    127.0.0.1 www.youtube.com
     127.0.0.1 www.nytimes.com
     127.0.0.1 lobste.rs
   '';
