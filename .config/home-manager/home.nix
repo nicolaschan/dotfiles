@@ -246,7 +246,7 @@
   };
   programs.starship.enable = true;
   programs.zed-editor = {
-    enable = false;
+    enable = true;
     extensions = ["gleam" "nix" "xml"];
     extraPackages = [pkgs.nil pkgs.nixd];
     userSettings = {
