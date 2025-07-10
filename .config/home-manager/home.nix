@@ -1,6 +1,7 @@
 {
   pkgs,
   insanity,
+  ghostty,
   ...
 }: {
   # Home Manager needs a bit of information about you and the paths it should
@@ -68,6 +69,7 @@
     floorp
     fzf
     gcc # for neovim
+    ghostty.packages.${system}.default
     gimp
     git
     git-absorb
@@ -96,7 +98,6 @@
     mosh
     musescore
     # nodejs # for github copilot on neovim
-    nushell
     ollama
     pass
     pinentry-curses
@@ -203,7 +204,6 @@
   };
 
   programs.btop.enable = true;
-  programs.ghostty.enable = true;
   programs.htop.enable = true;
   programs.nixvim = {
     enable = true;

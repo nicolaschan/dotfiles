@@ -19,6 +19,9 @@
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    ghostty = {
+      url = "github:ghostty-org/ghostty";
+    };
   };
 
   outputs = {
@@ -27,6 +30,7 @@
     insanity,
     stylix,
     nixvim,
+    ghostty,
     ...
   }: let
     system = "x86_64-linux";
@@ -47,6 +51,7 @@
       # to pass through arguments to home.nix
       extraSpecialArgs = {
         inherit insanity;
+        inherit ghostty;
       };
     };
   };
