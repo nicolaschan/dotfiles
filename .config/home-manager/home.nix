@@ -69,7 +69,6 @@
     floorp
     fzf
     gcc # for neovim
-    ghostty.packages.${system}.default
     gimp
     git
     git-absorb
@@ -204,6 +203,11 @@
   };
 
   programs.btop.enable = true;
+  programs.ghostty = {
+    enable = true;
+    package = ghostty.packages.${pkgs.system}.default;
+  };
+
   programs.htop.enable = true;
   programs.nixvim = {
     enable = true;
