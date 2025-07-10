@@ -207,7 +207,6 @@
     enable = true;
     package = ghostty.packages.${pkgs.system}.default;
   };
-
   programs.htop.enable = true;
   programs.nixvim = {
     enable = true;
