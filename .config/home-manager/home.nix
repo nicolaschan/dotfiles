@@ -54,7 +54,7 @@
     blender
     chromium
     devenv
-    darktable
+    # darktable
     direnv
     distrobox
     dive
@@ -84,7 +84,7 @@
     inkscape
     insanity.packages.${system}.default
     iperf
-    jetbrains.idea-community-bin
+    # jetbrains.idea-community
     just
     jq
     k9s
