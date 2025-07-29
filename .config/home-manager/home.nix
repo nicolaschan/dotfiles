@@ -48,7 +48,7 @@
     anki
     asciiquarium
     asdf-vm
-    audacity
+    # audacity
     b3sum
     bat
     blender
