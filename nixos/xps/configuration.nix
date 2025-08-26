@@ -203,7 +203,6 @@ in {
         "--keep-monthly 6"
       ];
       timerConfig = {
-        Enable = false;
         OnCalendar = "20:00";
         RandomizedDelaySec = "1h";
         Persistent = true;
