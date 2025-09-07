@@ -97,7 +97,7 @@
     mosh
     musescore
     # nodejs # for github copilot on neovim
-    # ollama-cuda
+    ollama-cuda
     pass
     pinentry-curses
     podman-tui
