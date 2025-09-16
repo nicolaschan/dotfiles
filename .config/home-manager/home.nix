@@ -66,7 +66,7 @@
     fastfetch
     fd
     fish
-    floorp
+    floorp-bin
     fzf
     gcc # for neovim
     gimp
