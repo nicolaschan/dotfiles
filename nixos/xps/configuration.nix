@@ -195,6 +195,7 @@ in {
         "--exclude-caches"
         "--exclude=.cache"
         "--exclude=.local/share/containers"
+        "--stale-locks-timeout=15m"
       ];
       pruneOpts = [
         "--keep-daily 7"
