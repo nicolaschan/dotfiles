@@ -306,6 +306,6 @@ in {
     automatic = true; # disabled!
     persistent = true;
     dates = "weekly";
-    options = "--delete-older-than 30d";
+    options = "--delete-older-than 60d";
   };
 }
