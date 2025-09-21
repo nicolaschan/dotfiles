@@ -206,6 +206,7 @@ in {
         RandomizedDelaySec = "1h";
         Persistent = true;
       };
+      backupPrepareCommand = "restic unlock";
     };
   };
 
