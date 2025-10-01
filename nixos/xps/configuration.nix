@@ -48,36 +48,6 @@
       ];
     }
   ];
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
-  };
-
-  # Enable fingerprint reader support
-  services.fprintd = {
-    enable = true;
-    tod.enable = true;
-    tod.driver = pkgs.libfprint-2-tod1-goodix;
-  };
-  nixpkgs.overlays = [
-    (final: prev: {
-      libfprint-tod = prev.libfprint-tod.overrideAttrs (oldAttrs: {
-        buildInputs = (oldAttrs.buildInputs or [ ]) ++ [
-          prev.cmake
-          prev.nss
-          prev.pkg-config
-        ];
-      });
-    })
-  ];
 
   services.restic.backups = {
     scarifBackup = {
@@ -113,30 +83,6 @@
     };
   };
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.nicolas = {
-    isNormalUser = true;
-    description = "Nicolas Chan";
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-      "input"
-      "uinput"
-    ];
-    shell = pkgs.fish;
-    packages = with pkgs; [
-      vscode
-    ];
-  };
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-
-  fonts.fontDir.enable = true;
-  fonts.packages = with pkgs; [
-    cascadia-code
-  ];
-
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -144,12 +90,6 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
-
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true; # Open ports for Steam Remote Play
-    dedicatedServer.openFirewall = true; # Open ports for Source Dedicated Server
-  };
 
   # List services that you want to enable:
 
