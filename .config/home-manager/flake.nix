@@ -43,7 +43,7 @@
       # the path to your home.nix.
       modules = [
         stylix.homeModules.stylix
-        nixvim.homeManagerModules.nixvim
+        nixvim.homeModules.nixvim
         ./home.nix
       ];
 

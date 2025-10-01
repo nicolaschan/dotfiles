@@ -41,21 +41,9 @@
     ];
   };
 
-  # Set your time zone.
-  time.timeZone = "America/Los_Angeles";
-
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
-  # console = {
-  #   font = "Lat2-Terminus16";
-  #   keyMap = "us";
-  #   useXkbConfig = true; # use xkb.options in tty.
-  # };
-  console.keyMap = "dvorak";
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
@@ -67,16 +55,6 @@
   systemd.targets.suspend.enable = false;
   systemd.targets.hibernate.enable = false;
   systemd.targets.hybrid-sleep.enable = false;
-
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "dvorak";
-  };
-  # services.xserver.xkb.options = "eurosign:e,caps:escape";
-
-  # Enable CUPS to print documents.
-  # services.printing.enable = true;
 
   services.hardware.bolt.enable = true;
 
@@ -196,17 +174,6 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
-
-  programs.fish.enable = true;
-
-  programs.nix-ld.enable = true;
-  programs.nix-ld.package = pkgs.nix-ld-rs;
-  programs.nix-ld.libraries = with pkgs; [
-    stdenv.cc.cc
-    zlib
-    glib
-    # Add any missing dynamic libraries for unpackaged programs here
-  ];
 
   virtualisation = {
     containers = {

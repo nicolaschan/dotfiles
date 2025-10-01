@@ -49,9 +49,6 @@ in
     127.0.0.1 lobste.rs
   '';
 
-  # Set your time zone.
-  time.timeZone = "America/Los_Angeles";
-
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
@@ -84,12 +81,6 @@ in
   services.desktopManager.gnome.enable = true;
   programs.hyprland.enable = true;
 
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "dvorak";
-  };
-
   services.udev.extraRules = ''
     # Disable mouse debounce
     ACTION=="add|change", KERNEL=="event[0-9]*", SUBSYSTEM=="input", ENV{ID_INPUT_MOUSE}=="1", ENV{LIBINPUT_ATTR_DEBOUNCE_DELAY}="0"
@@ -113,12 +104,6 @@ in
       tappingButtonMap = "lrm";
     };
   };
-
-  # Configure console keymap
-  console.keyMap = "dvorak";
-
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
 
   # Enable kanata for keyboard remapping
   hardware.uinput.enable = true;
@@ -260,20 +245,11 @@ in
   #   enableSSHSupport = true;
   # };
 
-  programs.fish.enable = true;
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true; # Open ports for Steam Remote Play
     dedicatedServer.openFirewall = true; # Open ports for Source Dedicated Server
   };
-
-  programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = with pkgs; [
-    # Add any missing dynamic libraries for unpackaged programs here
-    stdenv.cc.cc
-    zlib
-    glib
-  ];
 
   virtualisation.containers.enable = true;
   virtualisation = {
