@@ -14,6 +14,11 @@
 
   # Programs
   programs.fish.enable = true;
+  environment.systemPackages = with pkgs; [
+    git
+    vim
+    wget
+  ];
 
   # nix-ld
   programs.nix-ld = {
