@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 
 DOTFILES_DIR="$HOME/dotfiles"
+HOSTNAME=$1
+
+if [[ "$HOSTNAME" == "" ]]; then
+  HOSTNAME=$(hostname)
+fi
 
 pushd "$DOTFILES_DIR" || exit
 
@@ -11,7 +16,7 @@ nix-shell -p stow --run "stow -v --override='../.*' ."
 pushd nixos || exit
 echo "Updating system..."
 nix flake update
-sudo nixos-rebuild switch --upgrade --flake .#$(hostname) || exit
+sudo nixos-rebuild switch --upgrade --flake .#$HOSTNAME || exit
 git add flake.lock
 git commit -m "Update system flake"
 git push origin master
