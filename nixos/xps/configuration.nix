@@ -68,23 +68,6 @@ in
     };
   };
 
-  # Enable kanata for keyboard remapping
-  hardware.uinput.enable = true;
-  services.kanata = {
-    enable = false;
-    keyboards.default = {
-      extraDefCfg = "process-unmapped-keys yes";
-      config = ''
-        (defsrc caps)
-        (deflayermap (default-layer)
-          caps (tap-hold-press 0 200 esc lctl))
-      '';
-    };
-  };
-
-  # Add wooting udev rules
-  services.udev.packages = [ pkgs.wooting-udev-rules ];
-
   # Enable sound with pipewire.
   # services.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -183,9 +166,6 @@ in
       vscode
     ];
   };
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget

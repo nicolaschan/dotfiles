@@ -15,6 +15,20 @@
   # Programs
   programs.fish.enable = true;
 
+  # Enable kanata for keyboard remapping
+  hardware.uinput.enable = true;
+  services.kanata = {
+    enable = false;
+    keyboards.default = {
+      extraDefCfg = "process-unmapped-keys yes";
+      config = ''
+        (defsrc caps)
+        (deflayermap (default-layer)
+          caps (tap-hold-press 0 200 esc lctl))
+      '';
+    };
+  };
+
   # nix-ld
   programs.nix-ld = {
     enable = true;
@@ -26,6 +40,9 @@
       glib
     ];
   };
+
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
 
   # Set your time zone.
   time.timeZone = "America/Los_Angeles";
@@ -60,6 +77,9 @@
   #   useXkbConfig = true; # use xkb.options in tty.
   # };
   console.keyMap = "dvorak";
+
+  # Add wooting udev rules
+  services.udev.packages = [ pkgs.wooting-udev-rules ];
 
   # Configure keymap in X11
   services.xserver.xkb = {
