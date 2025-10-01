@@ -130,24 +130,6 @@
   #   enableSSHSupport = true;
   # };
 
-  virtualisation = {
-    containers = {
-      enable = true;
-    };
-    podman = {
-      enable = true;
-      # dockerCompat = true;
-      defaultNetwork.settings.dns_enabled = true;
-    };
-    docker = {
-      enable = true;
-      # enableNvidia = true;
-    };
-    containerd = {
-      enable = true;
-    };
-  };
-
   boot.kernelPackages = pkgs.linuxPackages_6_12;
 
   hardware.bluetooth.powerOnBoot = true;

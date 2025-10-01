@@ -15,20 +15,6 @@
   # Programs
   programs.fish.enable = true;
 
-  # Enable kanata for keyboard remapping
-  hardware.uinput.enable = true;
-  services.kanata = {
-    enable = false;
-    keyboards.default = {
-      extraDefCfg = "process-unmapped-keys yes";
-      config = ''
-        (defsrc caps)
-        (deflayermap (default-layer)
-          caps (tap-hold-press 0 200 esc lctl))
-      '';
-    };
-  };
-
   # nix-ld
   programs.nix-ld = {
     enable = true;
@@ -89,6 +75,24 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
+
+  virtualisation = {
+    containers = {
+      enable = true;
+    };
+    podman = {
+      enable = true;
+      # dockerCompat = true;
+      defaultNetwork.settings.dns_enabled = true;
+    };
+    docker = {
+      enable = true;
+      # enableNvidia = true;
+    };
+    containerd = {
+      enable = true;
+    };
+  };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

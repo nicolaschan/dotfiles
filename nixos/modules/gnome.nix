@@ -8,8 +8,6 @@
 
 {
   services.xserver.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
 
   services.displayManager.gdm.enable = true;
   services.desktopManager.gnome.enable = true;
@@ -41,4 +39,17 @@
     };
   };
 
+  # Enable kanata for keyboard remapping
+  hardware.uinput.enable = true;
+  services.kanata = {
+    enable = false;
+    keyboards.default = {
+      extraDefCfg = "process-unmapped-keys yes";
+      config = ''
+        (defsrc caps)
+        (deflayermap (default-layer)
+          caps (tap-hold-press 0 200 esc lctl))
+      '';
+    };
+  };
 }

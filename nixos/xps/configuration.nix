@@ -158,15 +158,6 @@ in
     dedicatedServer.openFirewall = true; # Open ports for Source Dedicated Server
   };
 
-  virtualisation.containers.enable = true;
-  virtualisation = {
-    podman = {
-      enable = true;
-      dockerCompat = true;
-      defaultNetwork.settings.dns_enabled = true;
-    };
-  };
-
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
