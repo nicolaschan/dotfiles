@@ -23,7 +23,7 @@
       # NixOS configuration entrypoint
       # Available through 'nixos-rebuild --flake .#your-hostname'
       nixosConfigurations = {
-        xps = nixpkgs-unstable.lib.nixosSystem {
+        xps = nixpkgs.lib.nixosSystem {
           specialArgs = {
             inherit inputs outputs;
             inherit pkgs-unstable;
