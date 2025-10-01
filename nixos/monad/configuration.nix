@@ -6,7 +6,8 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -34,7 +35,10 @@
   fileSystems."/mnt/ssd-t7-2tb" = {
     device = "/dev/disk/by-uuid/6548f0d5-d3d5-4885-aa27-634b757b0b46";
     fsType = "btrfs";
-    options = ["nofail" "x-systemd.automount"];
+    options = [
+      "nofail"
+      "x-systemd.automount"
+    ];
   };
 
   # Set your time zone.
@@ -78,11 +82,11 @@
 
   security.sudo.extraRules = [
     {
-      users = ["nicolas"];
+      users = [ "nicolas" ];
       commands = [
         {
           command = "ALL";
-          options = ["NOPASSWD"];
+          options = [ "NOPASSWD" ];
         }
       ];
     }
@@ -111,15 +115,19 @@
     open = false;
   };
 
-  boot.blacklistedKernelModules = ["nouveau"];
-  boot.kernelModules = ["nvidia" "i2c-dev" "i2c-i801"];
+  boot.blacklistedKernelModules = [ "nouveau" ];
+  boot.kernelModules = [
+    "nvidia"
+    "i2c-dev"
+    "i2c-i801"
+  ];
   hardware.i2c.enable = true;
   # services.hardware.openrgb.enable = true;
 
   hardware.nvidia.nvidiaSettings = true;
   # hardware.nvidia.nvidiaPersistenced = true;
 
-  services.xserver.videoDrivers = ["nvidia"];
+  services.xserver.videoDrivers = [ "nvidia" ];
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.libinput.enable = true;
@@ -129,7 +137,10 @@
     isNormalUser = true;
     linger = true;
     uid = 1000;
-    extraGroups = ["wheel" "docker"]; # Enable ‘sudo’ for the user.
+    extraGroups = [
+      "wheel"
+      "docker"
+    ]; # Enable ‘sudo’ for the user.
     shell = pkgs.fish;
     packages = with pkgs; [
       tree
@@ -219,8 +230,11 @@
 
   hardware.bluetooth.powerOnBoot = true;
 
-  boot.supportedFilesystems = ["zfs" "bcachefs"];
-  boot.zfs.extraPools = ["scarif"];
+  boot.supportedFilesystems = [
+    "zfs"
+    "bcachefs"
+  ];
+  boot.zfs.extraPools = [ "scarif" ];
   services.zfs.autoScrub.enable = true;
 
   # List services that you want to enable:
@@ -257,9 +271,12 @@
     kubeT7 = {
       passwordFile = "/home/nicolas/restic-passwords/monad-kube-t7";
       repository = "/scarif/backups/monad-kube-t7-restic";
-      paths = ["/mnt/ssd-t7-2tb/kubernetes-storage"];
-      extraBackupArgs = ["--exclude-caches"];
-      pruneOpts = ["--keep-daily 7" "--keep-weekly 2"];
+      paths = [ "/mnt/ssd-t7-2tb/kubernetes-storage" ];
+      extraBackupArgs = [ "--exclude-caches" ];
+      pruneOpts = [
+        "--keep-daily 7"
+        "--keep-weekly 2"
+      ];
       timerConfig = {
         OnCalendar = "daily";
         RandomizedDelaySec = "1h";
@@ -269,9 +286,12 @@
     kubernetesStorage = {
       passwordFile = "/home/nicolas/restic-passwords/monad-kubernetes-storage";
       repository = "/scarif/backups/monad-kubernetes-storage-restic";
-      paths = ["/var/lib/rancher/k3s"];
-      extraBackupArgs = ["--exclude-caches"];
-      pruneOpts = ["--keep-daily 7" "--keep-weekly 2"];
+      paths = [ "/var/lib/rancher/k3s" ];
+      extraBackupArgs = [ "--exclude-caches" ];
+      pruneOpts = [
+        "--keep-daily 7"
+        "--keep-weekly 2"
+      ];
       timerConfig = {
         OnCalendar = "daily";
         RandomizedDelaySec = "1h";
@@ -279,12 +299,6 @@
       };
     };
   };
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  networking.firewall.enable = false;
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
@@ -309,17 +323,4 @@
   #
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
   system.stateVersion = "24.05"; # Did you read the comment?
-
-  system.autoUpgrade.enable = true;
-
-  nix. extraOptions = ''
-    experimental-features = nix-command flakes
-  '';
-
-  nix.gc = {
-    automatic = true;
-    persistent = true;
-    dates = "weekly";
-    options = "--delete-older-than 31d";
-  };
 }
