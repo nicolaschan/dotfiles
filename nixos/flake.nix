@@ -31,6 +31,7 @@
           # > Our main nixos configuration file <
           modules = [
             ./modules/common.nix
+            ./modules/gnome.nix
             ./xps/configuration.nix
           ];
         };
@@ -43,6 +44,7 @@
           modules = [
             ./modules/common.nix
             ./modules/nvidia.nix
+            ./modules/gnome.nix
             ./monad/configuration.nix
           ];
         };
