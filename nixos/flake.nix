@@ -42,6 +42,7 @@
           # > Our main nixos configuration file <
           modules = [
             ./modules/common.nix
+            ./modules/nvidia.nix
             ./monad/configuration.nix
           ];
         };
