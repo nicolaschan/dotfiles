@@ -78,6 +78,9 @@
     variant = "dvorak";
   };
 
+  # Thunderbolt support
+  services.hardware.bolt.enable = true;
+
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
