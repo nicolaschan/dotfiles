@@ -5,9 +5,11 @@
   config,
   pkgs,
   ...
-}: let
-  unstable = import <nixos-unstable> {config = config.nixpkgs.config;};
-in {
+}:
+let
+  unstable = import <nixos-unstable> { config = config.nixpkgs.config; };
+in
+{
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -18,9 +20,9 @@ in {
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.grub.configurationLimit = 10;
 
-  boot.supportedFilesystems = ["bcachefs"];
+  boot.supportedFilesystems = [ "bcachefs" ];
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.kernelParams = ["usbhid.mousepoll=1"];
+  boot.kernelParams = [ "usbhid.mousepoll=1" ];
   boot.extraModprobeConfig = ''
     options usbhid mousepoll=1
   '';
@@ -68,7 +70,10 @@ in {
   i18n.inputMethod = {
     enable = true;
     type = "ibus";
-    ibus.engines = with pkgs.ibus-engines; [libpinyin rime];
+    ibus.engines = with pkgs.ibus-engines; [
+      libpinyin
+      rime
+    ];
   };
 
   # Enable the X11 windowing system.
@@ -130,18 +135,18 @@ in {
   };
 
   # Add wooting udev rules
-  services.udev.packages = [pkgs.wooting-udev-rules];
+  services.udev.packages = [ pkgs.wooting-udev-rules ];
 
   # Enable sound with pipewire.
   # services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   security.sudo.extraRules = [
     {
-      users = ["nicolas"];
+      users = [ "nicolas" ];
       commands = [
         {
           command = "ALL";
-          options = ["NOPASSWD"];
+          options = [ "NOPASSWD" ];
         }
       ];
     }
@@ -172,13 +177,11 @@ in {
   nixpkgs.overlays = [
     (final: prev: {
       libfprint-tod = prev.libfprint-tod.overrideAttrs (oldAttrs: {
-        buildInputs =
-          (oldAttrs.buildInputs or [])
-          ++ [
-            prev.cmake
-            prev.nss
-            prev.pkg-config
-          ];
+        buildInputs = (oldAttrs.buildInputs or [ ]) ++ [
+          prev.cmake
+          prev.nss
+          prev.pkg-config
+        ];
       });
     })
   ];
@@ -221,7 +224,12 @@ in {
   users.users.nicolas = {
     isNormalUser = true;
     description = "Nicolas Chan";
-    extraGroups = ["networkmanager" "wheel" "input" "uinput"];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "input"
+      "uinput"
+    ];
     shell = pkgs.fish;
     packages = with pkgs; [
       vscode
@@ -302,11 +310,4 @@ in {
   system.stateVersion = "23.11"; # Did you read the comment?
 
   system.autoUpgrade.enable = true;
-
-  nix.gc = {
-    automatic = true; # disabled!
-    persistent = true;
-    dates = "weekly";
-    options = "--delete-older-than 60d";
-  };
 }

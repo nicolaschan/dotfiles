@@ -8,38 +8,43 @@
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    nixpkgs-unstable,
-    ...
-  } @ inputs: let
-    inherit (self) outputs;
-    pkgs-unstable = nixpkgs-unstable.legacyPackages.${"x86_64-linux"};
-  in {
-    # NixOS configuration entrypoint
-    # Available through 'nixos-rebuild --flake .#your-hostname'
-    nixosConfigurations = {
-      xps = nixpkgs-unstable.lib.nixosSystem {
-        specialArgs = {
-          inherit inputs outputs;
-          inherit pkgs-unstable;
+  outputs =
+    {
+      self,
+      nixpkgs,
+      nixpkgs-unstable,
+      ...
+    }@inputs:
+    let
+      inherit (self) outputs;
+      pkgs-unstable = nixpkgs-unstable.legacyPackages.${"x86_64-linux"};
+    in
+    {
+      # NixOS configuration entrypoint
+      # Available through 'nixos-rebuild --flake .#your-hostname'
+      nixosConfigurations = {
+        xps = nixpkgs-unstable.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs outputs;
+            inherit pkgs-unstable;
+          };
+          # > Our main nixos configuration file <
+          modules = [
+            ./modules/common.nix
+            ./xps/configuration.nix
+          ];
         };
-        # > Our main nixos configuration file <
-        modules = [
-          ./xps/configuration.nix
-        ];
-      };
-      monad = nixpkgs.lib.nixosSystem {
-        specialArgs = {
-          inherit inputs outputs;
-          inherit pkgs-unstable;
+        monad = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs outputs;
+            inherit pkgs-unstable;
+          };
+          # > Our main nixos configuration file <
+          modules = [
+            ./modules/common.nix
+            ./monad/configuration.nix
+          ];
         };
-        # > Our main nixos configuration file <
-        modules = [
-          ./monad/configuration.nix
-        ];
       };
     };
-  };
 }
