@@ -36,30 +36,6 @@ in
     127.0.0.1 lobste.rs
   '';
 
-  services.udev.extraRules = ''
-    # Disable mouse debounce
-    ACTION=="add|change", KERNEL=="event[0-9]*", SUBSYSTEM=="input", ENV{ID_INPUT_MOUSE}=="1", ENV{LIBINPUT_ATTR_DEBOUNCE_DELAY}="0"
-  '';
-  environment.etc."libinput/local-overrides.quirks".text = ''
-    [Disable Debouncing for All Mice]
-    MatchUdevType=mouse
-    AttrEventCode=-BTN_LEFT
-    AttrEventCode=-BTN_RIGHT
-    AttrEventCode=-BTN_MIDDLE
-    AttrDebouncePreset=disabled
-  '';
-
-  services.libinput = {
-    mouse = {
-      accelProfile = "flat";
-      accelSpeed = "0";
-      clickMethod = "none";
-      naturalScrolling = false;
-      tapping = false;
-      tappingButtonMap = "lrm";
-    };
-  };
-
   # Enable sound with pipewire.
   # services.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -86,10 +62,6 @@ in
     # no need to redefine it in your config for now)
     #media-session.enable = true;
   };
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  services.libinput.enable = true;
-  services.libinput.touchpad.disableWhileTyping = false;
 
   # Enable fingerprint reader support
   services.fprintd = {
