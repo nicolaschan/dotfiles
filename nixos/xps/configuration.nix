@@ -34,21 +34,6 @@
     127.0.0.1 lobste.rs
   '';
 
-  # Enable sound with pipewire.
-  # services.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  security.sudo.extraRules = [
-    {
-      users = [ "nicolas" ];
-      commands = [
-        {
-          command = "ALL";
-          options = [ "NOPASSWD" ];
-        }
-      ];
-    }
-  ];
-
   services.restic.backups = {
     scarifBackup = {
       passwordFile = "/home/nicolas/.config/restic/password";

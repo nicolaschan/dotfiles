@@ -102,6 +102,7 @@
     };
   };
 
+  # User configuration
   users.users.nicolas = {
     isNormalUser = true;
     linger = true;
@@ -122,6 +123,17 @@
       "sk-ecdsa-sha2-nistp256@openssh.com AAAAInNrLWVjZHNhLXNoYTItbmlzdHAyNTZAb3BlbnNzaC5jb20AAAAIbmlzdHAyNTYAAABBBDgWXcT8lPSDFOBCSGYwaUzal+1B0rPPuR5s9f4rpnY53KnIc8KnvonV4/0OrSLiAPndTyq8vMN5mv3x6zNbnpgAAAALdGVybWl1cy5jb20= nicolas@terminus-iphone"
     ];
   };
+  security.sudo.extraRules = [
+    {
+      users = [ "nicolas" ];
+      commands = [
+        {
+          command = "ALL";
+          options = [ "NOPASSWD" ];
+        }
+      ];
+    }
+  ];
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

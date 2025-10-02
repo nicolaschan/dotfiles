@@ -43,26 +43,6 @@
   systemd.targets.hibernate.enable = false;
   systemd.targets.hybrid-sleep.enable = false;
 
-  security.sudo.extraRules = [
-    {
-      users = [ "nicolas" ];
-      commands = [
-        {
-          command = "ALL";
-          options = [ "NOPASSWD" ];
-        }
-      ];
-    }
-  ];
-
-  # Enable sound.
-  # hardware.pulseaudio.enable = true;
-  # OR
-  # services.pipewire = {
-  #   enable = true;
-  #   pulse.enable = true;
-  # };
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.git = {
     isNormalUser = true;
