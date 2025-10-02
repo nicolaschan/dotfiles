@@ -2,9 +2,7 @@
   description = "Nix config";
 
   inputs = {
-    # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
-
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
   };
 
@@ -28,7 +26,6 @@
             inherit inputs outputs;
             inherit pkgs-unstable;
           };
-          # > Our main nixos configuration file <
           modules = [
             ./modules/common.nix
             ./modules/gnome.nix
@@ -40,12 +37,23 @@
             inherit inputs outputs;
             inherit pkgs-unstable;
           };
-          # > Our main nixos configuration file <
           modules = [
             ./modules/common.nix
             ./modules/nvidia.nix
             ./modules/gnome.nix
             ./monad/configuration.nix
+          ];
+        };
+        kamino = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs outputs;
+            inherit pkgs-unstable;
+          };
+          modules = [
+            ./modules/common.nix
+            ./modules/nvidia.nix
+            ./modules/gnome.nix
+            ./kamino/configuration.nix
           ];
         };
       };
