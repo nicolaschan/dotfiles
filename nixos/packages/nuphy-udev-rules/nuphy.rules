@@ -1,0 +1,7 @@
+# Nuphy Air60 HE
+SUBSYSTEM=="hidraw", ATTRS{idVendor}=="19f5", ATTRS{idProduct}=="fee0", TAG+="uaccess"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="19f5", ATTRS{idProduct}=="fee0", TAG+="uaccess"
+
+# Generic Nuphy devices (covers all Nuphy keyboards)
+SUBSYSTEM=="hidraw", ATTRS{idVendor}=="19f5", TAG+="uaccess"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="19f5", TAG+="uaccess"

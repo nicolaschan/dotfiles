@@ -74,7 +74,10 @@
   console.keyMap = "dvorak";
 
   # Add wooting udev rules
-  services.udev.packages = [ pkgs.wooting-udev-rules ];
+  services.udev.packages = [
+    pkgs.wooting-udev-rules
+    (pkgs.callPackage ../packages/nuphy-udev-rules { })
+  ];
 
   # Configure keymap in X11
   services.xserver.xkb = {
