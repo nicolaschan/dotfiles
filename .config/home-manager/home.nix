@@ -207,8 +207,8 @@
     enable = true;
     package = ghostty.packages.${pkgs.system}.default;
     settings = {
-      window-width = 140;
-      window-height = 30;
+      window-width = 120;
+      window-height = 40;
     };
   };
   programs.htop.enable = true;
