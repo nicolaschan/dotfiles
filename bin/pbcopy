@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# Find the next pbcopy/wl-copy in PATH (excluding this script)
+real_pbcopy=$(which -a pbcopy 2>/dev/null | sed -n '2p')
+real_wlcopy=$(which wl-copy 2>/dev/null)
+
+if [ -n "$real_pbcopy" ]; then
+    "$real_pbcopy"
+elif [ -n "$real_wlcopy" ]; then
+    "$real_wlcopy"
+else
+    echo "Error: Neither pbcopy nor wl-copy found" >&2
+    exit 1
+fi
