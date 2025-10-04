@@ -206,6 +206,10 @@
   programs.ghostty = {
     enable = true;
     # package = ghostty.packages.${pkgs.system}.default;
+    settings = {
+      window-width = 120;
+      window-height = 30;
+    };
   };
   programs.htop.enable = true;
   programs.nixvim = {
