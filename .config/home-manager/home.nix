@@ -272,6 +272,7 @@
       features.copilot = true;
       # assistant.enabled = false;
       vim_mode = true;
+      vim.use_system_clipboard = false;
       autosave = "on_focus_change";
       format_on_save = "on";
       formatter = "language_server";
