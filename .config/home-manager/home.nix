@@ -207,7 +207,7 @@
     enable = true;
     package = ghostty.packages.${pkgs.system}.default;
     settings = {
-      window-width = 128;
+      window-width = 104;
       window-height = 32;
     };
   };
