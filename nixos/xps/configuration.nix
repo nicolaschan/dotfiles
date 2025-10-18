@@ -6,8 +6,7 @@
   pkgs,
   pkgs-unstable,
   ...
-}:
-{
+}: {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix

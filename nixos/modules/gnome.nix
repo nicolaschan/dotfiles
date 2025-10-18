@@ -11,6 +11,8 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
+  services.desktopManager.cosmic.enable = true;
+
   services.libinput.enable = true;
   services.libinput.touchpad.disableWhileTyping = false;
 
