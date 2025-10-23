@@ -95,7 +95,6 @@
     lsd
     mtr
     mosh
-    musescore
     # nodejs # for github copilot on neovim
     # ollama-cuda
     pass
