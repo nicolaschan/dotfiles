@@ -55,7 +55,6 @@
     chromium
     devenv
     # darktable
-    direnv
     distrobox
     dive
     dogdns
@@ -189,6 +188,13 @@
   };
 
   nixpkgs.config.allowUnfree = true;
+
+  programs.direnv = {
+    enable = true;
+    enableBashIntegration = true;
+    enableFishIntegration = true;
+    nix-direnv.enable = true;
+  };
 
   programs.firefox = {
     enable = true;
