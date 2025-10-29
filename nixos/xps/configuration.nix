@@ -27,7 +27,7 @@
 
   # Block distracting websites
   networking.extraHosts = ''
-    127.0.0.1 lobste.rs
+    127.0.0.1 news.ycombinator.com
   '';
 
   services.restic.backups = {
