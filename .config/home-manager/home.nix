@@ -1,7 +1,6 @@
 {
   pkgs,
   insanity,
-  ghostty,
   ...
 }: {
   # Home Manager needs a bit of information about you and the paths it should
@@ -210,7 +209,6 @@
   programs.btop.enable = true;
   programs.ghostty = {
     enable = true;
-    package = ghostty.packages.${pkgs.system}.default;
     settings = {
       window-width = 129;
       window-height = 40;
