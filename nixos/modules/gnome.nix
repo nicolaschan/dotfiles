@@ -71,6 +71,15 @@
     # use the example session manager (no others are packaged yet so this is enabled by default,
     # no need to redefine it in your config for now)
     #media-session.enable = true;
+
+    # extraConfig.pipewire = {
+    #   "context.properties" = {
+    #    "default.clock.rate" = 48000;
+    #    "default.clock.quantum" = 1024;
+    #    "default.clock.min-quantum" = 32;
+    #    "default.clock.max-quantum" = 8192;
+    #   };
+    # };
   };
 
   # Enable fingerprint reader support
