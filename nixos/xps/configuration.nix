@@ -30,6 +30,11 @@
     127.0.0.1 news.ycombinator.com
   '';
 
+  services.k3s = {
+    enable = true;
+    role = "server";
+  };
+
   services.restic.backups = {
     scarifBackup = {
       passwordFile = "/home/nicolas/.config/restic/password";
