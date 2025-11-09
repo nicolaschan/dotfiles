@@ -64,7 +64,6 @@
     nvtopPackages.nvidia
     runc
   ];
-  hardware.nvidia-container-toolkit.enable = true;
 
   environment.sessionVariables = {
     LD_LIBRARY_PATH = "/run/opengl-driver/lib:/run/opengl-driver-32/lib";
