@@ -12,6 +12,11 @@
     ./hardware-configuration.nix
   ];
 
+  services.k3s = {
+    enable = true;
+    role = "server";
+  };
+
   boot.extraModprobeConfig = ''
     options usbhid mousepoll=1
   '';
