@@ -25,6 +25,12 @@
 
   networking.hostName = "xps"; # Define your hostname.
 
+  services.k3s = {
+    enable = true;
+    role = "server";
+    extraFlags = "--disable=traefik --disable=servicelb";
+  };
+
   # Block distracting websites
   networking.extraHosts = ''
     127.0.0.1 news.ycombinator.com
