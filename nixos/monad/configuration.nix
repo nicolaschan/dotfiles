@@ -105,11 +105,10 @@
     };
   };
 
-  # Enable k3s
   services.k3s = {
     enable = true;
     role = "server";
-    extraFlags = "--disable=traefik"; # --disable=metrics-server"; # --flannel-backend=vxlan";
+    extraFlags = "--disable=traefik --disable=metrics-server"; # --disable=metrics-server"; # --flannel-backend=vxlan";
   };
 
   systemd.services.k3s = {
