@@ -13,11 +13,18 @@
   };
 
   hardware.nvidia-container-toolkit.enable = true;
+  hardware.nvidia-container-toolkit.mount-nvidia-executables = true;
+
+  environment.systemPackages = with pkgs; [
+    nvidia-container-toolkit
+  ];
+
   hardware.nvidia = {
     package = config.boot.kernelPackages.nvidiaPackages.stable;
     modesetting.enable = true;
     powerManagement.finegrained = false;
-    open = false;
+    open = true;
+    nvidiaSettings = true;
   };
 
   boot.blacklistedKernelModules = [ "nouveau" ];
@@ -27,10 +34,6 @@
     "i2c-i801"
   ];
   hardware.i2c.enable = true;
-  # services.hardware.openrgb.enable = true;
-
-  hardware.nvidia.nvidiaSettings = true;
-  # hardware.nvidia.nvidiaPersistenced = true;
 
   services.xserver.videoDrivers = [ "nvidia" ];
 }
