@@ -40,4 +40,4 @@ SETUVAR fish_pager_color_selected_background:\x2d\x2dbackground\x3d44475a
 SETUVAR fish_pager_color_selected_completion:f8f8f2
 SETUVAR fish_pager_color_selected_description:6272a4
 SETUVAR fish_pager_color_selected_prefix:8be9fd
-SETUVAR fish_user_paths:/home/nicolas/\x2ecargo/bin\x1e/home/nicolas/bin
+SETUVAR fish_user_paths:/home/nicolas/\x2ecargo/bin\x1e/home/nicolas/bin\x1e/nix/store/wp5r0vf0wznn6sw6g86zh3yvcw1x4sqd\x2dghostty\x2d1\x2e2\x2e1/bin\x1e/nix/store/pawi9sxfyq6wf91slc5s7z5n9gz9pp6r\x2dghostty\x2d1\x2e2\x2e1/bin\x1e/nix/store/jfyklnaiyw0f0ik0gi81y2j292i2iix8\x2dghostty\x2d1\x2e1\x2e3/bin

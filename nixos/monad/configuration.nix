@@ -6,8 +6,7 @@
   lib,
   pkgs,
   ...
-}:
-{
+}: {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -54,15 +53,6 @@
     ];
   };
 
-  users.users.aditya = {
-    isNormalUser = true;
-    linger = true;
-    uid = 1001;
-    openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILnZy5ZNXuks76CqlE+Kd+NKEPM9Fwtr0jPFtuERBopP aditya@sf.intranet.lol"
-    ];
-  };
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -95,7 +85,7 @@
     "zfs"
     "bcachefs"
   ];
-  boot.zfs.extraPools = [ "scarif" ];
+  boot.zfs.extraPools = ["scarif"];
   services.zfs.autoScrub.enable = true;
 
   # List services that you want to enable:
@@ -115,11 +105,10 @@
     };
   };
 
-  # Enable k3s
   services.k3s = {
     enable = true;
     role = "server";
-    extraFlags = "--disable=traefik"; # --flannel-backend=vxlan";
+    extraFlags = "--disable=traefik"; # --disable=metrics-server"; # --flannel-backend=vxlan";
   };
 
   systemd.services.k3s = {
@@ -132,8 +121,8 @@
     kubeT7 = {
       passwordFile = "/home/nicolas/restic-passwords/monad-kube-t7";
       repository = "/scarif/backups/monad-kube-t7-restic";
-      paths = [ "/mnt/ssd-t7-2tb/kubernetes-storage" ];
-      extraBackupArgs = [ "--exclude-caches" ];
+      paths = ["/mnt/ssd-t7-2tb/kubernetes-storage"];
+      extraBackupArgs = ["--exclude-caches"];
       pruneOpts = [
         "--keep-daily 7"
         "--keep-weekly 2"
@@ -147,8 +136,8 @@
     kubernetesStorage = {
       passwordFile = "/home/nicolas/restic-passwords/monad-kubernetes-storage";
       repository = "/scarif/backups/monad-kubernetes-storage-restic";
-      paths = [ "/var/lib/rancher/k3s" ];
-      extraBackupArgs = [ "--exclude-caches" ];
+      paths = ["/var/lib/rancher/k3s"];
+      extraBackupArgs = ["--exclude-caches"];
       pruneOpts = [
         "--keep-daily 7"
         "--keep-weekly 2"

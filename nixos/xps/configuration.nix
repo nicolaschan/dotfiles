@@ -6,12 +6,16 @@
   pkgs,
   pkgs-unstable,
   ...
-}:
-{
+}: {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];
+
+  services.k3s = {
+    enable = true;
+    role = "server";
+  };
 
   boot.extraModprobeConfig = ''
     options usbhid mousepoll=1
@@ -28,7 +32,8 @@
 
   # Block distracting websites
   networking.extraHosts = ''
-    127.0.0.1 lobste.rs
+    127.0.0.1 news.ycombinator.com
+    127.0.0.1 www.youtube.com
   '';
 
   services.restic.backups = {

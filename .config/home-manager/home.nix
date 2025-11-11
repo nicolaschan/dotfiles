@@ -1,7 +1,6 @@
 {
   pkgs,
   insanity,
-  ghostty,
   ...
 }: {
   # Home Manager needs a bit of information about you and the paths it should
@@ -55,7 +54,6 @@
     chromium
     devenv
     # darktable
-    direnv
     distrobox
     dive
     dogdns
@@ -95,7 +93,6 @@
     lsd
     mtr
     mosh
-    musescore
     # nodejs # for github copilot on neovim
     # ollama-cuda
     pass
@@ -138,7 +135,7 @@
 
     # breaks emojis in konsole
     noto-fonts
-    noto-fonts-emoji
+    noto-fonts-color-emoji
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -191,6 +188,13 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  programs.direnv = {
+    enable = true;
+    enableBashIntegration = true;
+    enableFishIntegration = true;
+    nix-direnv.enable = true;
+  };
+
   programs.firefox = {
     enable = true;
     profiles = {
@@ -205,7 +209,6 @@
   programs.btop.enable = true;
   programs.ghostty = {
     enable = true;
-    package = ghostty.packages.${pkgs.system}.default;
     settings = {
       window-width = 129;
       window-height = 40;
@@ -272,7 +275,7 @@
       features.copilot = true;
       # assistant.enabled = false;
       vim_mode = true;
-      vim.use_system_clipboard = false;
+      vim.use_system_clipboard = "never";
       autosave = "on_focus_change";
       format_on_save = "on";
       formatter = "language_server";
