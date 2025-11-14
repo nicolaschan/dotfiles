@@ -148,7 +148,7 @@
       commands = [
         {
           command = "ALL";
-          options = [ "NOPASSWD" ];
+          # options = [ "NOPASSWD" ];
         }
       ];
     }
