@@ -75,16 +75,17 @@
   # };
   console.keyMap = "dvorak";
 
-  # Set up yubikey
+  # Enable rssh to use ssh agent for sudo
+  # If not available, use physical yubikey
+  # If not available, use fingerprint
+  # Fallback to password
+  security.pam.rssh.enable = true;
   security.pam.services = {
-    sudo.u2fAuth = true;
-    sudo.sshAgentAuth = true;
-  };
-
-  security.pam.u2f = {
-    control = "sufficient";
-    enable = true;
-    settings.cue = true;
+    sudo = {
+      u2fAuth = true;
+      rssh = true;
+      fprintAuth = true;
+    };
   };
 
   # Add wooting udev rules
