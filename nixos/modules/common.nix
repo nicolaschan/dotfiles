@@ -78,6 +78,7 @@
   # Set up yubikey
   security.pam.services = {
     sudo.u2fAuth = true;
+    sudo.sshAgentAuth = true;
   };
 
   security.pam.u2f = {
