@@ -124,6 +124,7 @@
     wget
     wireguard-tools
     wl-clipboard
+    yubikey-manager
     zip
     zoxide
 
