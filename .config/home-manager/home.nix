@@ -79,7 +79,6 @@
     helvum
     httpie
     hyperfine
-    inkscape
     insanity.packages.${system}.default
     iperf
     # jetbrains.idea-community
