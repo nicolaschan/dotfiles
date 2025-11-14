@@ -23,6 +23,7 @@
     vim
     wget
     pam_u2f
+    pam_ssh_agent_auth
   ];
 
   # nix-ld
