@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+DOTFILES_DIR="$HOME/dotfiles"
+HOSTNAME=$1
+
+if [[ "$HOSTNAME" == "" ]]; then
+  HOSTNAME="$(hostname)"
+fi
+
+pushd "$DOTFILES_DIR" || exit
+
+pushd nixos || exit
+echo "Rebuilding system..."
+sudo nixos-rebuild switch --upgrade --flake .#"$HOSTNAME" || exit
+popd || exit
+

@@ -16,7 +16,7 @@ nix-shell -p stow --run "stow -v --override='../.*' ."
 pushd nixos || exit
 echo "Updating system..."
 nix flake update
-sudo nixos-rebuild switch --upgrade --flake .#"$HOSTNAME" || exit
+@rebuild
 git add flake.lock
 git commit -m "Update system flake"
 git push origin master
