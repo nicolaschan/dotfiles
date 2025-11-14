@@ -29,7 +29,7 @@
           modules = [
             ./modules/common.nix
             ./modules/gnome.nix
-            ./xps/configuration.nix
+            ./systems/xps/configuration.nix
           ];
         };
         monad = nixpkgs.lib.nixosSystem {
@@ -41,7 +41,7 @@
             ./modules/common.nix
             ./modules/nvidia.nix
             ./modules/gnome.nix
-            ./monad/configuration.nix
+            ./systems/monad/configuration.nix
           ];
         };
         kamino = nixpkgs.lib.nixosSystem {
@@ -53,7 +53,7 @@
             ./modules/common.nix
             ./modules/nvidia.nix
             ./modules/gnome.nix
-            ./kamino/configuration.nix
+            ./systems/kamino/configuration.nix
           ];
         };
       };

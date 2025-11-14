@@ -22,6 +22,7 @@
     git
     vim
     wget
+    pam_u2f
   ];
 
   # nix-ld
@@ -72,6 +73,17 @@
   #   useXkbConfig = true; # use xkb.options in tty.
   # };
   console.keyMap = "dvorak";
+
+  # Set up yubikey
+  security.pam.services = {
+    sudo.u2fAuth = true;
+  };
+
+  security.pam.u2f = {
+    control = "sufficient";
+    enable = true;
+    settings.cue = true;
+  };
 
   # Add wooting udev rules
   services.udev.packages = [
