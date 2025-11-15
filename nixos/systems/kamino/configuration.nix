@@ -5,6 +5,7 @@
   config,
   pkgs,
   pkgs-unstable,
+  lib,
   ...
 }: {
   imports = [
@@ -16,6 +17,7 @@
     options usbhid mousepoll=1
   '';
 
+  hardware.nvidia.open = lib.mkForce false;
   networking.hostName = "kamino";
 
   # This value determines the NixOS release from which the default

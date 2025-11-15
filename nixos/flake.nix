@@ -53,6 +53,10 @@
             ./modules/common.nix
             ./modules/nvidia.nix
             ./modules/gnome.nix
+            (import ./modules/ssh.nix {
+              hostCertPub = "foo";
+              caPub = builtins.readFile ./resources/ssh-ca.pub;
+            })
             ./systems/kamino/configuration.nix
           ];
         };
