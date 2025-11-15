@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 
 yubico_dir="$HOME/.config/Yubico"
+mkdir -p "$yubico_dir"
 nix shell nixpkgs#pam_u2f -c pamu2fcfg >> "$yubico_dir/u2f_keys"
