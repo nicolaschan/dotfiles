@@ -92,6 +92,10 @@
   # Enable the OpenSSH daemon.
   services.openssh = {
     enable = true;
+    extraConfig = ''
+      HostCertificate /etc/ssh/ssh_host_ed25519_key-cert.pub
+      TrustedUserCAKeys /etc/ssh/ssh-ca.pub
+    '';
     settings = {
       PermitRootLogin = "prohibit-password";
       PasswordAuthentication = false;
@@ -103,6 +107,13 @@
       ];
     };
   };
+
+  environment.etc."ssh/ssh_host_ed25519_key-cert.pub".text = ''
+    ssh-ed25519-cert-v01@openssh.com AAAAIHNzaC1lZDI1NTE5LWNlcnQtdjAxQG9wZW5zc2guY29tAAAAIKRl/kj5bPLLRCEoyLF+S4vB9KxCWansZWVoSOv7rGo4AAAAIDoKb0wQ+e7QmiTQOnXlK8zKgzTw8wkuWQWd7ou0LzzvAAAAAAAAAAAAAAACAAAAEW1vbmFkLnplcm9tYXAubmV0AAAAFQAAABFtb25hZC56ZXJvbWFwLm5ldAAAAABpGANsAAAAAHvW17AAAAAAAAAAAAAAAAAAAABoAAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBNtiVXmfozsnJQhLCmFJ4YpSAU04gHqv+NPVPYMurs0co5bxkUP8/GokREVf9upEbsF0LLkgtvbvHvLmBKqpfRsAAABkAAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAABJAAAAIQCHZNy5vwQ72mQkfKGdUwQIX/UKhHXyCRmNhWxx4F7IjgAAACBUkkn0HShyUJMXCdlCeYE2DWOi/GWwvPVgxgwckOxl3Q== root@nixos
+  '';
+  environment.etc."ssh/ssh-ca.pub".text = ''
+    ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBNtiVXmfozsnJQhLCmFJ4YpSAU04gHqv+NPVPYMurs0co5bxkUP8/GokREVf9upEbsF0LLkgtvbvHvLmBKqpfRs=
+  '';
 
   services.k3s = {
     enable = true;
