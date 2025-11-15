@@ -41,6 +41,10 @@
             ./modules/common.nix
             ./modules/nvidia.nix
             ./modules/gnome.nix
+            (import ./modules/ssh.nix {
+              hostKeyPub = builtins.readFile ./systems/monad/hostkey-cert.pub;
+              caPub = builtins.readFile ./resources/ssh-ca.pub;
+            })
             ./systems/monad/configuration.nix
           ];
         };
@@ -54,7 +58,7 @@
             ./modules/nvidia.nix
             ./modules/gnome.nix
             (import ./modules/ssh.nix {
-              hostCertPub = "foo";
+              hostCertPub = builtins.readFile ./systems/kamino/hostkey-cert.pub;
               caPub = builtins.readFile ./resources/ssh-ca.pub;
             })
             ./systems/kamino/configuration.nix

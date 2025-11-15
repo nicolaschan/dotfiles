@@ -6,7 +6,8 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -84,37 +85,10 @@
     "zfs"
     "bcachefs"
   ];
-  boot.zfs.extraPools = ["scarif"];
+  boot.zfs.extraPools = [ "scarif" ];
   services.zfs.autoScrub.enable = true;
 
   # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  services.openssh = {
-    enable = true;
-    extraConfig = ''
-      HostCertificate /etc/ssh/ssh_host_ed25519_key-cert.pub
-      TrustedUserCAKeys /etc/ssh/ssh-ca.pub
-    '';
-    settings = {
-      PermitRootLogin = "prohibit-password";
-      PasswordAuthentication = false;
-      Macs = [
-        "hmac-sha2-512-etm@openssh.com"
-        "hmac-sha2-256-etm@openssh.com"
-        "umac-128-etm@openssh.com"
-        "hmac-sha2-512" # For compatibility with passforios
-      ];
-    };
-  };
-
-  environment.etc."ssh/ssh_host_ed25519_key-cert.pub".text = ''
-    ssh-ed25519-cert-v01@openssh.com AAAAIHNzaC1lZDI1NTE5LWNlcnQtdjAxQG9wZW5zc2guY29tAAAAICLuOWX0BfJBLpyHmaymP5TQRdPXaX3LkI8w7LwsRQXCAAAAIDoKb0wQ+e7QmiTQOnXlK8zKgzTw8wkuWQWd7ou0LzzvAAAAAAAAAAAAAAACAAAAEW1vbmFkLnplcm9tYXAubmV0AAAAHgAAABFtb25hZC56ZXJvbWFwLm5ldAAAAAVtb25hZAAAAABpGAhYAAAAAHvW3JUAAAAAAAAAAAAAAAAAAABoAAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBNtiVXmfozsnJQhLCmFJ4YpSAU04gHqv+NPVPYMurs0co5bxkUP8/GokREVf9upEbsF0LLkgtvbvHvLmBKqpfRsAAABjAAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAABIAAAAIGborOC6N65Fv9nfHOhKbpe/iR6B6jlQF+K/YNuSEPF1AAAAIDuTbgW/1pvRnK/8AFrTnCdATBhq6v/u0yIFWAJ/35rd root@nixos
-  '';
-  environment.etc."ssh/ssh-ca.pub".text = ''
-    ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBNtiVXmfozsnJQhLCmFJ4YpSAU04gHqv+NPVPYMurs0co5bxkUP8/GokREVf9upEbsF0LLkgtvbvHvLmBKqpfRs=
-  '';
-
   services.k3s = {
     enable = true;
     role = "server";
@@ -131,8 +105,8 @@
     kubeT7 = {
       passwordFile = "/home/nicolas/restic-passwords/monad-kube-t7";
       repository = "/scarif/backups/monad-kube-t7-restic";
-      paths = ["/mnt/ssd-t7-2tb/kubernetes-storage"];
-      extraBackupArgs = ["--exclude-caches"];
+      paths = [ "/mnt/ssd-t7-2tb/kubernetes-storage" ];
+      extraBackupArgs = [ "--exclude-caches" ];
       pruneOpts = [
         "--keep-daily 7"
         "--keep-weekly 2"
@@ -146,8 +120,8 @@
     kubernetesStorage = {
       passwordFile = "/home/nicolas/restic-passwords/monad-kubernetes-storage";
       repository = "/scarif/backups/monad-kubernetes-storage-restic";
-      paths = ["/var/lib/rancher/k3s"];
-      extraBackupArgs = ["--exclude-caches"];
+      paths = [ "/var/lib/rancher/k3s" ];
+      extraBackupArgs = [ "--exclude-caches" ];
       pruneOpts = [
         "--keep-daily 7"
         "--keep-weekly 2"
