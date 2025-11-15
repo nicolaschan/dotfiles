@@ -9,7 +9,7 @@ if ! nix-edit "$CONFIG_PATH"; then
 fi
 
 pushd "$CONFIG_FLAKE_DIR" || exit
-sudo nixos-rebuild switch --upgrade --flake .#$(hostname)
+@rebuild
 
 status=$?
 

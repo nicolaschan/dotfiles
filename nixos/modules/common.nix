@@ -23,6 +23,7 @@
     vim
     wget
     pam_u2f
+    pam_ssh_agent_auth
   ];
 
   # nix-ld
@@ -74,15 +75,17 @@
   # };
   console.keyMap = "dvorak";
 
-  # Set up yubikey
+  # Enable rssh to use ssh agent for sudo
+  # If not available, use physical yubikey
+  # If not available, use fingerprint
+  # Fallback to password
+  security.pam.rssh.enable = true;
   security.pam.services = {
-    sudo.u2fAuth = true;
-  };
-
-  security.pam.u2f = {
-    control = "sufficient";
-    enable = true;
-    settings.cue = true;
+    sudo = {
+      u2fAuth = true;
+      rssh = true;
+      fprintAuth = true;
+    };
   };
 
   # Add wooting udev rules
@@ -138,7 +141,6 @@
       tree
     ];
     openssh.authorizedKeys.keys = [
-      "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIO4fOS9m+QoMnYVO9r/8zQn5bGaaJt4ILvQI2VW83a05AAAABHNzaDo= nicolas@xps"
       "sk-ecdsa-sha2-nistp256@openssh.com AAAAInNrLWVjZHNhLXNoYTItbmlzdHAyNTZAb3BlbnNzaC5jb20AAAAIbmlzdHAyNTYAAABBBDgWXcT8lPSDFOBCSGYwaUzal+1B0rPPuR5s9f4rpnY53KnIc8KnvonV4/0OrSLiAPndTyq8vMN5mv3x6zNbnpgAAAALdGVybWl1cy5jb20= nicolas@terminus-iphone"
     ];
   };
@@ -148,7 +150,7 @@
       commands = [
         {
           command = "ALL";
-          options = [ "NOPASSWD" ];
+          # options = [ "NOPASSWD" ];
         }
       ];
     }
