@@ -79,6 +79,7 @@
   # If not available, use physical yubikey
   # If not available, use fingerprint
   # Fallback to password
+  services.pcscd.enable = true;
   security.pam.rssh.enable = true;
   security.pam.services = {
     sudo = {
