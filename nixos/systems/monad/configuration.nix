@@ -83,7 +83,6 @@
 
   boot.supportedFilesystems = [
     "zfs"
-    "bcachefs"
   ];
   boot.zfs.extraPools = [ "scarif" ];
   services.zfs.autoScrub.enable = true;
