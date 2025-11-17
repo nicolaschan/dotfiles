@@ -2,7 +2,8 @@
   pkgs,
   insanity,
   ...
-}: {
+}:
+{
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "nicolas";
@@ -25,7 +26,7 @@
       btop.enable = true;
       ghostty.enable = true;
       firefox.enable = true;
-      firefox.profileNames = ["default"];
+      firefox.profileNames = [ "default" ];
     };
   };
 
@@ -79,7 +80,7 @@
     helvum
     httpie
     hyperfine
-    insanity.packages.${system}.default
+    insanity.packages.${stdenv.hostPlatform.system}.default
     iperf
     # jetbrains.idea-community
     just
@@ -247,9 +248,9 @@
         enable = true;
         autoEnableSources = true;
         settings.sources = [
-          {name = "nvim_lsp";} # ←  drives language-server items
-          {name = "path";} #  file paths
-          {name = "buffer";} #  words already in the file
+          { name = "nvim_lsp"; } # ←  drives language-server items
+          { name = "path"; } # file paths
+          { name = "buffer"; } # words already in the file
         ];
       };
       lspkind.enable = true;
@@ -259,8 +260,15 @@
   programs.starship.enable = true;
   programs.zed-editor = {
     enable = true;
-    extensions = ["gleam" "nix" "xml"];
-    extraPackages = [pkgs.nil pkgs.nixd];
+    extensions = [
+      "gleam"
+      "nix"
+      "xml"
+    ];
+    extraPackages = [
+      pkgs.nil
+      pkgs.nixd
+    ];
     userSettings = {
       telemetry = {
         metrics = false;
