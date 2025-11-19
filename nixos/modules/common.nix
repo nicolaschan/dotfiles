@@ -81,6 +81,7 @@
   # Fallback to password
   services.pcscd.enable = true;
   security.pam.rssh.enable = true;
+  security.pam.u2f.settings.cue = true;
   security.pam.services = {
     sudo = {
       u2fAuth = true;
