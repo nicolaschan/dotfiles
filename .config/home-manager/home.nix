@@ -2,8 +2,7 @@
   pkgs,
   insanity,
   ...
-}:
-{
+}: {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "nicolas";
@@ -26,7 +25,7 @@
       btop.enable = true;
       ghostty.enable = true;
       firefox.enable = true;
-      firefox.profileNames = [ "default" ];
+      firefox.profileNames = ["default"];
     };
   };
 
@@ -237,7 +236,10 @@
         enable = true;
         servers = {
           ruff.enable = true;
-          nil_ls.enable = true;
+          nil_ls = {
+            enable = true;
+            settings.nil.autoArchive = true;
+          };
         };
       };
       treesitter = {
@@ -248,9 +250,9 @@
         enable = true;
         autoEnableSources = true;
         settings.sources = [
-          { name = "nvim_lsp"; } # ←  drives language-server items
-          { name = "path"; } # file paths
-          { name = "buffer"; } # words already in the file
+          {name = "nvim_lsp";} # ←  drives language-server items
+          {name = "path";} # file paths
+          {name = "buffer";} # words already in the file
         ];
       };
       lspkind.enable = true;
