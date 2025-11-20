@@ -315,7 +315,7 @@
           };
         };
         nls = {
-          binary.path_lookup = true;
+          binary.path = "nls";
         };
       };
     };
