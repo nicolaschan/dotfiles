@@ -310,6 +310,9 @@
             checkOnSave = true;
           };
         };
+        nickel = {
+          binary.path = "nls";
+        };
       };
     };
   };
