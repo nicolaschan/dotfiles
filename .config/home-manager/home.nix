@@ -284,6 +284,10 @@
           api_url = "http://monad:11434";
         };
       };
+      languages.nickel = {
+        language_servers = ["nls"];
+        format_on_save = "on";
+      };
 
       features.edit_prediction_provider = "copilot";
       features.copilot = true;
@@ -310,8 +314,8 @@
             checkOnSave = true;
           };
         };
-        nickel = {
-          binary.path = "nls";
+        nls = {
+          binary.path_lookup = true;
         };
       };
     };
