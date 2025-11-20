@@ -290,7 +290,7 @@
           formatter = {
             external = {
               command = "nickel";
-              arguments = ["format" "{buffer_path}"];
+              arguments = ["format"];
             };
           };
         };
