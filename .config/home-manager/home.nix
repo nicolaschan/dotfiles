@@ -270,6 +270,7 @@
       "xml"
     ];
     extraPackages = [
+      pkgs.nls
       pkgs.nickel
       pkgs.nil
       pkgs.nixd
