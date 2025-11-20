@@ -284,7 +284,7 @@
           api_url = "http://monad:11434";
         };
       };
-      languages.nickel = {
+      languages.Nickel = {
         language_servers = ["nls"];
         format_on_save = "on";
       };
