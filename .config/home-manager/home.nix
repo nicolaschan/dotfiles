@@ -284,6 +284,17 @@
           api_url = "http://monad:11434";
         };
       };
+      languages = {
+        Nickel = {
+          enable_language_server = true;
+          formatter = {
+            external = {
+              command = "nickel";
+              arguments = ["format" "{buffer_path}"];
+            };
+          };
+        };
+      };
 
       features.edit_prediction_provider = "copilot";
       features.copilot = true;
