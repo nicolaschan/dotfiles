@@ -265,7 +265,6 @@
     enable = true;
     extensions = [
       "gleam"
-      "nickel"
       "nix"
       "xml"
     ];
@@ -283,10 +282,6 @@
         ollama = {
           api_url = "http://monad:11434";
         };
-      };
-      languages.Nickel = {
-        language_servers = ["nls"];
-        format_on_save = "on";
       };
 
       features.edit_prediction_provider = "copilot";
@@ -313,9 +308,6 @@
             procMacro.enable = true;
             checkOnSave = true;
           };
-        };
-        nls = {
-          binary.path = "nls";
         };
       };
     };
