@@ -265,10 +265,12 @@
     enable = true;
     extensions = [
       "gleam"
+      "nickel"
       "nix"
       "xml"
     ];
     extraPackages = [
+      pkgs.nickel
       pkgs.nil
       pkgs.nixd
     ];
