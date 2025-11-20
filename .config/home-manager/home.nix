@@ -265,6 +265,7 @@
     enable = true;
     extensions = [
       "gleam"
+      "nickel"
       "nix"
       "xml"
     ];
