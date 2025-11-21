@@ -19,8 +19,15 @@ zoxide init --cmd cd fish | source
 alias ls=lsd
 eval (direnv hook fish)
 
+carapace _carapace | source
+
 function nix-shell
     command nix-shell --run fish $argv
+end
+
+function fish_user_key_bindings
+  fish_default_key_bindings -M insert
+  fish_vi_key_bindings --no-erase insert
 end
 
 fish_add_path ~/bin

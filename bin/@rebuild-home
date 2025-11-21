@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+DOTFILES_DIR="$HOME/dotfiles"
+
+pushd "$DOTFILES_DIR" || exit
+
+pushd .config/home-manager || exit
+echo "Rebuilding home..."
+nix run home-manager/master -- switch || exit 1
+popd || exit
+

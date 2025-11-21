@@ -26,8 +26,8 @@ popd || exit
 pushd .config/home-manager || exit
 echo "Updating home-manager..."
 nix flake update
-nix run home-manager/master -- switch || exit
 git add flake.lock
+@rebuild-home || exit
 git commit -m "Update home-manager flake"
 git push origin master
 popd || exit

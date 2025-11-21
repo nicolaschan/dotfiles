@@ -42,7 +42,7 @@
             ./modules/nvidia.nix
             ./modules/gnome.nix
             (import ./modules/ssh.nix {
-              hostKeyPub = builtins.readFile ./systems/monad/hostkey-cert.pub;
+              hostCertPub = builtins.readFile ./systems/monad/hostkey-cert.pub;
               caPub = builtins.readFile ./resources/ssh-ca.pub;
             })
             ./systems/monad/configuration.nix
