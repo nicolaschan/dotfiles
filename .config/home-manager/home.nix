@@ -51,6 +51,7 @@
     b3sum
     bat
     blender
+    carapace
     chromium
     devenv
     # darktable
