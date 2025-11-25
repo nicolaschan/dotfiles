@@ -92,6 +92,7 @@
     lsd
     mtr
     mosh
+    nix-index
     # nodejs # for github copilot on neovim
     # ollama-cuda
     pass
