@@ -65,7 +65,6 @@
     fastfetch
     fd
     fish
-    floorp-bin
     fzf
     gcc # for neovim
     gimp
@@ -80,7 +79,7 @@
     helvum
     httpie
     hyperfine
-    insanity.packages.${system}.default
+    insanity.packages.${stdenv.hostPlatform.system}.default
     iperf
     # jetbrains.idea-community
     just
