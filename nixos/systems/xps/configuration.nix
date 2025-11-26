@@ -50,7 +50,7 @@
         RandomizedDelaySec = "1h";
         Persistent = true;
       };
-      backupPrepareCommand = "restic unlock -r sftp:git@monad:/scarif/backups/xps-restic --password-file /home/nicolas/.config/restic/password";
+      # backupPrepareCommand = "restic unlock -r sftp:git@monad:/scarif/backups/xps-restic --password-file /home/nicolas/.config/restic/password";
     };
   };
 
