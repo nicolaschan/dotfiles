@@ -271,7 +271,10 @@
           api_url = "http://monad:11434";
         };
       };
-      languages.nickel.formatter = "${pkgs.nickel} format";
+      languages.Nickel.formatter = {
+        command = pkgs.nickel;
+        arguments = ["format"];
+      };
 
       features.edit_prediction_provider = "copilot";
       features.copilot = true;
