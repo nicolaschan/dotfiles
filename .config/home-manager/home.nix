@@ -272,7 +272,7 @@
         };
       };
       languages.Nickel.formatter.external = {
-        command = pkgs.nickel;
+        command = "${pkgs.nickel}/bin/nickel";
         arguments = ["format"];
       };
 
