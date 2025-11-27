@@ -271,7 +271,7 @@
           api_url = "http://monad:11434";
         };
       };
-      languages.Nickel.formatter = {
+      languages.Nickel.formatter.external = {
         command = pkgs.nickel;
         arguments = ["format"];
       };
