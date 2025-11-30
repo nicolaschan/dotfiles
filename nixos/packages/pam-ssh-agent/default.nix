@@ -11,10 +11,10 @@ rustPlatform.buildRustPackage rec {
   version = "0.9.5";
 
   src = fetchFromGitHub {
-    owner = "nresare";
+    owner = "nicolaschan";
     repo = "pam-ssh-agent";
-    rev = "6158b51161c50774b195e0ea4debbf3ac9dbadf2";
-    hash = "sha256-x2//dLpfppGRXtxJFQqWoCx64WJkCMM8Tisei731YtU=";
+    rev = "4c46a43dcd5c1ecbbe5b929895dea11d32f424b6";
+    hash = "sha256-9Nta4FhBztcUU7DAS881lw/u/odT/MY5F76UfAVrj+Q=";
   };
 
   cargoHash = "sha256-eFKUKbraKvCuZiCCT0FURNqlJd8UPGr/+gO5hCfNj90=";
@@ -28,10 +28,10 @@ rustPlatform.buildRustPackage rec {
     openssl
   ];
 
-  checkFlags = [
-    "--skip=cmd::tests::test_run"
-    "--skip=filter::tests::test_read_public_keys"
-  ];
+  # For patching tests/data/test.sh for to fix the tests
+  postPatch = ''
+    patchShebangs tests
+  '';
 
   meta = with lib; {
     description = "A PAM module that authenticates using the ssh-agent";
