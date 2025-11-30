@@ -72,17 +72,15 @@
   # };
   console.keyMap = "dvorak";
 
-  # Enable rssh to use ssh agent for sudo
+  # Enable pamSshAgent to use ssh agent for sudo
   # If not available, use physical yubikey
   # If not available, use fingerprint
   # Fallback to password
   services.pcscd.enable = true;
-  security.pam.rssh.enable = true;
   security.pam.u2f.settings.cue = true;
   security.pam.services = {
     sudo = {
       u2fAuth = true;
-      rssh = true;
       fprintAuth = true;
       rules.auth = let
         pamSshAgent = pkgs.callPackage ../packages/pam-ssh-agent {};
