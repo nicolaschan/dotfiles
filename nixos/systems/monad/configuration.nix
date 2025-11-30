@@ -1,8 +1,4 @@
-{
-  pkgs,
-  ...
-}:
-{
+{pkgs, ...}: {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -79,7 +75,7 @@
   boot.supportedFilesystems = [
     "zfs"
   ];
-  boot.zfs.extraPools = [ "scarif" ];
+  boot.zfs.extraPools = ["scarif"];
   services.zfs.autoScrub.enable = true;
 
   # List services that you want to enable:
@@ -99,8 +95,8 @@
     kubeT7 = {
       passwordFile = "/home/nicolas/restic-passwords/monad-kube-t7";
       repository = "/scarif/backups/monad-kube-t7-restic";
-      paths = [ "/mnt/ssd-t7-2tb/kubernetes-storage" ];
-      extraBackupArgs = [ "--exclude-caches" ];
+      paths = ["/mnt/ssd-t7-2tb/kubernetes-storage"];
+      extraBackupArgs = ["--exclude-caches"];
       pruneOpts = [
         "--keep-daily 7"
         "--keep-weekly 2"
@@ -114,8 +110,8 @@
     kubernetesStorage = {
       passwordFile = "/home/nicolas/restic-passwords/monad-kubernetes-storage";
       repository = "/scarif/backups/monad-kubernetes-storage-restic";
-      paths = [ "/var/lib/rancher/k3s" ];
-      extraBackupArgs = [ "--exclude-caches" ];
+      paths = ["/var/lib/rancher/k3s"];
+      extraBackupArgs = ["--exclude-caches"];
       pruneOpts = [
         "--keep-daily 7"
         "--keep-weekly 2"
