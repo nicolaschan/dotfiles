@@ -1,13 +1,12 @@
 {
   lib,
   pkgs,
+  inputs,
   ...
-}:
-
-{
-  boot.supportedFilesystems = [ "bcachefs" ];
+}: {
+  boot.supportedFilesystems = ["bcachefs"];
   boot.kernelPackages = lib.mkOverride 1100 pkgs.linuxPackages_latest;
-  boot.kernelParams = [ "usbhid.mousepoll=1" ];
+  boot.kernelParams = ["usbhid.mousepoll=1"];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -85,13 +84,24 @@
       u2fAuth = true;
       rssh = true;
       fprintAuth = true;
+      rules.auth = let
+        pamSshAgent = pkgs.callPackage ../packages/pam-ssh-agent {};
+      in {
+        pamSshAgent = {
+          order = 100;
+          control = "sufficient";
+          modulePath = "${pamSshAgent}/lib/libpam_ssh_agent.so";
+          settings.file = "/etc/ssh/authorized_keys.d/%u";
+          settings.ca_keys_file = "/etc/ssh/ssh-ca.pub";
+        };
+      };
     };
   };
 
   # Add wooting udev rules
   services.udev.packages = [
     pkgs.wooting-udev-rules
-    (pkgs.callPackage ../packages/nuphy-udev-rules { })
+    (pkgs.callPackage ../packages/nuphy-udev-rules {})
   ];
 
   # Configure keymap in X11
