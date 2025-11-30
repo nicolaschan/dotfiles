@@ -77,12 +77,18 @@
   # If not available, use fingerprint
   # Fallback to password
   services.pcscd.enable = true;
-  security.pam.rssh.enable = true;
   security.pam.u2f.settings.cue = true;
+
+  # Needed for pamSshAgent
+  # https://github.com/NixOS/nixpkgs/blob/7241bcbb4f099a66aafca120d37c65e8dda32717/nixos/modules/security/pam.nix#L1586
+  security.sudo.extraConfig = ''
+    # Keep SSH_AUTH_SOCK so that pam_ssh_agent_auth.so and libpam_rssh.so can do their magic.
+    Defaults env_keep+=SSH_AUTH_SOCK
+  '';
+
   security.pam.services = {
     sudo = {
       u2fAuth = true;
-      rssh = true;
       fprintAuth = true;
       rules.auth = let
         pamSshAgent = pkgs.callPackage ../packages/pam-ssh-agent {};
