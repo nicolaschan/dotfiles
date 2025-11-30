@@ -33,16 +33,6 @@ rustPlatform.buildRustPackage rec {
     "--skip=filter::tests::test_read_public_keys"
   ];
 
-  # The build produces libpam_ssh_agent.so
-  # We need to install it to the correct location
-  postInstall = ''
-    # Create the directory for PAM modules
-    mkdir -p $out/lib/security
-
-    # Move the library to the PAM modules directory
-    mv $out/lib/libpam_ssh_agent.so $out/lib/security/pam_ssh_agent.so
-  '';
-
   meta = with lib; {
     description = "A PAM module that authenticates using the ssh-agent";
     longDescription = ''
