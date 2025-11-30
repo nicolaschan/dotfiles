@@ -213,7 +213,6 @@
     settings = {
       window-width = 129;
       window-height = 40;
-      keybind = "ctrl+shift+==increase_font_size:1";
     };
   };
   programs.htop.enable = true;
