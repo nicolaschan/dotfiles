@@ -174,6 +174,7 @@
   '';
 
   nix.settings.auto-optimise-store = true;
+  nix.settings.download-buffer-size = "1G";
   nix.gc = {
     automatic = true;
     persistent = true;
