@@ -2,11 +2,10 @@
   lib,
   rustPlatform,
   fetchFromGitHub,
-  pkg-config,
   pam,
   openssl,
 }:
-rustPlatform.buildRustPackage rec {
+rustPlatform.buildRustPackage {
   pname = "pam-ssh-agent";
   version = "0.9.5";
 
@@ -18,10 +17,6 @@ rustPlatform.buildRustPackage rec {
   };
 
   cargoHash = "sha256-eFKUKbraKvCuZiCCT0FURNqlJd8UPGr/+gO5hCfNj90=";
-
-  nativeBuildInputs = [
-    pkg-config
-  ];
 
   buildInputs = [
     pam
