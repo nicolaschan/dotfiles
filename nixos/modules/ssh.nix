@@ -1,6 +1,7 @@
-{ hostCertPub, caPub }:
-
 {
+  hostCertPub,
+  caPub,
+}: {
   services.openssh = {
     enable = true;
     extraConfig = ''
@@ -21,4 +22,5 @@
 
   environment.etc."ssh/ssh_host_ed25519_key-cert.pub".text = hostCertPub;
   environment.etc."ssh/ssh-ca.pub".text = caPub;
+  environment.etc."ssh/ssh_known_hosts".text = "@cert-authority * ${caPub}";
 }

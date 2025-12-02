@@ -166,6 +166,10 @@
   # Or disable the firewall altogether.
   networking.firewall.enable = false;
   networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
+  networking.interfaces.enp5s0.wakeOnLan = {
+    enable = true;
+    policy = ["phy" "unicast" "magic"];
+  };
 
   system.autoUpgrade.enable = true;
 
