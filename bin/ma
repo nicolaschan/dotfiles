@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-default=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
+default=$(git symbolic-ref refs/remotes/${remote:-origin}/HEAD | sed 's,.*/,,')
 git checkout "$default"
