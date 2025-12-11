@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+default=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
+git checkout "$default"
