@@ -275,7 +275,6 @@
         command = "${pkgs.nickel}/bin/nickel";
         arguments = ["format"];
       };
-      languages.TypeScript.code_actions_on_format."source.fixAll.eslint" = true;
 
       features.edit_prediction_provider = "copilot";
       features.copilot = true;
@@ -283,7 +282,8 @@
       vim_mode = true;
       vim.use_system_clipboard = "on_yank";
       autosave = "on_focus_change";
-      format_on_save = "on";
+      # format_on_save = "on";
+      format_on_save = "off";
       formatter = "language_server";
       buffer_font_features = {
         calt = true;
