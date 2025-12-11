@@ -275,6 +275,7 @@
         command = "${pkgs.nickel}/bin/nickel";
         arguments = ["format"];
       };
+      languages.TypeScript.code_actions_on_format."source.fixAll.eslint" = true;
 
       features.edit_prediction_provider = "copilot";
       features.copilot = true;
