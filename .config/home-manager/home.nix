@@ -94,7 +94,7 @@
     mosh
     nix-index
     # nodejs # for github copilot on neovim
-    # ollama-cuda
+    ollama
     pass
     pinentry-curses
     podman-tui
@@ -282,7 +282,8 @@
       vim_mode = true;
       vim.use_system_clipboard = "on_yank";
       autosave = "on_focus_change";
-      format_on_save = "on";
+      # format_on_save = "on";
+      format_on_save = "off";
       formatter = "language_server";
       buffer_font_features = {
         calt = true;
