@@ -53,6 +53,7 @@
     blender
     carapace
     chromium
+    comma
     devenv
     # darktable
     distrobox
