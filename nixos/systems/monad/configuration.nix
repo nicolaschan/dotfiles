@@ -7,7 +7,7 @@
   networking.hostName = "monad"; # Define your hostname.
   networking.hostId = "4dc56713";
 
-  boot.binfmt.emulatedSystems = ["aarch64-linux"];
+  boot.binfmt.emulatedSystems = ["aarch64-linux" "riscv64-linux"];
 
   swapDevices = [
     {
