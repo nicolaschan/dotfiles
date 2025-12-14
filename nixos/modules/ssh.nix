@@ -7,6 +7,7 @@
     extraConfig = ''
       HostCertificate /etc/ssh/ssh_host_ed25519_key-cert.pub
       TrustedUserCAKeys /etc/ssh/ssh-ca.pub
+      MaxAuthTries 100
     '';
     settings = {
       PermitRootLogin = "prohibit-password";
