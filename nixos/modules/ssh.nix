@@ -7,7 +7,6 @@
     extraConfig = ''
       HostCertificate /etc/ssh/ssh_host_ed25519_key-cert.pub
       TrustedUserCAKeys /etc/ssh/ssh-ca.pub
-      MaxAuthTries 100
     '';
     settings = {
       PermitRootLogin = "prohibit-password";
@@ -18,6 +17,7 @@
         "umac-128-etm@openssh.com"
         "hmac-sha2-512" # For compatibility with passforios
       ];
+      PerSourcePenaltyExemptList = "172.30.0.0/16,172.26.0.0/16";
     };
   };
 
