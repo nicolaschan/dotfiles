@@ -153,6 +153,7 @@
       "docker"
       "input"
       "uinput"
+      "i2c"
     ]; # Enable ‘sudo’ for the user.
     shell = pkgs.fish;
     packages = with pkgs; [

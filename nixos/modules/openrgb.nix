@@ -1,21 +1,21 @@
 {
-  config,
   pkgs,
   ...
 }:
 
 {
-  services.hardware.openrgb = {
-    enable = true;
-    # openrgb package overlay defined in overlays.nix
-    package = pkgs.openrgb;
-    startupProfile = "off";
-  };
+  services.udev.packages = [ pkgs.openrgb ];
 
-  # Copy the profile to /var/lib/OpenRGB/
-  systemd.tmpfiles.rules = [
-    "C /var/lib/OpenRGB/off.orp 0644 root root - ${../resources/openrgb/off.orp}"
-  ];
+  systemd.services.openrgb-off = {
+    description = "Turn off RGB lighting";
+    wantedBy = [ "multi-user.target" ];
+    after = [ "multi-user.target" ];
+    serviceConfig = {
+      Type = "oneshot";
+      User = "nicolas";
+      ExecStart = "${pkgs.openrgb}/bin/openrgb --device 0 --mode off";
+    };
+  };
 
   environment.systemPackages = [ pkgs.openrgb ];
 }
