@@ -4,7 +4,10 @@
   inputs,
   ...
 }: {
-  boot.supportedFilesystems = ["bcachefs"];
+  imports = [
+    ./overlays.nix
+  ];
+
   boot.kernelPackages = lib.mkOverride 1100 pkgs.linuxPackages_latest;
   boot.kernelParams = ["usbhid.mousepoll=1"];
 
@@ -25,7 +28,7 @@
   # nix-ld
   programs.nix-ld = {
     enable = true;
-    package = pkgs.nix-ld-rs;
+    package = pkgs.nix-ld;
     libraries = with pkgs; [
       # Add any missing dynamic libraries for unpackaged programs here
       stdenv.cc.cc
