@@ -2,7 +2,7 @@
   description = "Nix config";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
   };
 
@@ -41,6 +41,7 @@
             ./modules/common.nix
             ./modules/nvidia.nix
             ./modules/gnome.nix
+            ./modules/openrgb.nix
             (import ./modules/ssh.nix {
               hostCertPub = builtins.readFile ./systems/monad/hostkey-cert.pub;
               caPub = builtins.readFile ./resources/ssh-ca.pub;
