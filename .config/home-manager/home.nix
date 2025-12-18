@@ -315,12 +315,21 @@
     Unit = {
       Description = "Home Manager auto upgrade";
       After = [ "network-online.target" ];
+      OnFailure = [ "home-manager-notify-failure.service" ];
     };
     Service = {
       Type = "oneshot";
       ExecStart = toString (pkgs.writeShellScript "home-manager-auto-upgrade" ''
         ${pkgs.nix}/bin/nix run home-manager/master -- switch --flake github:nicolaschan/dotfiles?dir=.config/home-manager --refresh
       '');
+    };
+  };
+
+  systemd.user.services.home-manager-notify-failure = {
+    Unit.Description = "Notify on home-manager upgrade failure";
+    Service = {
+      Type = "oneshot";
+      ExecStart = "${pkgs.curl}/bin/curl -d 'Home-manager upgrade failed on ${config.home.username}' ntfy.sh/nicolaschan_alerts";
     };
   };
 
