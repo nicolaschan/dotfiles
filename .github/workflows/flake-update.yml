@@ -20,7 +20,7 @@ jobs:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Update flake.lock
-        run: nix flake update ./nixos
+        run: nix flake update --flake ./nixos
 
       - name: Create PR and enable auto-merge
         run: |
