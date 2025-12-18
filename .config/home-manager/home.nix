@@ -329,7 +329,9 @@
     Unit.Description = "Notify on home-manager upgrade failure";
     Service = {
       Type = "oneshot";
-      ExecStart = "${pkgs.curl}/bin/curl -d 'Home-manager upgrade failed on ${config.home.username}' ntfy.sh/nicolaschan_alerts";
+      ExecStart = toString (pkgs.writeShellScript "home-manager-notify-failure" ''
+        ${pkgs.curl}/bin/curl -d "Home-manager upgrade failed on $(${pkgs.hostname}/bin/hostname)" ntfy.sh/nicolaschan_alerts
+      '');
     };
   };
 
