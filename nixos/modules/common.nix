@@ -175,8 +175,6 @@
     policy = ["phy" "unicast" "magic"];
   };
 
-  system.autoUpgrade.enable = true;
-
   nix.extraOptions = ''
     experimental-features = nix-command flakes
   '';

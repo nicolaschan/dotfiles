@@ -29,6 +29,7 @@
           modules = [
             ./modules/common.nix
             ./modules/gnome.nix
+            ./modules/auto-upgrade.nix
             ./systems/xps/configuration.nix
           ];
         };
@@ -58,6 +59,7 @@
             ./modules/common.nix
             ./modules/nvidia.nix
             ./modules/gnome.nix
+            ./modules/auto-upgrade.nix
             (import ./modules/ssh.nix {
               hostCertPub = builtins.readFile ./systems/kamino/hostkey-cert.pub;
               caPub = builtins.readFile ./resources/ssh-ca.pub;
