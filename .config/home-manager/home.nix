@@ -207,6 +207,9 @@
       };
     };
   };
+  programs.librewolf = {
+    enable = true;
+  };
 
   programs.btop.enable = true;
   programs.ghostty = {
@@ -314,8 +317,8 @@
   systemd.user.services.home-manager-auto-upgrade = {
     Unit = {
       Description = "Home Manager auto upgrade";
-      After = [ "network-online.target" ];
-      OnFailure = [ "home-manager-notify-failure.service" ];
+      After = ["network-online.target"];
+      OnFailure = ["home-manager-notify-failure.service"];
     };
     Service = {
       Type = "oneshot";
@@ -345,7 +348,7 @@
       Persistent = true;
     };
     Install = {
-      WantedBy = [ "timers.target" ];
+      WantedBy = ["timers.target"];
     };
   };
 }
