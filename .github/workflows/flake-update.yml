@@ -24,7 +24,9 @@ jobs:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Update flake.lock
-        run: nix flake update --flake ./nixos
+        run: |
+          nix flake update --flake ./nixos
+          nix flake update --flake ./.config/home-manager
 
       - name: Create Pull Request
         id: create-pr

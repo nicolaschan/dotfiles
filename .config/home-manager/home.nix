@@ -309,4 +309,32 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  # Auto-upgrade home-manager daily
+  systemd.user.services.home-manager-auto-upgrade = {
+    Unit = {
+      Description = "Home Manager auto upgrade";
+      After = [ "network-online.target" ];
+    };
+    Service = {
+      Type = "oneshot";
+      ExecStart = toString (pkgs.writeShellScript "home-manager-auto-upgrade" ''
+        ${pkgs.nix}/bin/nix run home-manager/master -- switch --flake github:nicolaschan/dotfiles?dir=.config/home-manager --refresh
+      '');
+    };
+  };
+
+  systemd.user.timers.home-manager-auto-upgrade = {
+    Unit = {
+      Description = "Home Manager auto upgrade timer";
+    };
+    Timer = {
+      OnCalendar = "15:00 UTC";
+      RandomizedDelaySec = "30min";
+      Persistent = true;
+    };
+    Install = {
+      WantedBy = [ "timers.target" ];
+    };
+  };
 }
