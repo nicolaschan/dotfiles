@@ -1,0 +1,51 @@
+name: Update Flake
+
+on:
+  schedule:
+    # Run daily at 6:00 AM UTC
+    - cron: '0 6 * * *'
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  update-flake:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: cachix/install-nix-action@v31
+        with:
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Update flake.lock
+        run: nix flake update ./nixos
+
+      - name: Create PR and enable auto-merge
+        run: |
+          if git diff --quiet nixos/flake.lock; then
+            echo "No changes to flake.lock"
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -b flake-update
+          git add nixos/flake.lock
+          git commit -m "flake: update inputs"
+          git push -f origin flake-update
+
+          # Create PR if it doesn't exist, otherwise update it
+          if gh pr view flake-update > /dev/null 2>&1; then
+            echo "PR already exists"
+          else
+            gh pr create \
+              --title "flake: update inputs" \
+              --body "Automated flake.lock update. This PR will be automatically merged if all checks pass." \
+              --label "automated"
+          fi
+
+          gh pr merge --auto --squash flake-update
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
