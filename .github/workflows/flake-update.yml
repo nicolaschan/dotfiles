@@ -9,11 +9,16 @@ on:
 jobs:
   update-flake:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      pull-requests: write
     steps:
+      - uses: actions/create-github-app-token@v1
+        id: app-token
+        with:
+          app-id: ${{ vars.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+
       - uses: actions/checkout@v4
+        with:
+          token: ${{ steps.app-token.outputs.token }}
 
       - uses: cachix/install-nix-action@v31
         with:
@@ -22,30 +27,23 @@ jobs:
       - name: Update flake.lock
         run: nix flake update --flake ./nixos
 
-      - name: Create PR and enable auto-merge
-        run: |
-          if git diff --quiet nixos/flake.lock; then
-            echo "No changes to flake.lock"
-            exit 0
-          fi
+      - name: Create Pull Request
+        id: create-pr
+        uses: peter-evans/create-pull-request@98357b18bf14b5342f975ff684046ec3b2a07725 # v8
+        with:
+          token: ${{ steps.app-token.outputs.token }}
+          commit-message: 'flake: update inputs'
+          title: 'flake: update inputs'
+          body: |
+            Automated flake.lock update.
 
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git checkout -b flake-update
-          git add nixos/flake.lock
-          git commit -m "flake: update inputs"
-          git push -f origin flake-update
+            This PR will be automatically merged if all checks pass.
+          branch: flake-update
+          delete-branch: true
+          sign-commits: true
 
-          # Create PR if it doesn't exist, otherwise update it
-          if gh pr view flake-update > /dev/null 2>&1; then
-            echo "PR already exists"
-          else
-            gh pr create \
-              --title "flake: update inputs" \
-              --body "Automated flake.lock update. This PR will be automatically merged if all checks pass." \
-              --label "automated"
-          fi
-
-          gh pr merge --auto --squash flake-update
+      - name: Enable auto-merge
+        if: ${{ steps.create-pr.outputs.pull-request-number }}
+        run: gh pr merge --auto --squash flake-update
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
