@@ -6,6 +6,7 @@
 }: {
   imports = [
     ./overlays.nix
+    ./wake-on-lan.nix
   ];
 
   boot.kernelPackages = lib.mkOverride 1100 pkgs.linuxPackages_latest;
@@ -170,10 +171,6 @@
   # Or disable the firewall altogether.
   networking.firewall.enable = false;
   networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
-  networking.interfaces.enp5s0.wakeOnLan = {
-    enable = true;
-    policy = ["phy" "unicast" "magic"];
-  };
 
   nix.extraOptions = ''
     experimental-features = nix-command flakes

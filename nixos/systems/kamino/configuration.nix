@@ -8,6 +8,11 @@
     ./hardware-configuration.nix
   ];
 
+  services.wakeOnLan = {
+    enable = true;
+    interface = "enp5s0";
+  };
+
   boot.extraModprobeConfig = ''
     options usbhid mousepoll=1
   '';
