@@ -17,7 +17,7 @@ in {
   config = lib.mkIf cfg.enable {
     networking.interfaces.${cfg.interface}.wakeOnLan = {
       enable = true;
-      policy = ["phy" "unicast" "magic"];
+      policy = ["magic"];
     };
   };
 }
