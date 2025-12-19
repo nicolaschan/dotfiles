@@ -209,6 +209,9 @@
   };
   programs.librewolf = {
     enable = true;
+    settings = {
+      "privacy.resistFingerprinting" = false;
+    };
   };
 
   programs.btop.enable = true;
