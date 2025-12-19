@@ -26,6 +26,7 @@
       ghostty.enable = true;
       firefox.enable = true;
       firefox.profileNames = ["default"];
+      librewolf.profileNames = ["default"];
     };
   };
 
