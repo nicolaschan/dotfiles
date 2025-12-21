@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{pkgs, lib, ...}: {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -57,6 +57,13 @@
     nvtopPackages.nvidia
     runc
   ];
+
+  services.wakeOnLan = {
+    enable = true;
+    interface = "enp5s0";
+  };
+
+  hardware.nvidia.open = lib.mkForce false;
 
   environment.sessionVariables = {
     LD_LIBRARY_PATH = "/run/opengl-driver/lib:/run/opengl-driver-32/lib";

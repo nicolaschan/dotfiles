@@ -8,16 +8,10 @@
     ./hardware-configuration.nix
   ];
 
-  services.wakeOnLan = {
-    enable = true;
-    interface = "enp5s0";
-  };
-
   boot.extraModprobeConfig = ''
     options usbhid mousepoll=1
   '';
 
-  hardware.nvidia.open = lib.mkForce false;
   networking.hostName = "kamino";
 
   # This value determines the NixOS release from which the default
