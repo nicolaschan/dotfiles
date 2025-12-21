@@ -58,6 +58,13 @@
     runc
   ];
 
+  services.wakeOnLan = {
+    enable = true;
+    interface = "enp5s0";
+  };
+
+  hardware.nvidia.open = lib.mkForce false;
+
   environment.sessionVariables = {
     LD_LIBRARY_PATH = "/run/opengl-driver/lib:/run/opengl-driver-32/lib";
   };

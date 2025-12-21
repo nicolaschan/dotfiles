@@ -42,7 +42,6 @@
             ./modules/common.nix
             ./modules/nvidia.nix
             ./modules/gnome.nix
-            ./modules/openrgb.nix
             (import ./modules/ssh.nix {
               hostCertPub = builtins.readFile ./systems/monad/hostkey-cert.pub;
               caPub = builtins.readFile ./resources/ssh-ca.pub;
@@ -59,6 +58,7 @@
             ./modules/common.nix
             ./modules/nvidia.nix
             ./modules/gnome.nix
+            ./modules/openrgb.nix
             ./modules/auto-upgrade.nix
             (import ./modules/ssh.nix {
               hostCertPub = builtins.readFile ./systems/kamino/hostkey-cert.pub;
