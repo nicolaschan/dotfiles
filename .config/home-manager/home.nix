@@ -322,14 +322,19 @@
     Unit = {
       Description = "Home Manager auto upgrade";
       After = ["network-online.target"];
-      OnFailure = ["home-manager-notify-failure.service"];
     };
     Service = {
       Type = "oneshot";
+      Environment = "PATH=${pkgs.nix}/bin:${pkgs.git}/bin";
       ExecStart = toString (pkgs.writeShellScript "home-manager-auto-upgrade" ''
         ${pkgs.nix}/bin/nix run home-manager/master -- switch --flake github:nicolaschan/dotfiles?dir=.config/home-manager --refresh
       '');
+      Restart = "on-failure";
+      RestartSec = "5min";
     };
+    Unit.OnFailure = ["home-manager-notify-failure.service"];
+    Unit.StartLimitIntervalSec = "15min";
+    Unit.StartLimitBurst = 2;
   };
 
   systemd.user.services.home-manager-notify-failure = {

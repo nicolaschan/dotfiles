@@ -15,8 +15,16 @@
     randomizedDelaySec = "30min";
   };
 
-  # Notify on upgrade failure
+  # Retry once after 5 minutes on failure, notify only after both attempts fail
   systemd.services.nixos-upgrade = {
+    serviceConfig = {
+      Restart = "on-failure";
+      RestartSec = "5min";
+    };
+    unitConfig = {
+      StartLimitIntervalSec = "15min";
+      StartLimitBurst = 2;
+    };
     onFailure = [ "nixos-upgrade-notify-failure.service" ];
   };
 
