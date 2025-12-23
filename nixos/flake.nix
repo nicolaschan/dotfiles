@@ -41,7 +41,6 @@
           modules = [
             ./modules/common.nix
             ./modules/nvidia.nix
-            ./modules/gnome.nix
             (import ./modules/ssh.nix {
               hostCertPub = builtins.readFile ./systems/monad/hostkey-cert.pub;
               caPub = builtins.readFile ./resources/ssh-ca.pub;
