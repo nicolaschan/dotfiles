@@ -1,4 +1,8 @@
-{pkgs, lib, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -86,6 +90,13 @@
   ];
   boot.zfs.extraPools = ["scarif"];
   services.zfs.autoScrub.enable = true;
+  services.zfs.autoSnapshot = {
+    enable = true;
+    frequent = 4;
+    hourly = 24;
+    daily = 7;
+    weekly = 4;
+  };
 
   # List services that you want to enable:
   services.k3s = {
