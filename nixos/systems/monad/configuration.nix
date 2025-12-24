@@ -96,6 +96,7 @@
     hourly = 24;
     daily = 7;
     weekly = 4;
+    monthly = 0;
   };
 
   # List services that you want to enable:
