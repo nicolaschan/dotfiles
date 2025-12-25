@@ -63,6 +63,7 @@
     dotacat
     drill
     dust
+    dysk
     # easyeffects
     fastfetch
     fd
