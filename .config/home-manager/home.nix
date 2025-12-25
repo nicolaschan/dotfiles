@@ -62,6 +62,7 @@
     dogdns
     dotacat
     drill
+    duf
     dust
     dysk
     # easyeffects
