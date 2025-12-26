@@ -124,6 +124,7 @@
     tree
     unzip
     vscode
+    wakeonlan
     wasmtime
     wezterm
     wget
