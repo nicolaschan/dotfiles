@@ -20,6 +20,8 @@
   # Programs
   programs.fish.enable = true;
   environment.systemPackages = with pkgs; [
+    b3sum
+    dust
     git
     vim
     wget
