@@ -22,22 +22,7 @@
     # 127.0.0.1 news.ycombinator.com
   '';
 
-  services.syncthing = {
-    enable = true;
-    user = "nicolas";
-    dataDir = "/home/nicolas";
-    overrideDevices = true;
-    overrideFolders = true;
-    settings = {
-      devices = {
-      };
-      folders = {
-        "Home" = {
-          path = "/home/nicolas";
-        };
-      };
-    };
-  };
+
 
   services.restic.backups = {
     scarifBackup = {

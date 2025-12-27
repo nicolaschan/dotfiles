@@ -125,6 +125,24 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
+  services.syncthing = {
+    enable = true;
+    user = "nicolas";
+    dataDir = "/home/nicolas";
+    overrideDevices = true;
+    overrideFolders = true;
+    settings = {
+      devices = {
+        xps = { id ="ITCAYRO-HD6JRN7-RO3PRZ2-4O7TVXB-TQSPCIS-QPNNO7G-ZW72DBK-2J7J6QE"; };
+      };
+      folders = {
+        "Home" = {
+          path = "/home/nicolas";
+        };
+      };
+    };
+  };
+
   virtualisation = {
     containers = {
       enable = true;
