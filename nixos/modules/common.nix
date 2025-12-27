@@ -133,7 +133,8 @@
     overrideFolders = true;
     settings = {
       devices = {
-        xps = { id ="ITCAYRO-HD6JRN7-RO3PRZ2-4O7TVXB-TQSPCIS-QPNNO7G-ZW72DBK-2J7J6QE"; };
+        xps.id = "ITCAYRO-HD6JRN7-RO3PRZ2-4O7TVXB-TQSPCIS-QPNNO7G-ZW72DBK-2J7J6QE";
+        monad.id = "TUWDZBU-EIPGCRQ-MMCUR7A-OIOK7HR-5WYIUO3-CJEKN6M-XKNLYTV-65BY2QF";
       };
       folders = {
         "Home" = {
