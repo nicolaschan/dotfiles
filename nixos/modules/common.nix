@@ -126,7 +126,7 @@
   services.printing.enable = true;
 
   services.syncthing = {
-    enable = true;
+    enable = false;
     user = "nicolas";
     dataDir = "/home/nicolas";
     overrideDevices = true;
