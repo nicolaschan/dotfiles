@@ -95,7 +95,7 @@
     frequent = 4;
     hourly = 24;
     daily = 7;
-    weekly = 4;
+    weekly = 2;
     monthly = 0;
   };
 
