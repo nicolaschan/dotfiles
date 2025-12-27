@@ -22,6 +22,8 @@
     # 127.0.0.1 news.ycombinator.com
   '';
 
+
+
   services.restic.backups = {
     scarifBackup = {
       passwordFile = "/home/nicolas/.config/restic/password";

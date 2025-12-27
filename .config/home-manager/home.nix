@@ -106,6 +106,7 @@
     prismlauncher
     pv
     qrencode
+    rclone
     restic
     ripgrep
     ripgrep-all
