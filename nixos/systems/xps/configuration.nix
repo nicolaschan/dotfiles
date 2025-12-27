@@ -28,6 +28,15 @@
     dataDir = "/home/nicolas";
     overrideDevices = true;
     overrideFolders = true;
+    settings = {
+      devices = {
+      };
+      folders = {
+        "Home" = {
+          path = "/home/nicolas";
+        };
+      };
+    };
   };
 
   services.restic.backups = {
