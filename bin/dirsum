@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+checksum_output="${1}.b3sum"
+
+if [ -f "$checksum_output" ]; then
+  echo "error file already exists: $checksum_output" >&2
+  exit 1
+fi
+
+find "$1" -type f -exec b3sum {} + | sort -k 2 > "$checksum_output"
