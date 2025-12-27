@@ -22,6 +22,14 @@
     # 127.0.0.1 news.ycombinator.com
   '';
 
+  services.syncthing = {
+    enable = true;
+    user = "nicolas";
+    dataDir = "/home/nicolas";
+    overrideDevices = true;
+    overrideFolders = true;
+  };
+
   services.restic.backups = {
     scarifBackup = {
       passwordFile = "/home/nicolas/.config/restic/password";
