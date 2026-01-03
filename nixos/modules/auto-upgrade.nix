@@ -26,6 +26,11 @@
       StartLimitBurst = 2;
     };
     onFailure = [ "nixos-upgrade-notify-failure.service" ];
+    # Reset failure state of dependencies to avoid getting stuck in a failure loop
+    preStart = ''
+      ${pkgs.systemd}/bin/systemctl reset-failed restic-backups-scarifBackup.service || true
+      ${pkgs.systemd}/bin/systemctl reset-failed nixos-upgrade.service || true
+    '';
   };
 
   systemd.services.nixos-upgrade-notify-failure = {
