@@ -15,8 +15,19 @@
     randomizedDelaySec = "30min";
   };
 
+  # Reset failure state before upgrade to avoid getting stuck in a failure loop
+  systemd.services.nixos-upgrade-reset-failures = {
+    description = "Reset failed units before NixOS upgrade";
+    serviceConfig = {
+      Type = "oneshot";
+      ExecStart = "${pkgs.bash}/bin/bash -c '${pkgs.systemd}/bin/systemctl reset-failed restic-backups-scarifBackup.service nixos-upgrade.service || true'";
+    };
+  };
+
   # Retry once after 5 minutes on failure, notify only after both attempts fail
   systemd.services.nixos-upgrade = {
+    wants = [ "nixos-upgrade-reset-failures.service" ];
+    after = [ "nixos-upgrade-reset-failures.service" ];
     serviceConfig = {
       Restart = "on-failure";
       RestartSec = "5min";
@@ -26,11 +37,6 @@
       StartLimitBurst = 2;
     };
     onFailure = [ "nixos-upgrade-notify-failure.service" ];
-    # Reset failure state of dependencies to avoid getting stuck in a failure loop
-    preStart = ''
-      ${pkgs.systemd}/bin/systemctl reset-failed restic-backups-scarifBackup.service || true
-      ${pkgs.systemd}/bin/systemctl reset-failed nixos-upgrade.service || true
-    '';
   };
 
   systemd.services.nixos-upgrade-notify-failure = {
