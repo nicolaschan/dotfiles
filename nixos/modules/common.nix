@@ -77,6 +77,15 @@
   # };
   console.keyMap = "dvorak";
 
+  # SSH client config
+  # Forward agent only to hosts with CA-signed certificates (*.zeromap.net)
+  # Other hosts can still connect normally but won't get agent forwarding
+  programs.ssh.extraConfig = ''
+    Host *.zeromap.net
+      StrictHostKeyChecking yes
+      ForwardAgent yes
+  '';
+
   # Enable rssh to use ssh agent for sudo
   # If not available, use physical yubikey
   # If not available, use fingerprint
