@@ -7,15 +7,10 @@
 {
   hardware.graphics = {
     enable = true;
-    enable32Bit = true; # required for docker.enableNvdia
+    enable32Bit = true;
   };
 
   hardware.nvidia-container-toolkit.enable = true;
-  hardware.nvidia-container-toolkit.mount-nvidia-executables = true;
-
-  environment.systemPackages = with pkgs; [
-    nvidia-container-toolkit
-  ];
 
   hardware.nvidia = {
     package = config.boot.kernelPackages.nvidiaPackages.stable;
