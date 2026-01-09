@@ -39,6 +39,7 @@
       modules = [
         stylix.homeModules.stylix
         nixvim.homeModules.nixvim
+        ./modules/dynamic-wallpaper.nix
         ./home.nix
       ];
 

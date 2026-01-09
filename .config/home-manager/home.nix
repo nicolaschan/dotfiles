@@ -1,4 +1,5 @@
 {
+  config,
   pkgs,
   insanity,
   ...
@@ -363,5 +364,13 @@
     Install = {
       WantedBy = ["timers.target"];
     };
+  };
+
+  modules.dynamic-wallpaper = {
+    enable = true;
+    latitude = 37.77;
+    longitude = -122.42;
+    dayWallpaper = "${config.home.homeDirectory}/wallpapers/Forest 1.png";
+    nightWallpaper = "${config.home.homeDirectory}/wallpapers/Forest 4.png";
   };
 }
