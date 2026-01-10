@@ -59,12 +59,14 @@
             ./modules/gnome.nix
             ./modules/openrgb.nix
             ./modules/auto-upgrade.nix
+            ./modules/initrd-ssh.nix
             (import ./modules/ssh.nix {
               hostCertPub = builtins.readFile ./systems/kamino/hostkey-cert.pub;
               caPub = builtins.readFile ./resources/ssh-ca.pub;
             })
             ./systems/kamino/configuration.nix
           ];
+        };
         };
       };
     };

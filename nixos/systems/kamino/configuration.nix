@@ -12,6 +12,15 @@
     options usbhid mousepoll=1
   '';
 
+  # Network drivers needed for initrd SSH (find yours with: lspci -k | grep -A3 -i ethernet)
+  boot.initrd.availableKernelModules = [
+    "r8169"      # Realtek Gigabit Ethernet
+    "igc"        # Intel 2.5G Ethernet (common on newer boards)
+  ];
+
+  # Enable initrd SSH for remote disk decryption
+  services.initrd-ssh.enable = true;
+
   networking.hostName = "kamino";
 
   # This value determines the NixOS release from which the default
