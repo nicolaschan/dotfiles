@@ -67,7 +67,6 @@
             ./systems/kamino/configuration.nix
           ];
         };
-        };
       };
     };
 }

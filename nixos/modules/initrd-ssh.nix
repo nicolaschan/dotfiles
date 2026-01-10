@@ -47,7 +47,8 @@ in
         enable = true;
         port = cfg.port;
         hostKeys = [ cfg.hostKeyPath ];
-        authorizedKeys = [ ];
+        # CA key is not actually used for auth but we need to make this array nonempty
+        authorizedKeyFiles = [ cfg.caPubKeyPath ];
         extraConfig = ''
           TrustedUserCAKeys /etc/ssh/ssh-ca.pub
           HostCertificate /etc/ssh/ssh_host_ed25519_key-cert.pub
