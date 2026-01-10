@@ -16,6 +16,7 @@
   boot.initrd.availableKernelModules = [
     "r8169"      # Realtek Gigabit Ethernet
     "igc"        # Intel 2.5G Ethernet (common on newer boards)
+    "atlantic"   # Aquantia/Marvell AQtion NICs
   ];
 
   # Enable initrd SSH for remote disk decryption
