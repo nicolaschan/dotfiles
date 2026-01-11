@@ -43,6 +43,7 @@ in
   config = mkIf cfg.enable {
     boot.initrd.network = {
       enable = true;
+      udhcpc.enable = true;
       ssh = {
         enable = true;
         port = cfg.port;
