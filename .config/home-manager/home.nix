@@ -70,6 +70,7 @@
     fastfetch
     fd
     fish
+    freecad
     fzf
     gcc # for neovim
     gimp
@@ -114,6 +115,7 @@
     screen
     shellcheck
     signal-desktop
+    solvespace
     sshfs
     stow
     speedtest-cli
