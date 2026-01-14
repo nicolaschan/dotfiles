@@ -39,6 +39,9 @@
     onFailure = [ "nixos-upgrade-notify-failure.service" ];
   };
 
+  # Ensure restic backup failures don't block nixos-upgrade
+  systemd.services.restic-backups-scarifBackup.serviceConfig.SuccessExitStatus = lib.mkDefault "0 4";
+
   systemd.services.nixos-upgrade-notify-failure = {
     description = "Notify on NixOS upgrade failure";
     serviceConfig = {
