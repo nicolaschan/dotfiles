@@ -1,5 +1,6 @@
 {
   lib,
+  pkgs-unstable,
   ...
 }:
 {
@@ -21,6 +22,11 @@
 
   # Enable initrd SSH for remote disk decryption
   services.initrd-ssh.enable = true;
+
+  services.ollama = {
+    enable = true;
+    acceleration = "cuda";
+  };
 
   networking.hostName = "kamino";
 
