@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  pkgs-unstable,
   insanity,
   ...
 }: {
@@ -100,7 +101,8 @@
     mosh
     nix-index
     # nodejs # for github copilot on neovim
-    ollama
+    pkgs-unstable.ollama
+    pkgs-unstable.opencode
     pass
     pinentry-curses
     podman-tui
