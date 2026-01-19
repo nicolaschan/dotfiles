@@ -23,9 +23,10 @@
   # Enable initrd SSH for remote disk decryption
   services.initrd-ssh.enable = true;
 
+  nixpkgs.config.allowUnfree = true;
   services.ollama = {
     enable = true;
-    package = pkgs-unstable.ollama;
+    package = pkgs-unstable.ollama-cuda;
     acceleration = "cuda";
     host = "0.0.0.0";
   };
