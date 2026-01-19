@@ -27,6 +27,7 @@
     enable = true;
     package = pkgs-unstable.ollama;
     acceleration = "cuda";
+    host = "0.0.0.0";
   };
 
   networking.hostName = "kamino";
