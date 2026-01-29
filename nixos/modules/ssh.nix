@@ -9,15 +9,16 @@
       TrustedUserCAKeys /etc/ssh/ssh-ca.pub
     '';
     settings = {
-      PermitRootLogin = "prohibit-password";
+      PermitRootLogin = "no";
       PasswordAuthentication = false;
+      KbdInteractiveAuthentication = false;
       Macs = [
         "hmac-sha2-512-etm@openssh.com"
         "hmac-sha2-256-etm@openssh.com"
         "umac-128-etm@openssh.com"
         "hmac-sha2-512" # For compatibility with passforios
       ];
-      PerSourcePenaltyExemptList = "172.30.0.0/16,172.26.0.0/16";
+      PerSourcePenaltyExemptList = "172.30.0.0/16,172.26.0.0/16,192.168.73.0/24";
     };
   };
 

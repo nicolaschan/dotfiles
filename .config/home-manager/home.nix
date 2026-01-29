@@ -1,5 +1,7 @@
 {
+  config,
   pkgs,
+  pkgs-unstable,
   insanity,
   ...
 }: {
@@ -69,6 +71,7 @@
     fastfetch
     fd
     fish
+    freecad
     fzf
     gcc # for neovim
     gimp
@@ -98,7 +101,8 @@
     mosh
     nix-index
     # nodejs # for github copilot on neovim
-    ollama
+    pkgs-unstable.ollama
+    pkgs-unstable.opencode
     pass
     pinentry-curses
     podman-tui
@@ -113,6 +117,7 @@
     screen
     shellcheck
     signal-desktop
+    solvespace
     sshfs
     stow
     speedtest-cli
@@ -271,7 +276,7 @@
   };
   programs.starship.enable = true;
   programs.zed-editor = {
-    enable = true;
+    enable = false;
     extensions = ["gleam" "nickel" "nix" "xml"];
     extraPackages = [pkgs.nil pkgs.nixd];
     userSettings = {
@@ -363,5 +368,13 @@
     Install = {
       WantedBy = ["timers.target"];
     };
+  };
+
+  modules.dynamic-wallpaper = {
+    enable = true;
+    latitude = 37.77;
+    longitude = -122.42;
+    dayWallpaper = "${config.home.homeDirectory}/wallpapers/Forest 1.png";
+    nightWallpaper = "${config.home.homeDirectory}/wallpapers/Forest 4.png";
   };
 }

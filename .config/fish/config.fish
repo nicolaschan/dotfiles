@@ -28,6 +28,11 @@ end
 function fish_user_key_bindings
   fish_default_key_bindings -M insert
   fish_vi_key_bindings --no-erase insert
+  bind -M insert alt-backspace backward-kill-word
+  bind -M insert ctrl-alt-h backward-kill-word
+  bind -M insert ctrl-backspace backward-kill-token
+  bind -M insert alt-delete kill-word
+  bind -M insert ctrl-delete kill-token
 end
 
 fish_add_path ~/bin
@@ -36,4 +41,5 @@ set -gx EDITOR nvim
 set -gx GPG_TTY (tty)
 
 alias e=$EDITOR
+
 

@@ -15,7 +15,10 @@
     }@inputs:
     let
       inherit (self) outputs;
-      pkgs-unstable = nixpkgs-unstable.legacyPackages.${"x86_64-linux"};
+      pkgs-unstable = import nixpkgs-unstable {
+        system = "x86_64-linux";
+        config.allowUnfree = true;
+      };
     in
     {
       # NixOS configuration entrypoint
@@ -59,6 +62,7 @@
             ./modules/gnome.nix
             ./modules/openrgb.nix
             ./modules/auto-upgrade.nix
+            ./modules/initrd-ssh.nix
             (import ./modules/ssh.nix {
               hostCertPub = builtins.readFile ./systems/kamino/hostkey-cert.pub;
               caPub = builtins.readFile ./resources/ssh-ca.pub;

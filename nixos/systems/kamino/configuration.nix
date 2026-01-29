@@ -1,5 +1,6 @@
 {
   lib,
+  pkgs-unstable,
   ...
 }:
 {
@@ -11,6 +12,24 @@
   boot.extraModprobeConfig = ''
     options usbhid mousepoll=1
   '';
+
+  # Network drivers needed for initrd SSH (find yours with: lspci -k | grep -A3 -i ethernet)
+  boot.initrd.availableKernelModules = [
+    "r8169"      # Realtek Gigabit Ethernet
+    "igc"        # Intel 2.5G Ethernet (common on newer boards)
+    "atlantic"   # Aquantia/Marvell AQtion NICs
+  ];
+
+  # Enable initrd SSH for remote disk decryption
+  services.initrd-ssh.enable = true;
+
+  nixpkgs.config.allowUnfree = true;
+  services.ollama = {
+    enable = true;
+    package = pkgs-unstable.ollama-cuda;
+    acceleration = "cuda";
+    host = "0.0.0.0";
+  };
 
   networking.hostName = "kamino";
 
