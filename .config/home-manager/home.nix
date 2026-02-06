@@ -260,6 +260,35 @@
       treesitter = {
         enable = true;
         settings.indent.enable = true;
+        grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
+          bash
+          c
+          cmake
+          comment
+          cpp
+          css
+          cue
+          diff
+          dockerfile
+          gitcommit
+          gitignore
+          go
+          html
+          javascript
+          json
+          lua
+          make
+          markdown
+          markdown_inline
+          nix
+          python
+          rust
+          toml
+          typescript
+          vim
+          vimdoc
+          yaml
+        ];
       };
       cmp = {
         enable = true;
