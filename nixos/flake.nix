@@ -63,6 +63,9 @@
             ./modules/openrgb.nix
             ./modules/auto-upgrade.nix
             ./modules/initrd-ssh.nix
+            {
+              services.initrd-ssh.caPubKey = builtins.readFile ./resources/ssh-ca.pub;
+            }
             (import ./modules/ssh.nix {
               hostCertPub = builtins.readFile ./systems/kamino/hostkey-cert.pub;
               caPub = builtins.readFile ./resources/ssh-ca.pub;

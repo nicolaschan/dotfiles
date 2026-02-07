@@ -3,6 +3,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }:
 
@@ -10,6 +11,7 @@ with lib;
 
 let
   cfg = config.services.initrd-ssh;
+  caPubKeyFile = pkgs.writeText "ssh-ca.pub" cfg.caPubKey;
 in
 {
   options.services.initrd-ssh = {
@@ -33,10 +35,9 @@ in
       description = "Path to the initrd SSH host certificate (signed by CA)";
     };
 
-    caPubKeyPath = mkOption {
-      type = types.path;
-      default = ../resources/ssh-ca.pub;
-      description = "Path to the SSH CA public key for user authentication";
+    caPubKey = mkOption {
+      type = types.str;
+      description = "SSH CA public key content for user authentication";
     };
   };
 
@@ -49,7 +50,7 @@ in
         port = cfg.port;
         hostKeys = [ cfg.hostKeyPath ];
         # CA key is not actually used for auth but we need to make this array nonempty
-        authorizedKeyFiles = [ cfg.caPubKeyPath ];
+        authorizedKeyFiles = [ caPubKeyFile ];
         extraConfig = ''
           TrustedUserCAKeys /etc/ssh/ssh-ca.pub
           HostCertificate /etc/ssh/ssh_host_ed25519_key-cert.pub
@@ -58,7 +59,7 @@ in
     };
 
     boot.initrd.secrets = {
-      "/etc/ssh/ssh-ca.pub" = cfg.caPubKeyPath;
+      "/etc/ssh/ssh-ca.pub" = "${caPubKeyFile}";
       "/etc/ssh/ssh_host_ed25519_key-cert.pub" = cfg.hostCertPath;
     };
   };
