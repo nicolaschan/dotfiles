@@ -31,6 +31,13 @@
     host = "0.0.0.0";
   };
 
+  # LUKS-encrypted swap partition
+  boot.initrd.luks.devices."luks-275ae343-f162-482d-a35d-8b1912a1b964".device =
+    "/dev/disk/by-uuid/275ae343-f162-482d-a35d-8b1912a1b964";
+  swapDevices = [
+    { device = "/dev/mapper/luks-275ae343-f162-482d-a35d-8b1912a1b964"; }
+  ];
+
   networking.hostName = "kamino";
 
   # This value determines the NixOS release from which the default
