@@ -82,6 +82,7 @@
     gnupg
     gocryptfs
     gping
+    gpu-screen-recorder
     helix
     helvum
     httpie
@@ -217,6 +218,7 @@
       };
     };
   };
+
   programs.librewolf = {
     enable = true;
     settings = {
