@@ -83,6 +83,7 @@
     gocryptfs
     gping
     gpu-screen-recorder
+    gpu-screen-recorder-gtk
     helix
     helvum
     httpie
