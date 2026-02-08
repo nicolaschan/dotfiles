@@ -19,12 +19,6 @@ msg() {
     printf "${BLUE}==>${NC} %s" "$*" >&2
 }
 
-msg "Waiting for ${BOLD}$HOST${NC} to be online (ping)..."
-while ! ping -c 1 -W 1 "$HOST" &> /dev/null; do
-    sleep 1
-done
-printf " ${GREEN}Online.${NC}\n" >&2
-
 msg "Waiting for port 22 on ${BOLD}$HOST${NC}..."
 while ! nc -z -w 1 "$HOST" 22 2>/dev/null; do
     sleep 1
