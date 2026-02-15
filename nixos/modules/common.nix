@@ -5,6 +5,7 @@
   ...
 }: {
   imports = [
+    ./overlays.nix
     ./wake-on-lan.nix
   ];
 
