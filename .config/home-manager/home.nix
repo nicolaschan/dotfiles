@@ -77,6 +77,7 @@
     gimp
     git
     git-absorb
+    github-copilot-cli
     gnome-tweaks
     gnome-terminal
     gnupg
