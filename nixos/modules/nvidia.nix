@@ -1,9 +1,13 @@
 {
   config,
+  pkgs,
   ...
 }:
 
 {
+  # Use kernel 6.18 until NVIDIA drivers support 6.19
+  boot.kernelPackages = pkgs.linuxPackages_6_18;
+
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
