@@ -23,7 +23,7 @@
   services.cloudflared = {
     enable = true;
     tunnels = {
-      "00000000-0000-0000-0000-000000000000" = {
+      "b1dad49c-9da1-48ab-8577-f940bf8c56ec" = {
         credentialsFile = "/home/nicolas/.cloudflared/cert.pem";
         default = "http_status:404";
       };
