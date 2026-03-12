@@ -21,7 +21,7 @@
   ];
 
   networking.hosts = {
-    "172.30.0.4" = ["edit.bell.plus" "bell.plus"];
+    "172.30.0.4" = ["bell.plus" "edit.bell.plus"];
   };
   services.cloudflared = {
     enable = true;
