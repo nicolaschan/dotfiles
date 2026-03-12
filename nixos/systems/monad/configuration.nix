@@ -24,7 +24,7 @@
     enable = true;
     tunnels = {
       "b1dad49c-9da1-48ab-8577-f940bf8c56ec" = {
-        credentialsFile = "/home/nicolas/.cloudflared/cert.pem";
+        credentialsFile = "/home/nicolas/.cloudflared/b1dad49c-9da1-48ab-8577-f940bf8c56ec.json";
         default = "http_status:404";
       };
     };
