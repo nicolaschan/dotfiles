@@ -20,6 +20,16 @@
     }
   ];
 
+  services.cloudflared = {
+    enable = true;
+    tunnels = {
+      "00000000-0000-0000-0000-000000000000" = {
+        credentialsFile = "/home/nicolas/.cloudflared/cert.pem";
+        default = "http_status:404";
+      };
+    };
+  };
+
   # T7 SSD
   fileSystems."/mnt/ssd-t7-2tb" = {
     device = "/dev/disk/by-uuid/6548f0d5-d3d5-4885-aa27-634b757b0b46";
