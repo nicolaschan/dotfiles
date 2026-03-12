@@ -20,6 +20,9 @@
     }
   ];
 
+  networking.hosts = {
+    "172.30.0.4" = ["edit.bell.plus"];
+  };
   services.cloudflared = {
     enable = true;
     tunnels = {
