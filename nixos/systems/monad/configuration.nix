@@ -22,6 +22,7 @@
 
   networking.hosts = {
     "172.30.0.4" = ["bell.plus" "edit.bell.plus"];
+    "127.0.0.1" = ["frontyard.glaceon.org"];
   };
   services.cloudflared = {
     enable = true;
