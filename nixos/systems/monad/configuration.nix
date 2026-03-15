@@ -97,8 +97,6 @@
 
   boot.kernelPackages = pkgs.linuxPackages_6_12;
 
-  hardware.bluetooth.powerOnBoot = true;
-
   boot.supportedFilesystems = [
     "zfs"
   ];
