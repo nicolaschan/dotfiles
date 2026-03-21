@@ -20,6 +20,20 @@
     }
   ];
 
+  networking.hosts = {
+    "172.30.0.4" = ["bell.plus" "edit.bell.plus"];
+    "127.0.0.1" = ["frontyard.glaceon.org"];
+  };
+  services.cloudflared = {
+    enable = true;
+    tunnels = {
+      "b1dad49c-9da1-48ab-8577-f940bf8c56ec" = {
+        credentialsFile = "/home/nicolas/.cloudflared/b1dad49c-9da1-48ab-8577-f940bf8c56ec.json";
+        default = "http_status:404";
+      };
+    };
+  };
+
   # T7 SSD
   fileSystems."/mnt/ssd-t7-2tb" = {
     device = "/dev/disk/by-uuid/6548f0d5-d3d5-4885-aa27-634b757b0b46";
@@ -82,8 +96,6 @@
   # };
 
   boot.kernelPackages = pkgs.linuxPackages_6_12;
-
-  hardware.bluetooth.powerOnBoot = true;
 
   boot.supportedFilesystems = [
     "zfs"
