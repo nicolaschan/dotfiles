@@ -59,6 +59,7 @@
     comma
     devenv
     # darktable
+    difftastic
     distrobox
     dive
     dogdns
@@ -258,7 +259,10 @@
         enable = true;
         servers = {
           ruff.enable = true;
-          nil_ls.enable = true;
+          nil_ls = {
+            enable = true;
+            settings.nix.flake.autoArchive = true;
+          };
         };
       };
       treesitter = {
