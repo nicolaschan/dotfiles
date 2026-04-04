@@ -111,7 +111,13 @@
     pinentry-curses
     podman-tui
     podman-compose
-    prismlauncher
+    (prismlauncher.override {
+      jdks = [
+        pkgs.jdk8
+        pkgs.jdk21
+        pkgs.jdk25
+      ];
+    })
     pv
     qrencode
     rclone
