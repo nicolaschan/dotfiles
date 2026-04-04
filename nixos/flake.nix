@@ -32,7 +32,8 @@
           modules = [
             ./modules/common.nix
             ./modules/gnome.nix
-            ./modules/auto-upgrade.nix
+            # ./modules/auto-upgrade.nix
+            ./modules/caltrain-wifi.nix
             ./systems/xps/configuration.nix
           ];
         };
