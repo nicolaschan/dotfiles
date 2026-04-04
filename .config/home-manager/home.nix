@@ -123,7 +123,7 @@
     solvespace
     sshfs
     stow
-    speedtest-cli
+    librespeed-cli
     tealdeer
     texlivePackages.latex-fonts
     thunderbolt

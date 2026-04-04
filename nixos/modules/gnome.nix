@@ -5,7 +5,8 @@
 }:
 
 {
-  # Power on bluetooth adapter at boot
+  # Enable bluetooth and power on adapter at boot
+  hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
 
   services.displayManager.gdm.enable = true;

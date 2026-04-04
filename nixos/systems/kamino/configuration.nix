@@ -9,6 +9,17 @@
     ./hardware-configuration.nix
   ];
 
+  # Add Foxconn/MediaTek MT7927 bluetooth USB ID (0489:e13a) to btusb driver.
+  # This device is not yet in the upstream kernel's btusb device table, so the
+  # driver binds generically and doesn't load MediaTek firmware. This patch adds
+  # it to the MT7925 section so btmtk firmware loading is triggered properly.
+  boot.kernelPatches = [
+    {
+      name = "btusb-mediatek-mt7927";
+      patch = ./btusb-mt7927.patch;
+    }
+  ];
+
   boot.extraModprobeConfig = ''
     options usbhid mousepoll=1
   '';
