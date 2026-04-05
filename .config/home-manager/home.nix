@@ -15,8 +15,8 @@
     polarity = "dark";
     base16Scheme = "${pkgs.base16-schemes}/share/themes/ayu-dark.yaml";
     fonts.monospace = {
-      package = pkgs.cascadia-code;
-      name = "Cascadia Code NF";
+      package = pkgs.monaspace;
+      name = "Monaspace Argon";
     };
     fonts.sansSerif = {
       package = pkgs.inter;
@@ -111,7 +111,13 @@
     pinentry-curses
     podman-tui
     podman-compose
-    prismlauncher
+    (prismlauncher.override {
+      jdks = [
+        pkgs.jdk8
+        pkgs.jdk21
+        pkgs.jdk25
+      ];
+    })
     pv
     qrencode
     rclone
@@ -124,7 +130,7 @@
     solvespace
     sshfs
     stow
-    speedtest-cli
+    librespeed-cli
     tealdeer
     texlivePackages.latex-fonts
     thunderbolt
