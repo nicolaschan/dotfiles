@@ -43,6 +43,32 @@
 
   fonts.fontconfig.enable = true;
 
+  xdg.configFile."fontconfig/conf.d/50-monaspace-features.conf".text = ''
+    <?xml version="1.0"?>
+    <!DOCTYPE fontconfig SYSTEM "urn:fontconfig:fonts.dtd">
+    <fontconfig>
+      <match target="font">
+        <test name="family" compare="contains">
+          <string>Monaspace</string>
+        </test>
+        <edit name="fontfeatures" mode="append">
+          <string>liga on</string>
+          <string>calt on</string>
+          <string>ss01 on</string>
+          <string>ss02 on</string>
+          <string>ss03 on</string>
+          <string>ss04 on</string>
+          <string>ss05 on</string>
+          <string>ss06 on</string>
+          <string>ss07 on</string>
+          <string>ss08 on</string>
+          <string>ss09 on</string>
+          <string>ss10 on</string>
+        </edit>
+      </match>
+    </fontconfig>
+  '';
+
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
@@ -240,8 +266,23 @@
   programs.ghostty = {
     enable = true;
     settings = {
+      font-size = 14;
       window-width = 129;
       window-height = 40;
+      font-feature = [
+        "liga"
+        "calt"
+        "ss01"
+        "ss02"
+        "ss03"
+        "ss04"
+        "ss05"
+        "ss06"
+        "ss07"
+        "ss08"
+        "ss09"
+        "ss10"
+      ];
     };
   };
   programs.htop.enable = true;
