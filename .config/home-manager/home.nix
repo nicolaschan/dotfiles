@@ -16,7 +16,7 @@
     base16Scheme = "${pkgs.base16-schemes}/share/themes/ayu-dark.yaml";
     fonts.monospace = {
       package = pkgs.monaspace;
-      name = "Monaspace Argon";
+      name = "Monaspace Neon";
     };
     fonts.sansSerif = {
       package = pkgs.inter;
