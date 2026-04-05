@@ -147,6 +147,7 @@
     # Fonts
     cascadia-code
     inter
+    monaspace
     noto-fonts-cjk-sans
 
     # breaks emojis in konsole
