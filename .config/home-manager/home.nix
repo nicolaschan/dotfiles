@@ -22,7 +22,7 @@
       package = pkgs.inter;
       name = "Inter";
     };
-    opacity.terminal = 0.84;
+    opacity.terminal = 0.94;
     targets = {
       btop.enable = true;
       ghostty.enable = true;
