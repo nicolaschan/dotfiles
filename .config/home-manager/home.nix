@@ -3,6 +3,7 @@
   pkgs,
   pkgs-unstable,
   insanity,
+  claude-code-nix,
   ...
 }: {
   # Home Manager needs a bit of information about you and the paths it should
@@ -82,7 +83,7 @@
     blender
     carapace
     chromium
-    claude-code
+    claude-code-nix.packages.${pkgs.system}.claude-code
     comma
     devenv
     # darktable

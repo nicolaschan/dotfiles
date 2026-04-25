@@ -19,6 +19,9 @@
       url = "github:danth/stylix/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    claude-code-nix = {
+      url = "github:sadjow/claude-code-nix";
+    };
   };
 
   outputs = {
@@ -28,11 +31,15 @@
     insanity,
     stylix,
     nixvim,
+    claude-code-nix,
     ...
   }: let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
-    pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
+    pkgs-unstable = import nixpkgs-unstable {
+      inherit system;
+      config.allowUnfree = true;
+    };
   in {
     homeConfigurations."nicolas" = home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
@@ -49,7 +56,7 @@
       # Optionally use extraSpecialArgs
       # to pass through arguments to home.nix
       extraSpecialArgs = {
-        inherit insanity pkgs-unstable;
+        inherit insanity pkgs-unstable claude-code-nix;
       };
     };
   };
