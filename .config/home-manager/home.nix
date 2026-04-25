@@ -82,6 +82,7 @@
     blender
     carapace
     chromium
+    claude-code
     comma
     devenv
     # darktable
