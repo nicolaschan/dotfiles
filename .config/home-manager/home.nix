@@ -175,6 +175,7 @@
     wireguard-tools
     wl-clipboard
     yubikey-manager
+    zellij
     zip
     zoxide
 
