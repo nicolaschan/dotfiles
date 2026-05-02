@@ -106,6 +106,7 @@
     gimp
     git
     git-absorb
+    github-cli
     github-copilot-cli
     gnome-tweaks
     gnome-terminal
