@@ -90,7 +90,7 @@
     difftastic
     distrobox
     dive
-    dogdns
+    doggo
     dotacat
     drill
     duf
@@ -116,7 +116,7 @@
     gpu-screen-recorder
     gpu-screen-recorder-gtk
     helix
-    helvum
+    crosspipe
     httpie
     hyperfine
     insanity.packages.${stdenv.hostPlatform.system}.default
