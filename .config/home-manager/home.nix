@@ -83,7 +83,7 @@
     blender
     carapace
     chromium
-    claude-code-nix.packages.${pkgs.system}.claude-code
+    claude-code-nix.packages.${stdenv.hostPlatform.system}.claude-code
     comma
     devenv
     # darktable
