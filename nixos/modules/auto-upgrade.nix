@@ -36,7 +36,8 @@
       StartLimitIntervalSec = "15min";
       StartLimitBurst = 2;
     };
-    onFailure = [ "nixos-upgrade-notify-failure.service" ];
+    # Disabled: ntfy upgrade failure notifications turned off
+    # onFailure = [ "nixos-upgrade-notify-failure.service" ];
   };
 
   # Ensure restic backup failures don't block nixos-upgrade

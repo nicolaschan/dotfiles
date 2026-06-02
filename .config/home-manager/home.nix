@@ -424,7 +424,8 @@
       Restart = "on-failure";
       RestartSec = "5min";
     };
-    Unit.OnFailure = ["home-manager-notify-failure.service"];
+    # Disabled: ntfy upgrade failure notifications turned off
+    # Unit.OnFailure = ["home-manager-notify-failure.service"];
     Unit.StartLimitIntervalSec = "15min";
     Unit.StartLimitBurst = 2;
   };
