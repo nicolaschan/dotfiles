@@ -2,8 +2,7 @@
   lib,
   pkgs-unstable,
   ...
-}:
-{
+}: {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -26,9 +25,9 @@
 
   # Network drivers needed for initrd SSH (find yours with: lspci -k | grep -A3 -i ethernet)
   boot.initrd.availableKernelModules = [
-    "r8169"      # Realtek Gigabit Ethernet
-    "igc"        # Intel 2.5G Ethernet (common on newer boards)
-    "atlantic"   # Aquantia/Marvell AQtion NICs
+    "r8169" # Realtek Gigabit Ethernet
+    "igc" # Intel 2.5G Ethernet (common on newer boards)
+    "atlantic" # Aquantia/Marvell AQtion NICs
   ];
 
   # Enable initrd SSH for remote disk decryption
@@ -38,15 +37,13 @@
   services.ollama = {
     enable = true;
     package = pkgs-unstable.ollama-cuda;
-    acceleration = "cuda";
     host = "0.0.0.0";
   };
 
   # LUKS-encrypted swap partition
-  boot.initrd.luks.devices."luks-275ae343-f162-482d-a35d-8b1912a1b964".device =
-    "/dev/disk/by-uuid/275ae343-f162-482d-a35d-8b1912a1b964";
+  boot.initrd.luks.devices."luks-275ae343-f162-482d-a35d-8b1912a1b964".device = "/dev/disk/by-uuid/275ae343-f162-482d-a35d-8b1912a1b964";
   swapDevices = [
-    { device = "/dev/mapper/luks-275ae343-f162-482d-a35d-8b1912a1b964"; }
+    {device = "/dev/mapper/luks-275ae343-f162-482d-a35d-8b1912a1b964";}
   ];
 
   networking.hostName = "kamino";
