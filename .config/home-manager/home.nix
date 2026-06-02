@@ -33,6 +33,15 @@
     };
   };
 
+  # gtk4 apps follow the gtk3 (stylix) theme. Pins the pre-26.05 default, which
+  # changed to `null` (unthemed gtk4) once home.stateVersion reaches "26.05".
+  gtk.gtk4.theme = config.gtk.theme;
+
+  # Home Manager evaluates this option's default during build even though
+  # hyprland is not configured here, emitting a 26.05 default-change warning.
+  # Pin the legacy value to silence it (no effect while hyprland is unused).
+  wayland.windowManager.hyprland.configType = "hyprlang";
+
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
   # introduces backwards incompatible changes.
@@ -244,6 +253,9 @@
 
   programs.firefox = {
     enable = true;
+    # Pin the pre-26.05 profile location (~/.mozilla/firefox). The home-manager
+    # default moved to $XDG_CONFIG_HOME; migrating an existing profile is manual.
+    configPath = ".mozilla/firefox";
     profiles = {
       default = {
         settings = {
