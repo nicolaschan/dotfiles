@@ -44,7 +44,6 @@ in
   config = mkIf cfg.enable {
     boot.initrd.network = {
       enable = true;
-      udhcpc.enable = true;
       ssh = {
         enable = true;
         port = cfg.port;
@@ -55,6 +54,17 @@ in
           TrustedUserCAKeys /etc/ssh/ssh-ca.pub
           HostCertificate /etc/ssh/ssh_host_ed25519_key-cert.pub
         '';
+      };
+    };
+
+    # Systemd stage 1 initrd (the NixOS default since 25.11) brings up DHCP via
+    # systemd-networkd, not the legacy scripted udhcpc. Match every wired NIC so
+    # a lease is obtained before remote unlock, regardless of interface name.
+    boot.initrd.systemd.network = {
+      enable = true;
+      networks."10-initrd-dhcp" = {
+        matchConfig.Type = "ether";
+        networkConfig.DHCP = "yes";
       };
     };
 
