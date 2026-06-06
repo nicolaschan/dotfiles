@@ -1,4 +1,5 @@
 {
+  config,
   pkgs,
   lib,
   ...
@@ -82,6 +83,7 @@
   };
 
   hardware.nvidia.open = lib.mkForce false;
+  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.legacy_580;
 
   environment.sessionVariables = {
     LD_LIBRARY_PATH = "/run/opengl-driver/lib:/run/opengl-driver-32/lib";
@@ -95,7 +97,7 @@
   #   enableSSHSupport = true;
   # };
 
-  boot.kernelPackages = pkgs.linuxPackages_6_12;
+  boot.kernelPackages = pkgs.linuxPackages_6_18;
 
   boot.supportedFilesystems = [
     "zfs"
