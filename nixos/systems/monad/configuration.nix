@@ -101,6 +101,7 @@
     "zfs"
   ];
   boot.zfs.extraPools = ["scarif"];
+  boot.zfs.forceImportRoot = false;
   services.zfs.autoScrub.enable = true;
   services.zfs.autoSnapshot = {
     enable = true;

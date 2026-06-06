@@ -33,10 +33,6 @@
     };
   };
 
-  # gtk4 apps follow the gtk3 (stylix) theme. Pins the pre-26.05 default, which
-  # changed to `null` (unthemed gtk4) once home.stateVersion reaches "26.05".
-  gtk.gtk4.theme = config.gtk.theme;
-
   # Home Manager evaluates this option's default during build even though
   # hyprland is not configured here, emitting a 26.05 default-change warning.
   # Pin the legacy value to silence it (no effect while hyprland is unused).
