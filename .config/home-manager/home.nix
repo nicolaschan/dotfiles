@@ -3,6 +3,7 @@
   pkgs,
   pkgs-unstable,
   insanity,
+  ghostty,
   claude-code-nix,
   ...
 }: {
@@ -270,6 +271,7 @@
 
   programs.btop.enable = true;
   programs.ghostty = {
+    package = ghostty.packages.${pkgs.stdenv.hostPlatform.system}.ghostty;
     enable = true;
     settings = {
       font-size = 14;

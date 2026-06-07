@@ -14,6 +14,9 @@
     nixvim = {
       url = "github:nix-community/nixvim/nixos-26.05";
     };
+    ghostty = {
+      url = "github:ghostty-org/ghostty";
+    };
     stylix = {
       url = "github:danth/stylix/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -30,6 +33,7 @@
     insanity,
     stylix,
     nixvim,
+    ghostty,
     claude-code-nix,
     ...
   }: let
@@ -55,7 +59,7 @@
       # Optionally use extraSpecialArgs
       # to pass through arguments to home.nix
       extraSpecialArgs = {
-        inherit insanity pkgs-unstable claude-code-nix;
+        inherit insanity pkgs-unstable ghostty claude-code-nix;
       };
     };
   };
