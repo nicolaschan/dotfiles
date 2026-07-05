@@ -135,6 +135,14 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
+  # mDNS: resolve .local hostnames (needed for driverless network printing,
+  # otherwise CUPS hangs at "Getting printer information...").
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true;
+  };
+
   services.syncthing = {
     enable = false;
     user = "nicolas";

@@ -12,6 +12,9 @@
       PermitRootLogin = "no";
       PasswordAuthentication = false;
       KbdInteractiveAuthentication = false;
+      # Allow `ssh -X` so headful GUI apps (e.g. a browser-use Chromium) render
+      # on the client. The NixOS module wires xauth automatically when this is on.
+      X11Forwarding = true;
       Macs = [
         "hmac-sha2-512-etm@openssh.com"
         "hmac-sha2-256-etm@openssh.com"
