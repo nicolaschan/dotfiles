@@ -60,6 +60,13 @@ in
     # Systemd stage 1 initrd (the NixOS default since 25.11) brings up DHCP via
     # systemd-networkd, not the legacy scripted udhcpc. Match every wired NIC so
     # a lease is obtained before remote unlock, regardless of interface name.
+    #
+    # Deconfigure the NIC before switch-root. The upstream default (keep the
+    # config) assumes stage 2 also runs systemd-networkd; we run NetworkManager,
+    # which sees the already-configured interface as externally managed and
+    # never starts DHCP or writes DNS.
+    boot.initrd.network.flushBeforeStage2 = true;
+
     boot.initrd.systemd.network = {
       enable = true;
       networks."10-initrd-dhcp" = {
