@@ -27,6 +27,9 @@
     enable = true;
     package = pkgs-unstable.ollama-cuda;
     host = "0.0.0.0";
+    environmentVariables = {
+      OLLAMA_KV_CACHE_TYPE = "q8_0";
+    };
   };
 
   # LUKS-encrypted swap partition
