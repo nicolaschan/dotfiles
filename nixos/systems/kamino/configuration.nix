@@ -26,6 +26,16 @@
   services.ollama = {
     enable = true;
     package = pkgs-unstable.ollama-cuda;
+    # package = (pkgs-unstable.ollama.override {acceleration = "cuda";}).overrideAttrs (old: rec {
+    #   version = "0.32.13";
+    #   src = pkgs-unstable.fetchFromGitHub {
+    #     owner = "ollama";
+    #     repo = "ollama";
+    #     rev = "v${version}";
+    #     hash = "sha256-KSvw7LsvpUVeSm9BKJ4wIp/fWGHjMp8bOTMUpFJCDmw=";
+    #   };
+    #   vendorHash = "sha256-HMwoaFBMbpoy8f0I+O+i7kIa9BslLu3FcVWeaIOkpvs=";
+    # });
     host = "0.0.0.0";
     environmentVariables = {
       OLLAMA_KV_CACHE_TYPE = "q8_0";
