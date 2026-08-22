@@ -8,7 +8,7 @@
     ./wake-on-lan.nix
   ];
 
-  boot.kernelPackages = lib.mkOverride 1100 pkgs.linuxPackages_latest;
+  boot.kernelPackages = lib.mkOverride 1100 pkgs.linuxPackages_6_18;
   boot.kernelParams = ["usbhid.mousepoll=1"];
 
   # Use the systemd-boot EFI boot loader.
