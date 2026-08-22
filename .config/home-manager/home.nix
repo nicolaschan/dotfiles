@@ -5,6 +5,7 @@
   insanity,
   ghostty,
   claude-code-nix,
+  paseo,
   ...
 }: {
   # Home Manager needs a bit of information about you and the paths it should
@@ -90,6 +91,7 @@
     carapace
     chromium
     claude-code-nix.packages.${stdenv.hostPlatform.system}.claude-code
+    paseo.packages.${stdenv.hostPlatform.system}.paseo
     comma
     devenv
     # darktable

@@ -25,6 +25,9 @@
     claude-code-nix = {
       url = "github:sadjow/claude-code-nix";
     };
+    paseo = {
+      url = "github:getpaseo/paseo";
+    };
   };
 
   outputs = {
@@ -36,6 +39,7 @@
     nixvim,
     ghostty,
     claude-code-nix,
+    paseo,
     ...
   }: let
     system = "x86_64-linux";
@@ -60,7 +64,7 @@
       # Optionally use extraSpecialArgs
       # to pass through arguments to home.nix
       extraSpecialArgs = {
-        inherit insanity pkgs-unstable ghostty claude-code-nix;
+        inherit insanity pkgs-unstable ghostty claude-code-nix paseo;
       };
     };
   };
