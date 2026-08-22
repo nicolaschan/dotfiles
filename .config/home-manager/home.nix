@@ -4,7 +4,7 @@
   pkgs-unstable,
   insanity,
   ghostty,
-  claude-code-nix,
+  llm-agents,
   paseo,
   ...
 }: {
@@ -90,8 +90,7 @@
     blender
     carapace
     chromium
-    claude-code-nix.packages.${stdenv.hostPlatform.system}.claude-code
-    paseo.packages.${stdenv.hostPlatform.system}.paseo
+    llm-agents.packages.${stdenv.hostPlatform.system}.claude-code
     comma
     devenv
     # darktable
@@ -145,7 +144,9 @@
     pkgs-unstable.ollama
     pkgs-unstable.opencode
     pkgs-unstable.opencode-desktop
+    paseo.packages.${stdenv.hostPlatform.system}.paseo
     pass
+    llm-agents.packages.${stdenv.hostPlatform.system}.pi
     pinentry-curses
     podman-tui
     podman-compose

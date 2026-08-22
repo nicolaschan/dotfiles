@@ -22,12 +22,8 @@
       url = "github:danth/stylix/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    claude-code-nix = {
-      url = "github:sadjow/claude-code-nix";
-    };
-    paseo = {
-      url = "github:getpaseo/paseo";
-    };
+    llm-agents.url = "github:numtide/llm-agents.nix";
+    paseo.url = "github:getpaseo/paseo";
   };
 
   outputs = {
@@ -38,7 +34,7 @@
     stylix,
     nixvim,
     ghostty,
-    claude-code-nix,
+    llm-agents,
     paseo,
     ...
   }: let
@@ -64,7 +60,7 @@
       # Optionally use extraSpecialArgs
       # to pass through arguments to home.nix
       extraSpecialArgs = {
-        inherit insanity pkgs-unstable ghostty claude-code-nix paseo;
+        inherit insanity pkgs-unstable ghostty llm-agents paseo;
       };
     };
   };
