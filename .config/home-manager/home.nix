@@ -92,6 +92,7 @@
     chromium
     claude-code-nix.packages.${stdenv.hostPlatform.system}.claude-code
     paseo.packages.${stdenv.hostPlatform.system}.paseo
+    paseo.packages.${stdenv.hostPlatform.system}.desktop
     comma
     devenv
     # darktable
