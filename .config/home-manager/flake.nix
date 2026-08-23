@@ -8,9 +8,8 @@
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    insanity = {
-      url = "github:nicolaschan/insanity";
-    };
+    insanity.url = "github:nicolaschan/insanity";
+    cx.url = "github:nicolaschan/cx";
     nixvim = {
       url = "github:nix-community/nixvim/nixos-26.05";
     };
@@ -35,6 +34,7 @@
     nixpkgs-unstable,
     home-manager,
     insanity,
+    cx,
     stylix,
     nixvim,
     ghostty,
@@ -64,7 +64,7 @@
       # Optionally use extraSpecialArgs
       # to pass through arguments to home.nix
       extraSpecialArgs = {
-        inherit insanity pkgs-unstable ghostty claude-code-nix paseo;
+        inherit insanity cx pkgs-unstable ghostty claude-code-nix paseo;
       };
     };
   };

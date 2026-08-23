@@ -3,6 +3,7 @@
   pkgs,
   pkgs-unstable,
   insanity,
+  cx,
   ghostty,
   claude-code-nix,
   paseo,
@@ -94,6 +95,7 @@
     paseo.packages.${stdenv.hostPlatform.system}.paseo
     paseo.packages.${stdenv.hostPlatform.system}.desktop
     comma
+    cx.packages.${stdenv.hostPlatform.system}.default
     devenv
     # darktable
     difftastic
