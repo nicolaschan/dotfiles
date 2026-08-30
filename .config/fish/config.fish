@@ -39,6 +39,7 @@ fish_add_path ~/bin
 
 set -gx EDITOR nvim
 set -gx GPG_TTY (tty)
+set -gx CX_IGNORE_TESTS true
 
 alias e=$EDITOR
 
