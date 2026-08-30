@@ -21,9 +21,9 @@
   networking.extraHosts = ''
     127.0.0.1 news.ycombinator.com
     127.0.0.1 lobste.rs
-    # 127.0.0.1 www.reddit.com
-    # 127.0.0.1 old.reddit.com
-    # 127.0.0.1 www.youtube.com
+    127.0.0.1 www.reddit.com
+    127.0.0.1 old.reddit.com
+    127.0.0.1 www.youtube.com
   '';
 
   services.restic.backups = {
