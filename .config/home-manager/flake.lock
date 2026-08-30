@@ -503,11 +503,11 @@
         "nixpkgs": "nixpkgs_5"
       },
       "locked": {
-        "lastModified": 1788091879,
-        "narHash": "sha256-eKIcQJrtO4ZJ9bd3munYraMYFRoTIKGNsuS+1d3tzow=",
+        "lastModified": 1788106792,
+        "narHash": "sha256-GG2FKwcehTFNp5f6ao/BQL5M8bXPTN1n32qXblwFd0A=",
         "owner": "getpaseo",
         "repo": "paseo",
-        "rev": "b1050d9bedb7a677697e6409d9522a447eeed30c",
+        "rev": "8533c5c06f01e8b4f333acd9ec777ca2dbf406e1",
         "type": "github"
       },
       "original": {
