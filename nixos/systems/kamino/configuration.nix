@@ -25,6 +25,8 @@
     options usbhid mousepoll=1
   '';
 
+  boot.blacklistedKernelModules = [ "btusb" ];
+
   # Network drivers needed for initrd SSH (find yours with: lspci -k | grep -A3 -i ethernet)
   boot.initrd.availableKernelModules = [
     "r8169" # Realtek Gigabit Ethernet
