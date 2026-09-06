@@ -322,11 +322,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1788034982,
-        "narHash": "sha256-anO0q8c8N79WMryl5uKeuJgiwUDahx5K2YpXUbLJA8c=",
+        "lastModified": 1788720363,
+        "narHash": "sha256-iENXzdS1R8vSpN/Q/yu1Fda7m2ONR0KfGQUcRNSbNFs=",
         "owner": "nicolaschan",
         "repo": "insanity",
-        "rev": "f011350ac56603b34a941414265cb945e30676a5",
+        "rev": "5fd2954bec25b391e5ee5ac8a731d7c38d26e6c9",
         "type": "github"
       },
       "original": {
@@ -504,11 +504,11 @@
         "nixpkgs": "nixpkgs_5"
       },
       "locked": {
-        "lastModified": 1788695309,
-        "narHash": "sha256-fK25XlJwn7DwHP7HRdAKgjZorNYnmj6y8BVovBeVEv4=",
+        "lastModified": 1788719381,
+        "narHash": "sha256-TfQYX3XH5xVor1J9Nhl2ea5JWUo7s1XXR6/DzPftIkk=",
         "owner": "getpaseo",
         "repo": "paseo",
-        "rev": "38c22139bb191f0ad27b11c16776e93504ddd4fd",
+        "rev": "dd7671be20d180004e7e78bc4b0255eed5775272",
         "type": "github"
       },
       "original": {
