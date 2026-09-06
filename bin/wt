@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+[[ $# -eq 1 ]] || { echo "usage: wt <branch>" >&2; exit 1; }
+
+branch=$1
+common=$(git rev-parse --path-format=absolute --git-common-dir)
+repo=$(basename "$(dirname "$common")")
+dir=~/src/.worktrees/$repo/$branch
+
+if [[ ! -d $dir ]]; then
+    if git show-ref -q --verify "refs/heads/$branch" ||
+       git show-ref -q --verify "refs/remotes/origin/$branch"; then
+        git worktree add "$dir" "$branch" >&2
+    else
+        git worktree add -b "$branch" "$dir" >&2
+    fi
+fi
+
+printf '%s\n' "$dir"

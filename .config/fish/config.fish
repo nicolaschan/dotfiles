@@ -43,4 +43,6 @@ set -gx CX_IGNORE_TESTS true
 
 alias e=$EDITOR
 
-
+function wt
+    cd (command wt $argv)
+end
