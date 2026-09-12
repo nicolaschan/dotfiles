@@ -243,11 +243,11 @@
         "zon2nix": "zon2nix"
       },
       "locked": {
-        "lastModified": 1789034704,
-        "narHash": "sha256-y9Tg93fOOL7FJbJn37QhVr0dZ/MsFgGZjbhsR0QDiuk=",
+        "lastModified": 1789225424,
+        "narHash": "sha256-XtqDuN0Kyv8VL9U9krse+eMt3KZGmHRNKJvhssl59JQ=",
         "owner": "ghostty-org",
         "repo": "ghostty",
-        "rev": "44f2a44df7e8c4a0c6df3f7d872ef3d7ead88e51",
+        "rev": "9bbb9b24680358c939846b79a519ce10f7638d1f",
         "type": "github"
       },
       "original": {
@@ -301,11 +301,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1788642154,
-        "narHash": "sha256-sPpQFVaFTDqO/4vvCAhuAhqTgqN/ygu+9eJcs5eB0js=",
+        "lastModified": 1789182507,
+        "narHash": "sha256-9nt4W0HNNP84B+b37yRs9Zxat1ZR5guJxEZDEjAgex4=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "fd0956c99c41ae3c13a73a638f1f7e963aebc4ab",
+        "rev": "b1d1b60084970f9d1e2b72662639dab6d039be71",
         "type": "github"
       },
       "original": {
@@ -344,11 +344,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1789117782,
-        "narHash": "sha256-R6DjdXEg4gWt/INX5oRYkh17p66nuYr8qiAuBkZ4oqU=",
+        "lastModified": 1789203435,
+        "narHash": "sha256-4JN4aEgvHZHwQ7fnmoVY0yzp9YeujV1q+JhB+sw5KGs=",
         "owner": "numtide",
         "repo": "llm-agents.nix",
-        "rev": "d706bc302d3a7854659e3b5b5ad35270f7dcf8da",
+        "rev": "826bb638c516f3cb58c45bb23310c9ec6224e66a",
         "type": "github"
       },
       "original": {
@@ -407,11 +407,11 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1789009968,
-        "narHash": "sha256-GB16oaxpsrnGNnGIE+0uYBqMRzB9X6FYDUvjvnJAYew=",
+        "lastModified": 1789114715,
+        "narHash": "sha256-ugpsyk3NM2s87vXfUiIIiibbJ4Pp0JPS5p/3mfs+q+c=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "d58a46e3bc02d91ebe04667f8397752a749c0024",
+        "rev": "21a67dc470149f337cecafbe965d8d252a390518",
         "type": "github"
       },
       "original": {
@@ -504,11 +504,11 @@
         "nixpkgs": "nixpkgs_5"
       },
       "locked": {
-        "lastModified": 1789145893,
-        "narHash": "sha256-jb2wZ52EHbVdPafAKcj+P3o0f3/LXB6rcpPkLFK+Um8=",
+        "lastModified": 1789199425,
+        "narHash": "sha256-09j2dStLAjJz6DkKXXMd+AwQRsOo1y3q+2kkgUJa0J4=",
         "owner": "getpaseo",
         "repo": "paseo",
-        "rev": "fa93c4290eaa87ae58452ab6e2012f85ae6e0c6b",
+        "rev": "d1b705a0cd91617a5707fae25d80cb0be3057950",
         "type": "github"
       },
       "original": {
