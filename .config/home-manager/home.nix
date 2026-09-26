@@ -91,6 +91,7 @@
     carapace
     chromium
     llm-agents.packages.${stdenv.hostPlatform.system}.claude-code
+    codex
     comma
     devenv
     # darktable
