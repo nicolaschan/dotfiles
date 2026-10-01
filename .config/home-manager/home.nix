@@ -5,7 +5,6 @@
   insanity,
   ghostty,
   llm-agents,
-  paseo,
   ...
 }: {
   # Home Manager needs a bit of information about you and the paths it should
@@ -145,7 +144,6 @@
     pkgs-unstable.ollama
     pkgs-unstable.opencode
     pkgs-unstable.opencode-desktop
-    paseo.packages.${stdenv.hostPlatform.system}.paseo
     pass
     llm-agents.packages.${stdenv.hostPlatform.system}.pi
     pinentry-curses

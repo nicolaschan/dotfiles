@@ -23,7 +23,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     llm-agents.url = "github:numtide/llm-agents.nix";
-    paseo.url = "github:getpaseo/paseo";
   };
 
   outputs = {
@@ -35,7 +34,6 @@
     nixvim,
     ghostty,
     llm-agents,
-    paseo,
     ...
   }: let
     system = "x86_64-linux";
@@ -60,7 +58,7 @@
       # Optionally use extraSpecialArgs
       # to pass through arguments to home.nix
       extraSpecialArgs = {
-        inherit insanity pkgs-unstable ghostty llm-agents paseo;
+        inherit insanity pkgs-unstable ghostty llm-agents;
       };
     };
   };
