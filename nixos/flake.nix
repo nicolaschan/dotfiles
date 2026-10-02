@@ -31,6 +31,7 @@
           };
           modules = [
             ./modules/common.nix
+            ./modules/bcachefs.nix
             ./modules/gnome.nix
             # ./modules/auto-upgrade.nix
             ./modules/caltrain-wifi.nix
@@ -59,6 +60,7 @@
           };
           modules = [
             ./modules/common.nix
+            ./modules/bcachefs.nix
             ./modules/nvidia.nix
             ./modules/gnome.nix
             ./modules/openrgb.nix
