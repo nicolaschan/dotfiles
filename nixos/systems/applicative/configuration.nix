@@ -56,13 +56,16 @@
     };
   };
 
-  # LUKS-encrypted swap partition
-  boot.initrd.luks.devices."luks-275ae343-f162-482d-a35d-8b1912a1b964".device = "/dev/disk/by-uuid/275ae343-f162-482d-a35d-8b1912a1b964";
+  # The swapfile is encrypted by the native encryption of the bcachefs root.
+  # This is ordinary swap only; a bcachefs swapfile cannot be used to hibernate.
   swapDevices = [
-    {device = "/dev/mapper/luks-275ae343-f162-482d-a35d-8b1912a1b964";}
+    {
+      device = "/swapfile";
+      size = 32 * 1024;
+    }
   ];
 
-  networking.hostName = "kamino";
+  networking.hostName = "applicative";
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

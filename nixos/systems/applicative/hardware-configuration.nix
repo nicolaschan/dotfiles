@@ -21,15 +21,12 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/539c96df-ab84-46b4-83ec-29d4055d977d";
-    fsType = "ext4";
+    device = "/dev/disk/by-uuid/d0a26245-ec33-4dd7-b032-be032a363533";
+    fsType = "bcachefs";
   };
 
-  boot.initrd.luks.devices."luks-5c4b3b38-6b16-44e1-bcf6-ebde9e7e7f90".device =
-    "/dev/disk/by-uuid/5c4b3b38-6b16-44e1-bcf6-ebde9e7e7f90";
-
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/BBEA-F472";
+    device = "/dev/disk/by-label/APPL-BOOT";
     fsType = "vfat";
     options = [
       "fmask=0077"

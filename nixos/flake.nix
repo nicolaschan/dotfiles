@@ -52,7 +52,7 @@
             ./systems/monad/configuration.nix
           ];
         };
-        kamino = nixpkgs.lib.nixosSystem {
+        applicative = nixpkgs.lib.nixosSystem {
           specialArgs = {
             inherit inputs outputs;
             inherit pkgs-unstable;
@@ -71,7 +71,7 @@
               hostCertPub = builtins.readFile ./systems/kamino/hostkey-cert.pub;
               caPub = builtins.readFile ./resources/ssh-ca.pub;
             })
-            ./systems/kamino/configuration.nix
+            ./systems/applicative/configuration.nix
           ];
         };
       };
