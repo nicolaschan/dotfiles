@@ -70,7 +70,7 @@
               services.initrd-ssh.caPubKey = builtins.readFile ./resources/ssh-ca.pub;
             }
             (import ./modules/ssh.nix {
-              hostCertPub = builtins.readFile ./systems/kamino/hostkey-cert.pub;
+              hostCertPub = builtins.readFile ./systems/applicative/hostkey-cert.pub;
               caPub = builtins.readFile ./resources/ssh-ca.pub;
             })
             ./systems/applicative/configuration.nix
