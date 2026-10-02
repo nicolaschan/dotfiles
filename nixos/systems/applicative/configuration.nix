@@ -56,14 +56,12 @@
     };
   };
 
-  # The swapfile is encrypted by the native encryption of the bcachefs root.
-  # This is ordinary swap only; a bcachefs swapfile cannot be used to hibernate.
-  swapDevices = [
-    {
-      device = "/swapfile";
-      size = 32 * 1024;
-    }
-  ];
+  # bcachefs does not currently support swapfiles. Applicative has enough RAM
+  # that compressed RAM swap is preferable to repartitioning solely for swap.
+  zramSwap = {
+    enable = true;
+    memoryPercent = 25;
+  };
 
   networking.hostName = "applicative";
 
