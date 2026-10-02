@@ -14,15 +14,10 @@
     nixvim = {
       url = "github:nix-community/nixvim/nixos-26.05";
     };
-    ghostty = {
-      url = "github:ghostty-org/ghostty";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     stylix = {
       url = "github:danth/stylix/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    llm-agents.url = "github:numtide/llm-agents.nix";
   };
 
   outputs = {
@@ -32,8 +27,6 @@
     insanity,
     stylix,
     nixvim,
-    ghostty,
-    llm-agents,
     ...
   }: let
     system = "x86_64-linux";
@@ -58,7 +51,7 @@
       # Optionally use extraSpecialArgs
       # to pass through arguments to home.nix
       extraSpecialArgs = {
-        inherit insanity pkgs-unstable ghostty llm-agents;
+        inherit insanity pkgs-unstable;
       };
     };
   };

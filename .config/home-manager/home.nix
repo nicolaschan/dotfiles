@@ -3,8 +3,6 @@
   pkgs,
   pkgs-unstable,
   insanity,
-  ghostty,
-  llm-agents,
   ...
 }: {
   # Home Manager needs a bit of information about you and the paths it should
@@ -89,7 +87,6 @@
     blender
     carapace
     chromium
-    llm-agents.packages.${stdenv.hostPlatform.system}.claude-code
     codex
     comma
     devenv
@@ -145,7 +142,6 @@
     pkgs-unstable.opencode
     pkgs-unstable.opencode-desktop
     pass
-    llm-agents.packages.${stdenv.hostPlatform.system}.pi
     pinentry-curses
     podman-tui
     podman-compose
@@ -274,7 +270,7 @@
 
   programs.btop.enable = true;
   programs.ghostty = {
-    package = ghostty.packages.${pkgs.stdenv.hostPlatform.system}.ghostty;
+    # package = ghostty.packages.${pkgs.stdenv.hostPlatform.system}.ghostty;
     enable = true;
     settings = {
       font-size = 14;
