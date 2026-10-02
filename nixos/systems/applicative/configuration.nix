@@ -10,6 +10,11 @@
     ./hardware-configuration.nix
   ];
 
+  # Match the 26.05 installer kernel for the initial bcachefs installation.
+  # The out-of-tree bcachefs module supports Linux 6.18 and can be upgraded
+  # independently with a later kernel after the system is installed.
+  boot.kernelPackages = pkgs.linuxPackages_6_18;
+
   hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.mkDriver {
     version = "610.57.04";
     sha256_64bit = "sha256-suk1xmuDuwDAyFe8jg7g/VLekoa0DJzB7sKafOfrEW0=";
