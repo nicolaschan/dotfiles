@@ -145,7 +145,7 @@
     pinentry-curses
     podman-tui
     podman-compose
-    prismlauncher
+    (prismlauncher.override {additionalLibs = with pkgs; [libdecor];})
     pv
     qrencode
     rclone
