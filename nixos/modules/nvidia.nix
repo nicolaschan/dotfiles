@@ -14,7 +14,7 @@
   hardware.nvidia-container-toolkit.enable = true;
 
   hardware.nvidia = {
-    package = lib.mkDefault config.boot.kernelPackages.nvidiaPackages.stable;
+    package = lib.mkDefault config.boot.kernelPackages.nvidiaPackages.latest;
     modesetting.enable = true;
     powerManagement.enable = true;
     open = true;

@@ -64,7 +64,6 @@
             ./modules/nvidia.nix
             ./modules/gnome.nix
             ./modules/openrgb.nix
-            ./modules/auto-upgrade.nix
             ./modules/initrd-ssh.nix
             {
               services.initrd-ssh.caPubKey = builtins.readFile ./resources/ssh-ca.pub;
