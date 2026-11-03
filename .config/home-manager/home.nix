@@ -139,8 +139,8 @@
     nix-index
     # nodejs # for github copilot on neovim
     pkgs-unstable.ollama
-    pkgs-unstable.opencode
-    pkgs-unstable.opencode-desktop
+    # pkgs-unstable.opencode
+    # pkgs-unstable.opencode-desktop
     pass
     pinentry-curses
     podman-tui
