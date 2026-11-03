@@ -1,6 +1,7 @@
 {
   lib,
   pkgs,
+  pkgs-unstable,
   inputs,
   ...
 }: {
@@ -8,7 +9,7 @@
     ./wake-on-lan.nix
   ];
 
-  boot.kernelPackages = lib.mkOverride 1100 pkgs.linuxPackages_latest;
+  boot.kernelPackages = lib.mkOverride 1100 pkgs-unstable.linuxPackages_latest;
   boot.kernelParams = ["usbhid.mousepoll=1"];
 
   # Use the systemd-boot EFI boot loader.
