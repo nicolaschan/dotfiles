@@ -78,9 +78,10 @@
   # environment.
   home.packages = with pkgs; [
     alejandra
-    anki
     asciiquarium
     asdf-vm
+    anki
+    # antigravity-cli
     # audacity
     b3sum
     bat
