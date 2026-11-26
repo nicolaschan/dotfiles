@@ -81,7 +81,7 @@
     asciiquarium
     asdf-vm
     anki
-    # antigravity-cli
+    pkgs-unstable.antigravity-cli
     # audacity
     b3sum
     bat
